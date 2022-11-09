@@ -5,7 +5,7 @@ export default{
     </div>`,
     data(){
         return{
-            filter:{txt:null}
+            filter:{txt:''}
         }
     },
     methods:{

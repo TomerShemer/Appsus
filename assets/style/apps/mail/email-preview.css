@@ -1,7 +1,8 @@
-.email-preview{
-    color: black;
-    background-color: aliceblue;
-    height: 40px;
+.email-preview {
+    cursor: pointer;
+    color: var(--clr7);
+    background-color: var(--clr5);
+    max-height: 40px;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 0.01fr 0.19fr 0.7fr 0.1fr;
@@ -9,19 +10,26 @@
     text-align: left;
 }
 
-.email-info{
+.email-info {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    text-overflow: ellipsis;
 }
 
-.star-btn{
+.star-btn {
     background-color: transparent;
     border: none;
     justify-self: center;
 }
 
-.email-extended{
-    background-color: green;
-    height: max-content;
+.unread {
+    background-color: var(--clr1);
+    color: black;
+}
+
+@media (max-width:900px) {
+    .email-info{
+        width: 10%;
+    }
 }

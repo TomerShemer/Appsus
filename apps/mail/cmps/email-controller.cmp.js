@@ -10,7 +10,7 @@ export default{
     methods:{
         onCategory(category){
             this.$emit('category',category)
-        }
+        },
     }
     
 }

@@ -12,6 +12,7 @@ const gEmails = [
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         isRead: false,
+        isStar:false,
         sentAt: 1551133930594,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
@@ -21,6 +22,27 @@ const gEmails = [
         subject: 'Hello bar!',
         body: 'Your first email!',
         isRead: false,
+        isStar:false,
+        sentAt: 1551133930594,
+        from: 'momo@momo.com',
+        to: 'user@appsus.com'
+    },
+    {
+        id: 'e103',
+        subject: 'Hello bar!',
+        body: 'Your first email!',
+        isRead: false,
+        isStar:false,
+        sentAt: 1551133930594,
+        from: 'momo@momo.com',
+        to: 'user@appsus.com'
+    },
+    {
+        id: 'e104',
+        subject: 'Hello bar!',
+        body: 'Your first email!',
+        isRead: false,
+        isStar:false,
         sentAt: 1551133930594,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
@@ -40,12 +62,15 @@ function _createEmails() {
         emails = gEmails
         localStorage.setItem(EMAILS_KEY, JSON.stringify(emails))
     }
+    console.log(emails);
     return emails
 }
 
 export const emailService = {
     query,
     get,
+    remove,
+    update,
     addEmail,
 }
 
@@ -60,6 +85,14 @@ function addEmail(email) {
 
 function get(id) {
     return storageService.get(EMAILS_KEY, id)
+}
+
+function remove(id){
+    return storageService.remove(EMAILS_KEY,id)
+}
+
+function update(email){
+    return storageService.put(EMAILS_KEY,email)
 }
 
 
