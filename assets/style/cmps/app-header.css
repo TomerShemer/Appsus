@@ -1,5 +1,6 @@
 .app-header {
   background-color: var(--prm1);
+  color: var(--prm2);
   padding: 1em;
   display: flex;
   justify-content: space-between;
@@ -13,7 +14,7 @@
 }
 
 .app-header a:hover{
-  background-color: var(--prm2);
+  background-color: var(--prm3);
   border-radius: 12px;
 }
 
