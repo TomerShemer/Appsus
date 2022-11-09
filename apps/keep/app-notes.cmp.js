@@ -21,15 +21,15 @@ export default {
     },
     methods: {
         addNewNote(newNote) {
-            console.log(note);
-            let note
-            if (newNote.type === 'note-todos') {
-                note = noteService.prepareNoteTodos(newNote)
+            let note = { ...newNote }
+            if (note.type === 'note-todos') {
+                note = noteService.prepareNoteTodos(note)
             }
-            // noteService.save(note)
-            //     .then(note => {
-            //         this.notes.unshift(note)
-            //     })
+            console.log(note);
+            noteService.save(note)
+                .then(note => {
+                    this.notes.unshift(note)
+                })
         }
     },
     computed: {

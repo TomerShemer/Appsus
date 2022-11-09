@@ -6,7 +6,7 @@
     position: absolute;
     top: 0;
     right: 1em;
-    height: 48px;
+    height: 50px;
 }
 
 .note-add-actions>div {
@@ -34,4 +34,14 @@
     width: 400px;
     border-radius: 50px;
     height: 48px;
+    border: 0;
+    box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
+    -webkit-box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
+    -moz-box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
+}
+
+.note-add-actions-txt,
+.note-add-actions-img,
+.note-add-actions-todos {
+    padding: 12px;
 }

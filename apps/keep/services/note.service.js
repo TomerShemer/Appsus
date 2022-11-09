@@ -124,17 +124,23 @@ function getNewTodosNote() {
         type: 'note-todos',
         info: {
             label: '',
-            todos: [{
-                txt: '',
-                doneAt: null
-            }]
+            todos: [],
+            txt: '',
         }
     }
 }
 
 
-function prepareNoteTodos({ id, info, type }) {
-    console.log(id, type, info)
+function prepareNoteTodos(newNote) {
+    const note = { ...newNote }
+    const todos = note.info.txt.split(',').map(todo => {
+        return {
+            txt: todo.trim(),
+            doneAt: null
+        }
+    })
+    note.info.todos = todos
+    return note
 }
 
 // Private functions

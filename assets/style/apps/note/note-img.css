@@ -8,7 +8,7 @@
     /* height: 20%; */
 }
 
-.note-img img {
+.note-img>img {
     object-fit: cover;
     height: 100%;
 }
