@@ -55,6 +55,23 @@ const startingDatabase = [
             txt: "Today I learned something new!"
         }
     },
+    {
+        id: "n105",
+        type: "note-todos",
+        info: {
+            label: "Buy groceries",
+            todos: [
+                {
+                    txt: "Milk",
+                    doneAt: null
+                },
+                {
+                    txt: "Eggs",
+                    doneAt: 187111111
+                }
+            ]
+        }
+    },
 ]
 
 function query() {
@@ -84,7 +101,7 @@ function _createNotes() {
             } else {
                 gNotesCache = res
             }
-            // console.log('gNotesCache', gNotesCache)
+            console.log('gNotesCache', gNotesCache)
             return gNotesCache
         })
 }

@@ -1,10 +1,11 @@
 export default {
     props: [],
     template: `
-        <section className="note-edit">
-            <pre contenteditable="true">Make a new note</pre>
+        <section className="note-add flex">
+            <input contenteditable="true" placeholder="Make a new note"/>
+            <!-- <pre contenteditable="true">Make a new note</pre> -->
             <section className="actions">
-                <button>txt</button>
+                <input type="checkbox" value="hello"/>
                 <button>img</button>
                 <button>todos</button>
             </section>
@@ -12,10 +13,16 @@ export default {
     `,
     data() {
         return {
+            note: {
+                type: 'note-txt',
+                info: { txt: '' },
+                isPinned: false,
+            }
         }
     },
     methods: {
     },
     computed: {
+
     },
 }

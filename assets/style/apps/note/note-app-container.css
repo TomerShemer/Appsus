@@ -4,6 +4,7 @@
     font-size: 1.25rem;
     font-family: 'Courier New', Courier, monospace;
     color: black;
+    padding: 1em;
 }
 
 .note-app-container pre {
@@ -16,4 +17,7 @@
 
 .note {
     max-height: 350px;
+    padding: 10px;
+    margin-block-end: 20px;
+    width: 100%;
 }
