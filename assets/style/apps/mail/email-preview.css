@@ -13,11 +13,14 @@
 .email-info {
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    text-overflow: ellipsis;
+    gap: 15px;
+    color: var(--clr7);
+    text-overflow: clip;
 }
 
+
 .star-btn {
+    width: 40px;
     background-color: transparent;
     border: none;
     justify-self: center;
@@ -28,8 +31,13 @@
     color: black;
 }
 
-@media (max-width:900px) {
-    .email-info{
-        width: 10%;
+.bold{
+    color: black;
+}
+
+@media (max-width:1200px) {
+    .email-preview{
+        width:100%;
     }
+
 }
