@@ -2,7 +2,7 @@ export default {
     props: [],
     template: `
         <section className="note-filter">
-            <h1>Filter</h1>
+            <input type="text" placeholder="Search"/>
         </section>
     `,
     data() {

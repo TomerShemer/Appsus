@@ -1,0 +1,14 @@
+.note-img {
+    outline: 2px red solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-img h1 {
+    height: 20%;
+}
+
+.note-img img {
+    max-height: 100%;
+    object-fit: cover;
+}

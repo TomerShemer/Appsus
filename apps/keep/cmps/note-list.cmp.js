@@ -1,10 +1,10 @@
 import notePreview from "./note-preview.cmp.js"
 
 export default {
-    props: [],
+    props: ['notes'],
     template: `
-        <section className="notes-list">
-            <h1>Notes list</h1>
+        <section className="note-list">
+            <note-preview :note="note" v-for="note in notes" :key="note.id"/>
         </section>
     `,
     data() {
@@ -15,4 +15,7 @@ export default {
     },
     computed: {
     },
+    components: {
+        notePreview
+    }
 }

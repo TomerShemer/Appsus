@@ -1,0 +1,10 @@
+.note-filter {
+    width: 500px;
+}
+
+.note-filter input {
+    width: 100%;
+    padding-inline-start: 50px;
+    border-radius: 50px;
+    font-size: 1.25rem;
+}

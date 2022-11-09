@@ -1,8 +1,13 @@
+import noteImg from "./note-img.cmp.js"
+import noteTxt from "./note-txt.cmp.js"
+import noteTodos from "./note-todos.cmp.js"
+
 export default {
-    props: [],
+    props: ['note'],
     template: `
         <section className="note-preview">
-            <h1>Note preview</h1>
+            <component :is="note.type" :info="note.info">
+            </component>            
         </section>
     `,
     data() {
@@ -13,4 +18,9 @@ export default {
     },
     computed: {
     },
+    components: {
+        noteImg,
+        noteTxt,
+        noteTodos
+    }
 }
