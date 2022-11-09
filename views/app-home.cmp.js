@@ -1,7 +1,16 @@
+
+
 export default {
-	template: `
+    template: `
         <section class="home-page">
-            <h1>Home sweet home</h1>
+            <div class="hero-image">
+                <div class="hero-text">
+                    <h1>Appsus</h1>
+                    <p>Made By</p>
+                    <button>Notes</button>
+                    <button>Email</button>
+                </div>
+            </div>
         </section>
     `,
 }

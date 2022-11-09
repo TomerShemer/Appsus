@@ -1,7 +1,20 @@
 .app-header {
-  background-color: var(--clr5);
-  color: var(--secondary-clr1);
+  background-color: var(--prm1);
   padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5vh;
+  border-bottom: 1px solid rgb(218,220,224);
+}
+
+.app-header a{
+  padding: 5px;
+}
+
+.app-header a:hover{
+  background-color: var(--prm2);
+  border-radius: 12px;
 }
 
 @media(max-width: 720px) {

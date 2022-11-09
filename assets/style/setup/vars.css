@@ -1,9 +1,17 @@
 :root {
-  --clr1: rgb(255, 255, 255);
-  --clr2: rgb(240, 240, 240);
-  --clr3: rgb(155, 155, 155);
-  --clr4: rgb(96, 96, 96);
-  --clr5: rgb(0, 0, 0);
+  --prm1: rgb(255, 255, 255);
+  --prm2: rgb(218,220,224);
+
+
+/* MAIL */
+
+--e1: rgb(255, 255, 255);
+--e2: #f6f8fc;
+--e3: #c2e7ff;
+/* --clr4: #d3e3fd; INBOX */
+/* --clr5: ##f2f6fc; unread */
+
+/* NOTES */
 
 
   --secondary-clr1: rgb(88, 201, 58);
