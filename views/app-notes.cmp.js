@@ -1,8 +1,10 @@
 export default {
     props: [],
     template: `
-        <h1>Notes</h1>
-    `,
+        <section className="note-app">
+            <h1>Notes</h1>
+        </section>
+        `,
     data() {
         return {
         }
