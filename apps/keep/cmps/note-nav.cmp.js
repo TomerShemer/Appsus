@@ -1,8 +1,8 @@
 export default {
     props: [],
     template: `
-        <section className="note-preview">
-            <h1>Note preview</h1>
+        <section className="note-nav">
+            <h1>Note nav</h1>
         </section>
     `,
     data() {
