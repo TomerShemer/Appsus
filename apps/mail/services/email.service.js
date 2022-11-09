@@ -5,7 +5,6 @@ import { storageService } from '../../../services/async-storage.service.js';
 
 const EMAILS_KEY = 'emailsDb'
 
-const emails = _createEmails()
 
 const gEmails = [
     {
@@ -33,6 +32,7 @@ const loggedinUser = {
     fullname: 'Bar Zaken'
 }
 
+const emails = _createEmails()
 
 function _createEmails() {
     let emails = localStorage.getItem(EMAILS_KEY)

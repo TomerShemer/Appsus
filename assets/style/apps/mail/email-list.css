@@ -1,0 +1,5 @@
+.email-list{
+    background-color: white;
+    grid-area: emails;
+    overflow-y: scroll;
+}

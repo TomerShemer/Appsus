@@ -1,0 +1,13 @@
+.email-filter{
+    text-align: center;
+    grid-area: filter;
+    display: grid;
+
+}
+
+.filter-input{
+    width: 70%;
+    border-radius: 19px;
+    justify-self: flex-start;
+    align-self: center;
+}

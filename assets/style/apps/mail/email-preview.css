@@ -1,0 +1,27 @@
+.email-preview{
+    color: black;
+    background-color: aliceblue;
+    height: 40px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.01fr 0.19fr 0.7fr 0.1fr;
+    place-items: center;
+    text-align: left;
+}
+
+.email-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.star-btn{
+    background-color: transparent;
+    border: none;
+    justify-self: center;
+}
+
+.email-extended{
+    background-color: green;
+    height: max-content;
+}

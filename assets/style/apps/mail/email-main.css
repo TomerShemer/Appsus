@@ -1,0 +1,13 @@
+.email-main{
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 0.15fr 0.85fr;
+    grid-template-rows: 0.15fr 0.85fr;
+    grid-template-areas: 'logo filter' 'controller emails';
+}
+
+.img-container{
+    background-image: url(../../../img/gmail.png);
+    grid-area: logo;
+    background-repeat: no-repeat;
+}
