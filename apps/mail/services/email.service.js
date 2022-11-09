@@ -47,6 +47,26 @@ const gEmails = [
         from: 'momo@momo.com',
         to: 'user@appsus.com'
     },
+    {
+        id: 'e1045',
+        subject: 'Check Time!!',
+        body: 'Your first email!',
+        isRead: false,
+        isStar:false,
+        sentAt: 1668024020406,
+        from: 'momo@momo.com',
+        to: 'user@appsus.com'
+    },
+    {
+        id: 'e106',
+        subject: 'Its Bar',
+        body: 'Your first email!',
+        isRead: false,
+        isStar:false,
+        sentAt: 1668024020406,
+        from: 'bar@appsus.com',
+        to: 'user@appsus.com'
+    },
 ]
 
 const loggedinUser = {
@@ -72,8 +92,12 @@ export const emailService = {
     remove,
     update,
     addEmail,
+    getUser,
 }
 
+function getUser(){
+    return loggedinUser
+}
 
 function query() {
     return storageService.query(EMAILS_KEY)
