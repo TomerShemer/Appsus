@@ -1,8 +1,11 @@
+import noteActions from "./note-actions.cmps.js"
+
 export default {
     props: ['info'],
     template: `
         <section className="note note-txt">
-            <pre>{{info.txt}}</pre>
+            <p>{{info.txt}}</p>
+            <note-actions />
         </section>
     `,
     data() {
@@ -13,4 +16,7 @@ export default {
     },
     computed: {
     },
+    components: {
+        noteActions
+    }
 }

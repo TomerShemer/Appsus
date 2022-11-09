@@ -5,10 +5,10 @@
 }
 
 .note-img h1 {
-    height: 20%;
+    /* height: 20%; */
 }
 
 .note-img img {
-    max-height: 100%;
     object-fit: cover;
+    height: 100%;
 }

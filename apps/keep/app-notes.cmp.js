@@ -10,7 +10,7 @@ export default {
     template: `
         <section className="note-app-container main-layout flex flex-column align-center">
             <note-filter />
-            <note-add />
+            <note-add @add="addNewNote"/>
             <note-list v-if="notes" :notes="notes"/>
         </section>
         `,
@@ -20,6 +20,13 @@ export default {
         }
     },
     methods: {
+        addNewNote(note) {
+            console.log(note);
+            noteService.save(note)
+                .then(note => {
+                    this.notes.unshift(note)
+                })
+        }
     },
     computed: {
     },

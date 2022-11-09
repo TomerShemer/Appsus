@@ -4,6 +4,12 @@ import { eventBus } from '../../../services/event-bus.service.js'
 
 export const noteService = {
     query,
+    save,
+    remove,
+    get,
+    getNewTxtNote,
+    getNewImgNote,
+    getNewTodosNote,
 }
 
 const NOTES_KEY = 'notesDB'
@@ -79,17 +85,51 @@ function query() {
 }
 
 function get(noteId) {
-
+    return storageService.get(NOTES_KEY, noteId)
 }
 
-function save() {
-
+function save(note) {
+    if (note.id) {
+        return storageService.put(NOTES_KEY, note)
+    } else {
+        return storageService.post(NOTES_KEY, note, false)
+    }
 }
 
-function remove() {
-
+function remove(noteId) {
+    return storageService.remove(NOTES_KEY, noteId)
 }
 
+function getNewTxtNote() {
+    return {
+        type: 'note-txt',
+        info: { txt: '' },
+        isPinned: false,
+    }
+}
+
+function getNewImgNote() {
+    return {
+        type: 'note-img',
+        info: {
+            url: '',
+            title: '',
+        }
+    }
+}
+
+function getNewTodosNote() {
+    return {
+        type: 'note-todos',
+        info: {
+            label: '',
+            todos: [{
+                txt: '',
+                doneAt: null
+            }]
+        }
+    }
+}
 // Private functions
 
 function _createNotes() {

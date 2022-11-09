@@ -1,3 +1,6 @@
+import noteActions from "./note-actions.cmps.js"
+
+
 export default {
     props: ['info'],
     template: `
@@ -9,6 +12,7 @@ export default {
                     
                 </li>
             </ul>
+            <note-actions />
         </section>
     `,
     data() {
@@ -19,4 +23,7 @@ export default {
     },
     computed: {
     },
+    components: {
+        noteActions
+    }
 }

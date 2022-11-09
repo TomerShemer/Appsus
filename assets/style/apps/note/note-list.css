@@ -1,6 +1,8 @@
 .note-list {
-    column-count: 1;
-
+    columns: 238px 1;
+    min-height: 660px;
+    padding: 10px;
+    height: fit-content;
     /* display: flex;
     flex-wrap: wrap;
     gap: 20px; */
@@ -11,22 +13,29 @@
 
 }
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
     .note-list {
-        column-count: 2;
+        columns: 238px 2;
     }
+}
+
+@media (min-width: 860px) {
+    .note-list {
+        columns: 238px 3;
+    }
+
 }
 
 @media (min-width: 1200px) {
     .note-list {
-        column-count: 3;
+        columns: 238px 4;
     }
 
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1400px) {
     .note-list {
-        column-count: 4;
+        columns: 238px 5;
     }
 
 }

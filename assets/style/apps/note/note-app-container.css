@@ -1,5 +1,5 @@
 .note-app-container {
-    height: 90vh;
+    min-height: 90vh;
     gap: 20px;
     font-size: 1.25rem;
     font-family: 'Courier New', Courier, monospace;
@@ -16,8 +16,18 @@
 }
 
 .note {
-    max-height: 350px;
-    padding: 10px;
+    min-height: 300px;
+    padding: 10px 10px 30px;
     margin-block-end: 20px;
-    width: 100%;
+    max-width: 500px;
+    break-inside: avoid;
+    position: relative;
+    overflow: auto;
+    max-height: 500px;
+}
+
+@media (min-width: 600px) {
+    .note {
+        max-width: 238px;
+    }
 }
