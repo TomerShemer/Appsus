@@ -17,12 +17,3 @@
 /* Apps */
 @import 'apps/mail/mail-app.css';
 @import 'apps/note/note-app.css';
-
-/* Email Cmps */
-
-/* Notes Cmps */
-@import 'apps/note/note-filter.css';
-@import 'apps/note/note-edit.css';
-@import 'apps/note/note-list.css';
-@import 'apps/note/note-preview.css';
-@import 'apps/note/note-add.css';

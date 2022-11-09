@@ -1,8 +1,14 @@
 export default {
-    props: [],
+    props: ['info'],
     template: `
-        <section className="note-todos">
-            <h1>Todos</h1>
+        <section className="note note-todos">
+            <label>{{info.label}}</label>
+            <ul>
+                <li v-for="todo in info.todos">
+                    <p>{{todo.txt}}</p>
+                    
+                </li>
+            </ul>
         </section>
     `,
     data() {

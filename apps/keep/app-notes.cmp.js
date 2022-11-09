@@ -8,7 +8,7 @@ import noteAdd from "./cmps/note-add.cmp.js"
 export default {
     props: [],
     template: `
-        <section className="note-app-container flex flex-column align-center">
+        <section className="note-app-container main-layout flex flex-column align-center">
             <note-filter />
             <note-add />
             <note-list v-if="notes" :notes="notes"/>

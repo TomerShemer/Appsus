@@ -1,0 +1,19 @@
+.note-app-container {
+    height: 90vh;
+    gap: 20px;
+    font-size: 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+}
+
+.note-app-container pre {
+    margin: 0;
+}
+
+.note-app-container>* {
+    outline: 1px black solid;
+}
+
+.note {
+    max-height: 350px;
+}

@@ -1,9 +1,9 @@
 export default {
     props: ['info'],
     template: `
-        <section class="note-img">
-            <h1>Image note</h1>
-            <!-- <img src="https://www.becomingminimalist.com/wp-content/uploads/2008/07/post-it-note.jpg" alt="" /> -->
+        <section class="note note-img">
+            <h1>{{info.title}}</h1>
+            <img :src="info.url" alt="" />
         </section>
     `,
     data() {
@@ -14,4 +14,7 @@ export default {
     },
     computed: {
     },
+    created() {
+        // console.log(this.info);
+    }
 }

@@ -1,13 +1,9 @@
-.note-app-container {
-    height: 90vh;
-    gap: 20px;
-    font-size: 2rem;
-}
-
-.note-app-container pre {
-    margin: 0;
-}
-
-.note-app-container>* {
-    outline: 1px black solid;
-}
+@import './note-app-container.css';
+@import './note-filter.css';
+@import './note-edit.css';
+@import './note-list.css';
+@import './note-preview.css';
+@import './note-add.css';
+@import './note-txt.css';
+@import './note-img.css';
+@import './note-todos.css';
