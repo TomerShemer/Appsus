@@ -3,12 +3,12 @@ import { storageService } from '../../../services/async-storage.service.js'
 import { eventBus } from '../../../services/event-bus.service.js'
 
 export const noteService = {
-    getNotes,
-    getNoteById
+    query,
 }
 
-const SEARCH_KEY = 'notesDB'
-let gNotesCache = _createNotes()
+const NOTES_KEY = 'notesDB'
+let gNotesCache
+_createNotes()
 
 const startingDatabase = [
     {
@@ -48,22 +48,34 @@ const startingDatabase = [
     }
 ]
 
-function getNotes() {
-    return gNotesCache
+function query() {
+    return storageService.query(NOTES_KEY)
 }
 
-function getNoteById(id) {
+function get(noteId) {
 
 }
 
+function save() {
 
+}
+
+function remove() {
+
+}
 
 // Private functions
 
 function _createNotes() {
-    return storageService.query(SEARCH_KEY)
-        .then(notes => {
-            console.log(notes);
-            return notes
+    return storageService.query(NOTES_KEY)
+        .then(res => {
+            if (!res || !res.length) {
+                gNotesCache = [...startingDatabase]
+                localStorage.setItem(NOTES_KEY, JSON.stringify(gNotesCache))
+            } else {
+                gNotesCache = res
+            }
+            console.log('gNotesCache', gNotesCache)
+            return gNotesCache
         })
 }

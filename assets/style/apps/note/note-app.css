@@ -1,5 +1,13 @@
-/* blabla */
-
-.note-app {
+.note-app-container {
     height: 90vh;
+    gap: 20px;
+    font-size: 2rem;
+}
+
+.note-app-container pre {
+    margin: 0;
+}
+
+.note-app-container>* {
+    outline: 1px black solid;
 }

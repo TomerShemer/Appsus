@@ -24,7 +24,7 @@ const routerOptions = {
 			path: '/mail',
 			component: mailPage,
 		},
-		
+
 
 	],
 }
