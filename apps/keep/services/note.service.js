@@ -10,6 +10,7 @@ export const noteService = {
     getNewTxtNote,
     getNewImgNote,
     getNewTodosNote,
+    prepareNoteTodos,
 }
 
 const NOTES_KEY = 'notesDB'
@@ -130,6 +131,12 @@ function getNewTodosNote() {
         }
     }
 }
+
+
+function prepareNoteTodos({ id, info, type }) {
+    console.log(id, type, info)
+}
+
 // Private functions
 
 function _createNotes() {

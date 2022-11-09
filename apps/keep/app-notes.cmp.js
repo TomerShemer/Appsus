@@ -20,12 +20,16 @@ export default {
         }
     },
     methods: {
-        addNewNote(note) {
+        addNewNote(newNote) {
             console.log(note);
-            noteService.save(note)
-                .then(note => {
-                    this.notes.unshift(note)
-                })
+            let note
+            if (newNote.type === 'note-todos') {
+                note = noteService.prepareNoteTodos(newNote)
+            }
+            // noteService.save(note)
+            //     .then(note => {
+            //         this.notes.unshift(note)
+            //     })
         }
     },
     computed: {
