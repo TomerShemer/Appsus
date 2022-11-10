@@ -7,6 +7,10 @@ export default {
         <button @click="onCategory('starred')" :class="{active: active==='starred'}" class="controller-btn">Starred</button>
         <button @click="onCategory('sent')" :class="{active: active==='sent'}" class="controller-btn">Sent Mail</button>
         <button @click="onCategory('drafts')" :class="{active: active==='drafts'}" class="controller-btn">Drafts</button>
+        <div className="view-mode-btns">
+            <button @click="this.$emit('change-mode','dark')" class="dark-mode-btn">Dark</button>
+            <button @click="this.$emit('change-mode','light')" class="light-mode-btn">Light</button>
+        </div>
     </div>`,
     data() {
         return {
@@ -18,6 +22,7 @@ export default {
         onCategory(category) {
             this.active = category
             this.$emit('category', category)
+            this.isOpen = false
         },
         toggleMenu(){
             this.isOpen = !this.isOpen

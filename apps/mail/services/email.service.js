@@ -99,7 +99,12 @@ export const emailService = {
     update,
     addEmail,
     getUser,
-    getTemplateEmail
+    getTemplateEmail,
+    getById
+}
+
+function getById(id){
+    return storageService.get(EMAILS_KEY,id)
 }
 
 function getUser() {

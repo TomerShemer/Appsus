@@ -1,4 +1,5 @@
 .email-filter{
+    background-color: var(--clr2);
     text-align: center;
     grid-area: filter;
     display: flex;
@@ -19,14 +20,14 @@
 }
 
 .filter-btn{
-    color: var(--clr6);
-    background-color: var(--clr5);
+    color: black;
+    background-color: var(--clr2);
     border-radius: 19px;
     width: 90px;
     border: none;
 }
 
-@media (max-width:640px) {
+@media (max-width:1200px) {
     .email-filter{
         flex-direction: column;
         justify-content: center;

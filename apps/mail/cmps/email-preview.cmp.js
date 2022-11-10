@@ -14,7 +14,7 @@ export default {
         <h5 class="date" :class="{bold : !email.isRead}">{{getDate}}</h5>
 
     </div>
-    <email-details :email="email" v-if="isOpen" />
+    <email-details :id="email.id" v-if="isOpen" />
     `,
     data() {
         return {

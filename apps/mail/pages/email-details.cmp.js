@@ -3,10 +3,11 @@ import { eventBus } from "../../../services/event-bus.service.js"
 import emailAdd from "../cmps/email-add.cmp.js";
 
 export default{
-    props:["email"],
+    props:["id"],
     template:`
-    <div className="email-details">
+    <div v-if="email" className="email-details">
         <div className="details-actions">
+            <button @click="onOpen" className="action-btn open-btn">Open </button>
             <button @click="onRemove" className="action-btn">🗑️</button>
             <button @click="onReply" className="action-btn">📩</button>
             <button @click="onStar" className="action-btn">⭐</button>
@@ -24,12 +25,14 @@ export default{
     data(){
         return{
             isReply:false,
-            currUser:{}
+            email:{},
+            currUser:{},
+            isEdit:false
         }
     },
     computed:{
         getSenderName(){
-            return this.email.from.split('@')[0]
+            return this.email?.from.split('@')[0]
         }, 
         getDate(){
             let date = new Date(this.email.sentAt)
@@ -37,13 +40,15 @@ export default{
         }
     },
     created(){
-        if(!this.email.isRead){
-            this.currUser = emailService.getUser()
-            this.email.isRead = true
-            emailService.update(this.email).then(email => eventBus.emit('update') )
-        }
+        const {id} = this.$route.params
+        // if(id) this.isEdit = true
+        emailService.getById(this.id).then(email => this.email = email)
+
     },
     methods:{
+        onOpen(){
+            this.$router.push(`/${this.email.id}`)
+        },
         onRemove(){
             emailService.remove(this.email.id).then(email => eventBus.emit('update'))
         },

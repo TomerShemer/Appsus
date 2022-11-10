@@ -10,12 +10,22 @@
     background-image: url(../../../img/gmail.png);
     grid-area: logo;
     background-repeat: no-repeat;
+    background-color:var(--clr2);
 }
 
-@media (max-width:640px) {
+.dark{
+    --clr2: #2F2F2F;
+    --clr6: white;
+    --clr1:#3C3C3C;
+    --clr4: #3C3C3C;
+    --clr3: #252525;
+}
+
+@media (max-width:1200px) {
     .email-main{
         grid-template-rows: 0.2fr 0.8fr;
         grid-template-columns: 1fr;
-        grid-area: 'filter' 'emails';
+        grid-template-areas: 'filter' 'emails';
     }
+    
 }

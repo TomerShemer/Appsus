@@ -4,15 +4,28 @@
     display: flex;
     flex-direction: column;
     gap: 3px;
+    padding-top: 10px;
 }
 
 .toggle-menu-btn{
-   color: var(--clr8);
+   color: var(--clr7);
    width: 50px;
    font-size: 50px;
    border: none;
    background-color: transparent;
    display: none;
+}
+.view-mode-btns{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.dark-mode-btn, .light-mode-btn{
+    color: var(--clr6);
+    border: none;
+    background-color: transparent;
 }
 
 .controller-btn{
@@ -24,9 +37,10 @@
 
 .controller-btn{
     padding: 20px;
-    border-radius: 22px;
+    border-radius: 0 22px 22px 0;
     color: var(--clr6);
     font-weight: bold;
+    width: 98%;
 }
 
 .compose-btn{
@@ -38,6 +52,7 @@
     border-radius: 15px;
     width: 50%;
     min-width: max-content;
+    text-align: left;
     border: none;
 }
 
@@ -45,15 +60,16 @@
     background-color: var(--clr4);
 }
 
-@media (max-width:640px) {
+@media (max-width:1200px) {
     .email-controller {
         background-color: var(--clr2);
         position: fixed;
-        width: 70%;
+        z-index: 20;
+        width: 90%;
         bottom: 0;
         left: -150%;
-        height: 90%;
-        transition: transform .6s, box-shadow .6s;
+        height: 95%;
+        transition: left 0.5s;
     }
     .img-container{
         display: none;
@@ -61,21 +77,26 @@
     .compose-btn{
         position: fixed;
         bottom: 50px;
-        left: 20px;
+        left: 15px;
         width: 50px;
     }
-    .toggle-menu-btn{
+
+    
+    .email-controller:not(.open) .toggle-menu-btn{
         display: block;
         position: fixed;
         padding: 0;
-        left: 0;
-        top: 30px;
+        left: 2px;
+        top: 60px;
     }
     .email-controller.open{
         left: 50%;
-        /* top: 40px; */
         left: 0;
-        box-shadow: -9px 0px 14px rgb(0 0 0 / 30%);
+
+    }
+
+    .email-controller.open .toggle-menu-btn{
+        display: block;
     }
     
 }

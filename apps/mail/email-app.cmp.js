@@ -11,11 +11,12 @@ import { router } from '../../routes.js'
 
 export default {
     template: `
-    <div className="email-main">
+    <div :class="{dark : isDarkMode}" class="email-main">
         <email-filter @filtered="setFilter" />
-        <email-controller @new-email="newEmail" @category="setCategory" />
+        <email-controller @change-mode="changeMode" @new-email="newEmail" @category="setCategory" />
         <div className="img-container"></div>
-        <email-list @toggle-star="toggleStar" :emails="emailsToShow" />
+        <router-view @toggle-star="toggleStar" :emails="emailsToShow" />
+        <!-- <email-list @toggle-star="toggleStar" :emails="emailsToShow" /> -->
         <email-add @close-modal="closeModal" @send-email="sendEmail" v-if="isNewEmail"/>
     </div>`,
     data() {
@@ -24,6 +25,7 @@ export default {
             isNewEmail: false,
             emails: [],
             filterBy: { txt: '', mode: 'all' ,category:'' },
+            isDarkMode:false
         }
     },
     methods: {
@@ -71,6 +73,9 @@ export default {
                 this.sendEmail(email).then(this.getEmails)
             }
             this.isNewEmail=false
+        },
+        changeMode(mode){
+            mode === 'dark' ? this.isDarkMode = true : this.isDarkMode = false
         }
     },
     computed: {
@@ -89,6 +94,6 @@ export default {
         emailFilter,
         emailController,
         emailList,
-        emailAdd
+        emailAdd,
     },
 }

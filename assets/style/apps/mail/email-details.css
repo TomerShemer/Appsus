@@ -33,7 +33,12 @@
     margin: 0;
     padding: 0;
     height: 10px;
+    color: black;
     background-color: transparent;
+}
+.open-btn{
+    background-color: var(--clr2);
+    border-radius: 10px;
 }
 
 .details-body{
