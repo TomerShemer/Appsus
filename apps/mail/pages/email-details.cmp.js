@@ -5,16 +5,17 @@ import emailAdd from "../cmps/email-add.cmp.js";
 export default{
     props:["id"],
     template:`
-    <div v-if="email" className="email-details">
+    <div :class="{full : isEdit}" v-if="email" class="email-details">
         <div className="details-actions">
-            <button @click="onOpen" className="action-btn open-btn">Open </button>
+            <button v-if="this.isEdit" @click="onClose" className="action-btn close-btn">Close </button>
+            <button v-else @click="onOpen" className="action-btn open-btn">Open </button>
             <button @click="onRemove" className="action-btn">🗑️</button>
             <button @click="onReply" className="action-btn">📩</button>
             <button @click="onStar" className="action-btn">⭐</button>
         </div>
         <div className="details-info">
             <h3>subject: {{email.subject}}</h3>
-            <h3>from: {{getSenderName}} - {{email.from}}</h3>
+            <h3>from: {{email.from}}</h3>
             <h3>date: {{getDate}}</h3>
         </div>
         <div className="details-body">
@@ -31,9 +32,6 @@ export default{
         }
     },
     computed:{
-        getSenderName(){
-            return this.email?.from.split('@')[0]
-        }, 
         getDate(){
             let date = new Date(this.email.sentAt)
             return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
@@ -41,13 +39,16 @@ export default{
     },
     created(){
         const {id} = this.$route.params
-        // if(id) this.isEdit = true
-        emailService.getById(this.id).then(email => this.email = email)
+        if(id) this.isEdit = true
+        emailService.getById(this.id).then(email => this.email = email).then(this.markAsRead)
 
     },
     methods:{
         onOpen(){
             this.$router.push(`/${this.email.id}`)
+        },
+        onClose(){
+            this.$router.back()
         },
         onRemove(){
             emailService.remove(this.email.id).then(email => eventBus.emit('update'))
@@ -58,6 +59,11 @@ export default{
         },
         onReply(){
             this.isReply = !this.isReply
+        },
+        markAsRead(){
+            this.email.isRead = true
+            emailService.update(this.email).then(email => eventBus.emit('update') )
+        
         },
         sendEmail(email){
             let newEmail = emailService.getTemplateEmail()

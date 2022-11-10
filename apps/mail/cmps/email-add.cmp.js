@@ -19,7 +19,6 @@ export default {
         </label>
         <div className="new-email-btns">
             <button @click="sendEmail" class="send-btn">Send</button>
-            <button class="draft-btn">Drafts</button>
         </div>
     </div>`,
     data() {

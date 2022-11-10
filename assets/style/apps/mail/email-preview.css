@@ -1,6 +1,5 @@
 .email-preview {
     cursor: pointer;
-    color: var(--clr7);
     background-color: var(--clr2);
     max-height: 45px;
     display: grid;
@@ -15,6 +14,7 @@
 .email-preview h3,h5{
     font-family: roboto-thin;
     font-size: 14px;
+    color: var(--clr6);
 }
 
 .email-preview h5{
@@ -52,10 +52,10 @@
 
 .bold{
     font-family: roboto !important;
-    color: black;
+    /* color: black; */
 }
 
-.draft{
+h3.draft{
     color: red;
 }
 
