@@ -24,6 +24,11 @@
     background-color: transparent;
     border: none;
     justify-self: center;
+    color:var(--clr6);
+}
+
+.star-btn:hover{
+    scale: 1.1;
 }
 
 .unread {

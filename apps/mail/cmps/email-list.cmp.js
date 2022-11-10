@@ -2,13 +2,15 @@ import emailPreview from "./email-preview.cmp.js"
 
 export default{
     props:['emails'],
-    emits:['clicked'],
     template:`
     <div className="email-list">
-        <email-preview v-for="email in emails" :email="email" :key="email.id" />
+        <email-preview @toggle-star="toggleStar" v-for="email in emails" :email="email" :key="email.id" />
     </div>`,
     methods:{
-
+        toggleStar(email){
+            console.log("here");
+            this.$emit('toggle-star',email)
+        }
     },
     components:{
         emailPreview
