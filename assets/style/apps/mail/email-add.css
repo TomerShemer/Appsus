@@ -13,7 +13,7 @@
 }
 
 .new-email-headline {
-    background-color: var(--clr5);
+    background-color: var(--clr3);
     color: var(--clr6);
     padding: 10px;
     font-family: roboto;
@@ -31,6 +31,7 @@
 .new-email-input input {
     width: 80%;
     border: none;
+    background-color: transparent;
 }
 
 .new-email-input label {
@@ -70,7 +71,8 @@
 }
 
 .send-btn {
-    background-color: var(--clr8);
+    background-color: var(--clr3);
+    color: var(--clr1);
     width: 110px;
     height: 10px;
     text-align: left;
