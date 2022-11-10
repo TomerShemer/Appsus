@@ -40,7 +40,7 @@ export default{
     created(){
         const {id} = this.$route.params
         if(id) this.isEdit = true
-        emailService.getById(this.id).then(email => this.email = email)
+        emailService.getById(this.id).then(email => this.email = email).then(this.markAsRead)
 
     },
     methods:{
@@ -59,6 +59,11 @@ export default{
         },
         onReply(){
             this.isReply = !this.isReply
+        },
+        markAsRead(){
+            this.email.isRead = true
+            emailService.update(this.email).then(email => eventBus.emit('update') )
+        
         },
         sendEmail(email){
             let newEmail = emailService.getTemplateEmail()
