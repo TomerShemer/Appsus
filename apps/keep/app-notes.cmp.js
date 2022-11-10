@@ -43,7 +43,7 @@ export default {
                             }
                         })
                     } else this.notes = notes
-                    // console.log(notes);
+                    // console.log('new:', notes);
                 })
         },
         addNewNote(newNote) {
@@ -52,6 +52,9 @@ export default {
                 note = noteService.prepareNoteTodos(note)
             }
             // console.log(note);
+            this.saveNote(note)
+        },
+        saveNote(note) {
             noteService.save(note)
                 .then(note => {
                     this.notes.unshift(note)
@@ -59,18 +62,23 @@ export default {
         },
         deleteNote(payload) {
             noteService.remove(payload)
-                .then(() => {
-                    this.getNotesToShow()
+                .then((notes) => {
+                    const idx = notes.findIndex(note => payload.id === note.id)
+                    this.notes.splice(idx, 1)
                 })
         },
         editNote(payload) {
-            let note = { ...payload }
-            if (note.type === 'note-todos') {
-                note = noteService.prepareNoteTodos(note)
+            let noteCopy = { ...payload }
+            if (noteCopy.type === 'note-todos') {
+                noteCopy = noteService.prepareNoteTodos(noteCopy)
             }
-            noteService.save(note)
+            noteService.save(noteCopy)
                 .then(() => {
                     this.getNotesToShow()
+                    // console.log('success');
+                })
+                .catch(err => {
+                    // console.log('Error:', err);
                 })
         },
         toggleScreen(isOpen) {
@@ -81,6 +89,13 @@ export default {
             this.filterBy = filterBy
             // console.log(this.filterBy);
             this.getNotesToShow()
+        },
+        togglePin(note) {
+            noteService.save(note)
+                .then(savedNote => {
+                    const idx = this.notes.findIndex(note => note.id === savedNote.id)
+                    this.notes[idx] = savedNote
+                })
         }
     },
     computed: {
@@ -97,5 +112,6 @@ export default {
         eventBus.on('delete-note', this.deleteNote)
         eventBus.on('note-edited', this.editNote)
         eventBus.on('toggle-screen', this.toggleScreen)
+        eventBus.on('toggle-pin', this.togglePin)
     },
 }

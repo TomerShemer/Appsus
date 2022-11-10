@@ -19,6 +19,7 @@
 .note-actions>div svg {
     width: 20px;
     height: 20px;
+    fill: #3f3f3fb1;
 }
 
 .note-actions>div:hover {
@@ -30,6 +31,8 @@
 .note:hover>.note-actions {
     opacity: 1;
 }
+
+.note-actions .pin-active {}
 
 @media (max-width: 600px) {
     .note-actions {

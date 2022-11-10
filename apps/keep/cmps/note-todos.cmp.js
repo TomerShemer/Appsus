@@ -6,10 +6,12 @@ export default {
     template: `
         <section className="note note-todos">
             <label>{{info.label}}</label>
-            <ul>
-                <li v-for="todo in info.todos">{{todo.txt}}</li>
+            <ul class="small-scroll">
+                <li class="todo-item" v-for="(todo, idx) in info.todos">
+                    <label @click.stop="toggleTodo($event, idx)" :class="{'todo-done': todo.doneAt}">{{todo.txt}}</label>
+                </li>
             </ul>
-            <note-actions @edit="edit" @delete-note="deleteNote" />
+            <note-actions @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote" />
         </section>
     `,
     data() {
@@ -22,6 +24,12 @@ export default {
         },
         edit() {
             this.$emit('edit-note')
+        },
+        togglePin() {
+            this.$emit('toggle-pin')
+        },
+        toggleTodo(ev, idx) {
+            this.$emit('toggle-todo', idx)
         }
     },
     computed: {

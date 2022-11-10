@@ -19,7 +19,7 @@ _createNotes()
 
 const startingDatabase = [
     {
-        id: "n101",
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: true,
         info: {
@@ -27,7 +27,7 @@ const startingDatabase = [
         }
     },
     {
-        id: "n102",
+        id: utilService.makeId(),
         type: "note-img",
         info: {
             url: "https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
@@ -38,25 +38,30 @@ const startingDatabase = [
         }
     },
     {
-        id: "n103",
+        id: utilService.makeId(),
         type: "note-todos",
         info: {
             label: "Get my stuff together",
             todos: [
                 {
-                    txt: "Driving liscence",
+                    txt: "Practice promises",
                     doneAt: null
                 },
                 {
-                    txt: "Coding power",
-                    doneAt: 187111111
-                }
+                    txt: "Learn Vue",
+                    doneAt: null
+                },
+                {
+                    txt: "Learn CSS",
+                    doneAt: 1668118755022
+                },
+
             ],
             txt: "Driving liscence, Coding power"
         }
     },
     {
-        id: "n104",
+        id: utilService.makeId(),
         type: "note-txt",
         isPinned: false,
         info: {
@@ -64,7 +69,7 @@ const startingDatabase = [
         }
     },
     {
-        id: "n105",
+        id: utilService.makeId(),
         type: "note-todos",
         info: {
             label: "Buy groceries",
@@ -76,9 +81,13 @@ const startingDatabase = [
                 {
                     txt: "Eggs",
                     doneAt: 187111111
-                }
+                },
+                {
+                    txt: "Bacon",
+                    doneAt: null
+                },
             ],
-            txt: 'Milk, Eggs'
+            txt: 'Milk, Eggs, Bacon'
         }
     },
 ]
@@ -100,9 +109,9 @@ function save(note) {
 }
 
 function remove(noteId) {
-    const idx = gNotesCache.findIndex(note => note.id === noteId)
+    // const idx = gNotesCache.findIndex(note => note.id === noteId)
     console.log('removing note:', noteId);
-    return storageService.remove(NOTES_KEY, noteId)
+    return storageService.remove(NOTES_KEY, noteId).then(() => gNotesCache)
 }
 
 function getNewTxtNote() {

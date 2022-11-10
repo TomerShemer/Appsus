@@ -25,9 +25,10 @@ export default {
             this.saveNote(note)
         },
         saveNoteImg(newInfo) {
-            const note = { ...this.note }
+            const note = this.note
             note.info = newInfo
             this.saveNote(note)
+            // this.note = note
         },
         saveNoteTodos(newInfo) {
             const note = { ...this.note }

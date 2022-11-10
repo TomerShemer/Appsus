@@ -2,9 +2,10 @@
     /* outline: 2px red solid; */
     display: flex;
     flex-direction: column;
+    font-family: open-sans;
 }
 
-.note-img h1 {
+.note-img label {
     /* height: 20%; */
 }
 

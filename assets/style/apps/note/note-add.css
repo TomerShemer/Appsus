@@ -20,6 +20,11 @@
     cursor: pointer;
 }
 
+.note-add-actions div>svg {
+    height: 20px;
+    width: 20px;
+}
+
 .note-add-actions>div:hover {
     background-color: #e9eaea80;
 }
@@ -29,7 +34,7 @@
 }
 
 .note-add form input {
-    width: 400px;
+    max-width: 400px;
     border-radius: 50px;
     height: 48px;
     border: 0;
@@ -47,5 +52,5 @@
 .note-add-actions-txt,
 .note-add-actions-img,
 .note-add-actions-todos {
-    padding: 12px;
+    /* padding: 12px; */
 }

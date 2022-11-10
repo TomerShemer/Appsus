@@ -13,7 +13,7 @@ export default {
     `,
     data() {
         return {
-            newTxt: this.note.info.txt
+            newTxt: this.note.info.txt,
         }
     },
     methods: {
@@ -26,7 +26,7 @@ export default {
             this.$emit('cancel-changes')
         },
         updateTxt(txt) {
-            console.log(txt);
+            // console.log(txt);
             this.newTxt = txt
         }
     },

@@ -1,18 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 @font-face {
     font-family: roboto;
     src: url(../../fonts/Roboto-Black.ttf);
 }
+
 @font-face {
     font-family: roboto-bold;
     src: url(../../fonts/Roboto-Bold.ttf);
 }
+
 @font-face {
     font-family: roboto-thin;
     src: url(../../fonts/Roboto-Thin.ttf);
 }
+
 @font-face {
     font-family: roboto-light;
     src: url(../../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: open-sans;
+    src: url(../../fonts/openSans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: open-sans-light;
+    src: url(../../fonts/openSans/OpenSans-Light.ttf);
 }

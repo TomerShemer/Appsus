@@ -3,6 +3,10 @@
     min-height: 200px;
 }
 
+.note-todos label {
+    font-family: open-sans;
+}
+
 .note-todos ul {
     max-height: 390px;
     overflow-y: auto;
@@ -13,25 +17,10 @@
     overflow-wrap: break-word;
 }
 
-.note-todos ul::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+.note-todos ul li.todo-done {
+    text-decoration: line-through;
 }
 
-.note-todos ul::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.note-todos ul::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.note-todos ul::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.note-todos ul::-webkit-scrollbar-thumb:active {
-    background: rgba(0, 0, 0, .9);
+.note-todos .todo-done {
+    text-decoration: line-through;
 }

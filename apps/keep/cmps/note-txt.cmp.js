@@ -2,17 +2,18 @@ import noteActions from "./note-actions.cmps.js"
 import colorPalette from "./color-palette.cmp.js"
 
 export default {
-    props: ['info'],
+    props: ['info', 'isPinned'],
     template: `
         <section className="note note-txt">
-            <p>{{info.txt}}</p>
-            <note-actions @edit="edit" @delete-note="deleteNote"/>
+            <p class="small-scroll">{{info.txt}}</p>
+            <note-actions :isPinned="isPinned" @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote"/>
             <!-- <color-palette /> -->
         </section>
     `,
     data() {
         return {
             isPaletteOpen: false
+
         }
     },
     methods: {
@@ -23,7 +24,10 @@ export default {
             this.$emit('edit-note')
         },
         changeColor() {
-
+            console.log('changig color');
+        },
+        togglePin() {
+            this.$emit('toggle-pin')
         }
     },
     computed: {

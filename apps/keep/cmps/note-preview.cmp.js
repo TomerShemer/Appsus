@@ -9,14 +9,15 @@ export default {
     props: ['note'],
     template: `
         <section className="note-preview">
-            <component @edit-note="openEdit" @delete-note="deleteNote" :is="note.type" :info="note.info">
+            <component @toggle-todo="toggleTodo" @toggle-pin="togglePin" @edit-note="openEdit" @delete-note="deleteNote" :is="note.type" :info="note.info" :isPinned="isPinned">
             </component>
             <note-edit @discard-changes="closeEdit" @saved-note-changes="save" v-if="noteToEdit" :note="note" />
         </section>
     `,
     data() {
         return {
-            noteToEdit: null
+            noteToEdit: null,
+            isPinned: this.note.isPinned
         }
     },
     methods: {
@@ -37,6 +38,19 @@ export default {
             // this.$emit('note-changed', note)
             eventBus.emit('note-edited', note)
             this.closeEdit()
+        },
+        togglePin() {
+            this.note['isPinned'] = !this.note.isPinned
+            // console.log('toggling', this.note, this.note.isPinned);
+            eventBus.emit('toggle-pin', this.note)
+            this.$emit('toggle-pin', this.note)
+        },
+        toggleTodo(idx) {
+            const newNote = { ...this.note }
+            const todo = newNote.info.todos[idx]
+            if (!todo.donAt) {
+                todo.donAt = Date.now()
+            }
         }
 
     },
