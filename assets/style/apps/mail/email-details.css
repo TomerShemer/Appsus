@@ -8,6 +8,13 @@
     position: relative;
 }
 
+.email-details.full{
+    height: 100%;
+    grid-template-rows: 0.02fr 0.13fr 0.85fr;
+    grid-template-areas: 'actions' 'info' 'subject';
+}
+
+
 .email-details h3{
     font-family:'roboto-thin'
 }

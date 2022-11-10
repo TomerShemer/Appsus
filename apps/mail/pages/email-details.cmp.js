@@ -5,7 +5,7 @@ import emailAdd from "../cmps/email-add.cmp.js";
 export default{
     props:["id"],
     template:`
-    <div v-if="email" className="email-details">
+    <div :class="{full : isEdit}" v-if="email" class="email-details">
         <div className="details-actions">
             <button v-if="this.isEdit" @click="onClose" className="action-btn close-btn">Close </button>
             <button v-else @click="onOpen" className="action-btn open-btn">Open </button>
