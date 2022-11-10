@@ -9,7 +9,7 @@ export default {
             <ul>
                 <li v-for="todo in info.todos">{{todo.txt}}</li>
             </ul>
-            <note-actions @delete-note="deleteNote" />
+            <note-actions @edit="edit" @delete-note="deleteNote" />
         </section>
     `,
     data() {
@@ -19,6 +19,9 @@ export default {
     methods: {
         deleteNote() {
             this.$emit('delete-note')
+        },
+        edit() {
+            this.$emit('edit-note')
         }
     },
     computed: {

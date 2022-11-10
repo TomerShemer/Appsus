@@ -51,7 +51,8 @@ const startingDatabase = [
                     txt: "Coding power",
                     doneAt: 187111111
                 }
-            ]
+            ],
+            txt: "Driving liscence, Coding power"
         }
     },
     {
@@ -76,7 +77,8 @@ const startingDatabase = [
                     txt: "Eggs",
                     doneAt: 187111111
                 }
-            ]
+            ],
+            txt: 'Milk, Eggs'
         }
     },
 ]

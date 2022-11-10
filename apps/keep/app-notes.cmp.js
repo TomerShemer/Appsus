@@ -5,6 +5,7 @@ import noteFilter from './cmps/note-filter.cmp.js'
 import noteEdit from './cmps/note-edit.cmp.js'
 import noteList from './cmps/note-list.cmp.js'
 import noteAdd from './cmps/note-add.cmp.js'
+import noteScreen from './cmps/note-screen.cmp.js'
 
 export default {
     props: [],
@@ -13,11 +14,13 @@ export default {
             <note-filter />
             <note-add @add="addNewNote"/>
             <note-list v-if="notes" :notes="notes"/>
+            <note-screen v-if="isOpen" />
         </section>
         `,
     data() {
         return {
-            notes: null
+            notes: null,
+            isOpen: false,
         }
     },
     methods: {
@@ -43,9 +46,22 @@ export default {
 
             noteService.remove(payload)
                 .then(() => {
-                    debugger
                     this.getNotes()
                 })
+        },
+        editNote(payload) {
+            let note = { ...payload }
+            if (note.type === 'note-todos') {
+                note = noteService.prepareNoteTodos(note)
+            }
+            noteService.save(note)
+                .then(() => {
+                    this.getNotes()
+                })
+        },
+        toggleScreen(isOpen) {
+            console.log('toggling screen');
+            this.isOpen = isOpen
         }
     },
     computed: {
@@ -55,9 +71,12 @@ export default {
         noteEdit,
         noteList,
         noteAdd,
+        noteScreen
     },
     created() {
         this.notes = this.getNotes()
         eventBus.on('delete-note', this.deleteNote)
+        eventBus.on('note-edited', this.editNote)
+        eventBus.on('toggle-screen', this.toggleScreen)
     },
 }

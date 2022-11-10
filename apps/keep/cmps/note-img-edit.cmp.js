@@ -1,35 +1,35 @@
 export default {
     props: ['note'],
     template: `
-        <section className="note-txt-edit flex flex-column justify-between">
+        <section className="note-img-edit">
+            <h1>Edit image URL</h1>
             <form @submit.prevent="confirmChanges">
-                <input type="text" v-model="newTxt" />
-                <textarea @input="updateTxt($event.target.value)" :value="this.newTxt"></textarea>
+                <input type="text" v-model="newInfo.title" />
+                <input type="text" v-model="newInfo.url" />
                 <input type="submit" />
             </form>
             <button @click.stop="discardChanges">Cancel</button>
         </section>
-    `,
+`,
     data() {
         return {
-            newTxt: this.note.info.txt
+            newInfo: {
+                url: this.note.info.url,
+                title: this.note.info.title
+            }
         }
     },
     methods: {
         confirmChanges() {
-            this.$emit('changed-txt', this.newTxt)
+            this.$emit('changed-img', this.newInfo)
         },
         discardChanges() {
-            this.newTxt = this.note.info.txt
+            this.newInfo = this.note.info
             this.$emit('cancel-changes')
         },
-        updateTxt(txt) {
-            console.log(txt);
-        }
     },
     computed: {
     },
     created() {
-        // console.log(this.note)
     }
 }

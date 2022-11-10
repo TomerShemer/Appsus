@@ -1,0 +1,17 @@
+.note-txt-edit {
+    height: 100%;
+    padding: 10px;
+}
+
+.note-txt-edit form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.note-txt-edit form input:not(:last-child) {
+    height: 200px;
+    /* overflow: auto;
+    overflow-wrap: break-word; */
+    display: flex;
+}

@@ -8,3 +8,7 @@
 @import './note-img.css';
 @import './note-todos.css';
 @import './note-actions.css';
+@import './note-screen.css';
+@import './note-txt-edit.css';
+@import './note-img-edit.css';
+@import './note-todos-edit.css';
