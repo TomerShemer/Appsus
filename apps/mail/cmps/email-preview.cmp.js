@@ -6,7 +6,7 @@ export default {
     template: `
     <div @click="togglePreview()" :class="{unread : !email.isRead}" class="email-preview" >
         <button @click.stop="toggleStar" className="star-btn">{{getStarIcon}}</button>
-        <h3 class="sender" :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{getSenderName}}</h3>
+        <h3 class="sender" :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{email.from}}</h3>
         <div className="email-info">
             <h3 :class="{bold : !email.isRead}">{{email.subject}}</h3>
             <h3>{{getSummaryBody}}</h3>
@@ -44,9 +44,7 @@ export default {
             if (this.email.body.length > 30) return this.email.body
             return this.email.body.substring(0, 50).trim() + '...'
         },
-        getSenderName(){
-            return this.email.from.split('@')[0]
-        }
+
 
     },
     components: {

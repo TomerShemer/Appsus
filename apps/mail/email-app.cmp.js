@@ -41,14 +41,13 @@ export default {
         },
         isEmailValid(email) {
             if(this.filterBy.category === "starred" && !email.isStar) return false
+            if (!email.subject.toLowerCase().includes(this.filterBy.txt.toLowerCase())) return false
             if(this.filterBy.category === "sent" && email.from !== this.user.email) return false
             if(this.filterBy.category === "inbox" && email.from === this.user.email) return false
-            if(this.filterBy.category === "drafts" && email.isDraft) return true
-            if (!email.subject.toLowerCase().includes(this.filterBy.txt.toLowerCase())) return false
             if (this.filterBy.mode === "read" && !email.isRead) return false
             if (this.filterBy.mode === "unread" && email.isRead) return false
             if (this.filterBy.mode === "all" && this.filterBy.category !=='drafts' && !email.isDraft ) return true
-            
+            if(this.filterBy.category === "drafts" && email.isDraft) return true
         },
         toggleStar(email){
             email.isStar = !email.isStar
@@ -80,7 +79,6 @@ export default {
     },
     computed: {
         emailsToShow() {
-            const regex = new RegExp(this.filterBy.txt, 'i')
             return this.emails.filter(this.isEmailValid)
         },
 
