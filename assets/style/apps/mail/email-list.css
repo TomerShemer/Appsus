@@ -3,3 +3,10 @@
     grid-area: emails;
     overflow-y: scroll;
 }
+
+@media (max-width:640px) {
+    .email-list{
+        width: 100vw;
+    }
+    
+}

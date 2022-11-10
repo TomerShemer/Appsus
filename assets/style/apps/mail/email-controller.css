@@ -46,9 +46,13 @@
 }
 
 @media (max-width:640px) {
-    .email-controller{
+    .email-controller {
+        background-color: var(--clr2);
         position: fixed;
-        transform: translateX(100%);
+        width: 70%;
+        bottom: 0;
+        left: -150%;
+        height: 90%;
         transition: transform .6s, box-shadow .6s;
     }
     .img-container{
@@ -63,11 +67,14 @@
     .toggle-menu-btn{
         display: block;
         position: fixed;
+        padding: 0;
         left: 0;
         top: 30px;
     }
     .email-controller.open{
-        transform: translateX(0);
+        left: 50%;
+        /* top: 40px; */
+        left: 0;
         box-shadow: -9px 0px 14px rgb(0 0 0 / 30%);
     }
     

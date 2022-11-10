@@ -58,9 +58,25 @@
     color: red;
 }
 
-@media (max-width:1200px) {
+@media (max-width:640px) {
     .email-preview{
-        width:100%;
+        height: max-content;
+        grid-template-columns: 0.8fr 0.2fr;
+        grid-template-rows: 0.6fr 0.2fr 0.2fr ;
+        grid-template-areas: 'sender date' 'info star' 'body star';
+        position: relative;
     }
+    .sender{
+        grid-area: sender;
+    }
+    .date{
+        grid-area: date;
+    }
+    .star-btn{
+        grid-area: star;
+        position: absolute;
+    }
+
+    
 
 }
