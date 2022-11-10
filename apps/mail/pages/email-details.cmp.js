@@ -14,7 +14,7 @@ export default{
         </div>
         <div className="details-info">
             <h3>subject: {{email.subject}}</h3>
-            <h3>from: {{getSenderName}} - {{email.from}}</h3>
+            <h3>from: {{email.from}}</h3>
             <h3>date: {{getDate}}</h3>
         </div>
         <div className="details-body">
@@ -31,9 +31,6 @@ export default{
         }
     },
     computed:{
-        getSenderName(){
-            return this.email?.from.split('@')[0]
-        }, 
         getDate(){
             let date = new Date(this.email.sentAt)
             return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
@@ -41,7 +38,8 @@ export default{
     },
     created(){
         const {id} = this.$route.params
-        // if(id) this.isEdit = true
+        if(id) this.isEdit = true
+        console.log(this.isEdit);
         emailService.getById(this.id).then(email => this.email = email)
 
     },
