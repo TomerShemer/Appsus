@@ -8,7 +8,7 @@ export default {
                 <input v-model="note.info.txt" v-if="note.type === 'note-txt'" placeholder="Make a new note.." class="note-add-txt-input"/>
             </form>
             <form @submit.prevent="addNote" v-if="note.type === 'note-img'" class="flex flex-column">
-                <input v-model="note.info.title" placeholder="Enter title.." class="note-add-img-input"/>
+                <input v-model="note.info.title" placeholder="Enter title.." class="note-add-img-title"/>
                 <input v-model="note.info.url" placeholder="Enter image URL.." required class="note-add-img-input"/>
                 <input type="submit" hidden/>
             </form>

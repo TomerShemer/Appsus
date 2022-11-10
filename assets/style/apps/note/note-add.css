@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .note-add-actions>div:hover {
@@ -26,11 +27,7 @@
     background-color: #adadada1;
 }
 
-.note-add-todos-input,
-.note-add-todos-label,
-.note-add-img-input,
-.note-add-txt-input {
-    padding: 1em 14em 1em 1em;
+.note-add form input {
     width: 400px;
     border-radius: 50px;
     height: 48px;
@@ -38,6 +35,12 @@
     box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
     -webkit-box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
     -moz-box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
+}
+
+.note-add-txt-input,
+.note-add-img-title,
+.note-add-todos-label {
+    padding: 1em 14em 1em 1em;
 }
 
 .note-add-actions-txt,

@@ -5,7 +5,7 @@ export default {
     template: `
         <section className="note note-txt">
             <p>{{info.txt}}</p>
-            <note-actions />
+            <note-actions @delete-note="deleteNote"/>
         </section>
     `,
     data() {
@@ -13,6 +13,9 @@ export default {
         }
     },
     methods: {
+        deleteNote() {
+            this.$emit('delete-note')
+        }
     },
     computed: {
     },

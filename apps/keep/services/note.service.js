@@ -98,6 +98,8 @@ function save(note) {
 }
 
 function remove(noteId) {
+    const idx = gNotesCache.findIndex(note => note.id === noteId)
+    console.log('removing note:', noteId);
     return storageService.remove(NOTES_KEY, noteId)
 }
 

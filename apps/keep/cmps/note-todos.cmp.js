@@ -7,12 +7,9 @@ export default {
         <section className="note note-todos">
             <label>{{info.label}}</label>
             <ul>
-                <li v-for="todo in info.todos">
-                    <p>{{todo.txt}}</p>
-                    
-                </li>
+                <li v-for="todo in info.todos">{{todo.txt}}</li>
             </ul>
-            <note-actions />
+            <note-actions @delete-note="deleteNote" />
         </section>
     `,
     data() {
@@ -20,6 +17,9 @@ export default {
         }
     },
     methods: {
+        deleteNote() {
+            this.$emit('delete-note')
+        }
     },
     computed: {
     },

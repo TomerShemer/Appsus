@@ -17,13 +17,14 @@
 
 .note {
     min-height: 300px;
-    padding: 10px 10px 30px;
+    max-height: 500px;
+    padding: 10px 10px 40px;
     margin-block-end: 20px;
     max-width: 500px;
     break-inside: avoid;
     position: relative;
-    overflow: auto;
-    max-height: 500px;
+    text-overflow: ellipsis;
+    border-radius: 10px;
 }
 
 @media (min-width: 600px) {
