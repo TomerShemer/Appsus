@@ -46,8 +46,9 @@ export default {
             if(this.filterBy.category === "inbox" && email.from === this.user.email) return false
             if (this.filterBy.mode === "read" && !email.isRead) return false
             if (this.filterBy.mode === "unread" && email.isRead) return false
+            if(this.filterBy.category === "drafts" && !email.isDraft) return false
             if (this.filterBy.mode === "all" && this.filterBy.category !=='drafts' && !email.isDraft ) return true
-            if(this.filterBy.category === "drafts" && email.isDraft) return true
+            return true
         },
         toggleStar(email){
             email.isStar = !email.isStar
