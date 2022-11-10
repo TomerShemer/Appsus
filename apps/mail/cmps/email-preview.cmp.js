@@ -8,7 +8,7 @@ export default {
         <button @click.stop="toggleStar" className="star-btn">{{getStarIcon}}</button>
         <h3 class="sender" :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{email.from}}</h3>
         <div className="email-info">
-            <h3 :class="{bold : !email.isRead}">{{email.subject}}</h3>
+            <h3 :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{email.subject}}</h3>
             <h3>{{getSummaryBody}}</h3>
         </div>
         <h5 class="date" :class="{bold : !email.isRead}">{{getDate}}</h5>

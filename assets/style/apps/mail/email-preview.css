@@ -52,10 +52,10 @@
 
 .bold{
     font-family: roboto !important;
-    color: black;
+    /* color: black; */
 }
 
-.draft{
+h3.draft{
     color: red;
 }
 
