@@ -2,14 +2,18 @@ export default {
     props: [],
     template: `
         <section className="note-filter">
-            <input type="text" placeholder="Search"/>
+            <form @submit.prevent="">
+                <input 
+                        v-model="filterBy.txt"
+                        type="text"
+                        placeholder="Search" />
+            </form>
         </section>
     `,
     data() {
         return {
             filterBy: {
                 txt: '',
-                type: 'txt'
             }
         }
     },

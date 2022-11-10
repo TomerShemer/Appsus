@@ -24,7 +24,7 @@ export default {
             eventBus.emit('delete-note', this.note.id)
         },
         openEdit() {
-            console.log('editing', this.note.id);
+            // console.log('editing', this.note.id);
             this.noteToEdit = { ...this.note }
             eventBus.emit('toggle-screen', true)
         },

@@ -3,8 +3,8 @@ export default {
     template: `
         <section className="note-txt-edit flex flex-column justify-between">
             <form @submit.prevent="confirmChanges">
-                <input type="text" v-model="newTxt" />
-                <textarea @input="updateTxt($event.target.value)" :value="this.newTxt"></textarea>
+                <!-- <input type="text" v-model="newTxt" /> -->
+                <textarea rows="20" @input="updateTxt($event.target.value)" :value="this.newTxt"></textarea>
                 <input type="submit" />
             </form>
             <button @click.stop="discardChanges">Cancel</button>
@@ -17,6 +17,7 @@ export default {
     },
     methods: {
         confirmChanges() {
+            debugger
             this.$emit('changed-txt', this.newTxt)
         },
         discardChanges() {
@@ -25,6 +26,7 @@ export default {
         },
         updateTxt(txt) {
             console.log(txt);
+            this.newTxt = txt
         }
     },
     computed: {

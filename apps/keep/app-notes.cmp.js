@@ -60,7 +60,7 @@ export default {
                 })
         },
         toggleScreen(isOpen) {
-            console.log('toggling screen');
+            // console.log('toggling screen');
             this.isOpen = isOpen
         }
     },

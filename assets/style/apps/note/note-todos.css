@@ -1,11 +1,12 @@
 .note-todos {
-    outline: 2px green solid;
+    /* outline: 2px green solid; */
     min-height: 200px;
 }
 
 .note-todos ul {
-    max-height: 400px;
+    max-height: 390px;
     overflow-y: auto;
+    margin: 10px 0 0 0;
 }
 
 .note-todos ul li {
