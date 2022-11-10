@@ -2,9 +2,10 @@ import emailDetails from "../pages/email-details.cmp.js"
 
 export default {
     props: ['email'],
+    emits:['toggle-star'],
     template: `
     <div @click="togglePreview()" :class="{unread : !email.isRead}" class="email-preview" >
-        <button className="star-btn">{{getStarIcon}}</button>
+        <button @click.stop="toggleStar" className="star-btn">{{getStarIcon}}</button>
         <h3>{{email.from}}</h3>
         <div className="email-info">
             <h3 class="bold">{{email.subject}}</h3>
@@ -24,6 +25,9 @@ export default {
         togglePreview() {
             this.isOpen = !this.isOpen
         },
+        toggleStar(){
+            this.$emit('toggle-star',this.email)
+        }
 
     },
     computed: {

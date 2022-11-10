@@ -14,7 +14,7 @@ export default {
         <email-filter @filtered="setFilter" />
         <email-controller @category="setCategory" />
         <div className="img-container"></div>
-        <email-list :emails="emailsToShow" />
+        <email-list @toggle-star="toggleStar" :emails="emailsToShow" />
     </div>`,
     data() {
         return {
@@ -43,6 +43,10 @@ export default {
             if (this.filterBy.mode === "read" && !email.isRead) return false
             if (this.filterBy.mode === "unread" && email.isRead) return false
             return true
+        },
+        toggleStar(email){
+            email.isStar = !email.isStar
+            emailService.update(email).then(email => eventBus.emit('update') )
         }
     },
     computed: {
