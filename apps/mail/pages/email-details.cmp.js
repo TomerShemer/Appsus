@@ -7,7 +7,8 @@ export default{
     template:`
     <div v-if="email" className="email-details">
         <div className="details-actions">
-            <button @click="onOpen" className="action-btn open-btn">Open </button>
+            <button v-if="this.isEdit" @click="onClose" className="action-btn close-btn">Close </button>
+            <button v-else @click="onOpen" className="action-btn open-btn">Open </button>
             <button @click="onRemove" className="action-btn">🗑️</button>
             <button @click="onReply" className="action-btn">📩</button>
             <button @click="onStar" className="action-btn">⭐</button>
@@ -39,13 +40,15 @@ export default{
     created(){
         const {id} = this.$route.params
         if(id) this.isEdit = true
-        console.log(this.isEdit);
         emailService.getById(this.id).then(email => this.email = email)
 
     },
     methods:{
         onOpen(){
             this.$router.push(`/${this.email.id}`)
+        },
+        onClose(){
+            this.$router.back()
         },
         onRemove(){
             emailService.remove(this.email.id).then(email => eventBus.emit('update'))

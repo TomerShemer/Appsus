@@ -5,6 +5,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 0.02fr 0.38fr 0.6fr;
     grid-template-areas: 'actions' 'info' 'subject';
+    position: relative;
 }
 
 .email-details h3{
@@ -26,6 +27,7 @@
 .details-actions{
     /* background-color: var(--clr1); */
     grid-area: actions;
+    padding: 15px;
 }
 
 .action-btn{
@@ -40,6 +42,7 @@
     background-color: var(--clr2);
     border-radius: 10px;
 }
+
 
 .details-body{
     padding: 15px;
