@@ -25,3 +25,11 @@
     width: 90px;
     border: none;
 }
+
+@media (max-width:640px) {
+    .email-filter{
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+}

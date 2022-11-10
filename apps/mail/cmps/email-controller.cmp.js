@@ -1,25 +1,23 @@
-export default{
-    template:`
+export default {
+    template: `
     <div className="email-controller">
-        <button className="compose-btn">Compose</button>
-        <button @click="onCategory('inbox',$event)" className="controller-btn">Inbox</button>
-        <button @click="onCategory('starred')" className="controller-btn">Starred</button>
-        <button @click="onCategory('sent')" className="controller-btn">Sent Mail</button>
-        <button @click="onCategory('drafts')" className="controller-btn">Drafts</button>
+        <button class="toggle-menu-btn" @click="toggleMenu()">☰</button>
+        <button @click="this.$emit('new-email')" className="compose-btn">Compose</button>
+        <button @click="onCategory('inbox',$event)" :class="{active: active==='inbox'}" class="controller-btn"> Inbox </button>
+        <button @click="onCategory('starred')" :class="{active: active==='starred'}" class="controller-btn">Starred</button>
+        <button @click="onCategory('sent')" :class="{active: active==='sent'}" class="controller-btn">Sent Mail</button>
+        <button @click="onCategory('drafts')" :class="{active: active==='drafts'}" class="controller-btn">Drafts</button>
     </div>`,
-    data(){
-        return{
-            active:'inbox',
-            buttons:[
-                {}
-            ]
+    data() {
+        return {
+            active: 'inbox',
         }
     },
-    methods:{
-        onCategory(category,ev){
-            console.log(ev);
-            this.$emit('category',category)
+    methods: {
+        onCategory(category) {
+            this.active = category
+            this.$emit('category', category)
         },
     }
-    
+
 }

@@ -1,5 +1,5 @@
 .email-details{
-    background-color:var(--clr4);
+    background-color:var(--clr1);
     height: 300px;
     display: grid;
     grid-template-columns: 1fr;
@@ -7,7 +7,12 @@
     grid-template-areas: 'actions' 'info' 'subject';
 }
 
+.email-details h3{
+    font-family:'roboto-thin'
+}
+
 .details-info{
+    padding: 15px;
     color: var(--clr6);
     grid-area: info;
     display: flex;
@@ -19,6 +24,7 @@
 }
 
 .details-actions{
+    /* background-color: var(--clr1); */
     grid-area: actions;
 }
 
@@ -31,6 +37,7 @@
 }
 
 .details-body{
+    padding: 15px;
     color: var(--clr6);
     grid-area: subject;
 }

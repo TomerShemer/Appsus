@@ -3,9 +3,9 @@ export default{
     <div className="email-filter">
         <input @input="onFilter" className="filter-input" placeholder="Search email" type="text" v-model="filter.txt" />
         <div className="filter-btns">
-            <button @click="onFilter('all')" className="filter-btn">All</button>
-            <button @click="onFilter('read')"  className="filter-btn">Read</button>
-            <button @click="onFilter('unread')"  className="filter-btn" >Unread</button>
+            <button @click="onFilter('all')" :class="{active : filter.mode ==='all'}" class="filter-btn">All</button>
+            <button @click="onFilter('read')" :class="{active : filter.mode ==='read'}" class="filter-btn">Read</button>
+            <button @click="onFilter('unread')" :class="{active : filter.mode ==='unread'}" class="filter-btn" >Unread</button>
         </div>
     </div>`,
     data(){

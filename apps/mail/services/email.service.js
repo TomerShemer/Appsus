@@ -1,7 +1,7 @@
 'use strict'
 
 import { storageService } from '../../../services/async-storage.service.js';
-
+import { utilService } from '../../../services/util.service.js';
 
 const EMAILS_KEY = 'emailsDb'
 
@@ -12,7 +12,8 @@ const gEmails = [
         subject: 'Miss you!',
         body: 'Would love to catch up sometimes',
         isRead: false,
-        isStar:false,
+        isStar: false,
+        isDraft:false,
         sentAt: 1551133930594,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
@@ -22,7 +23,8 @@ const gEmails = [
         subject: 'Hello bar!',
         body: 'Your first email!',
         isRead: false,
-        isStar:false,
+        isStar: false,
+        isDraft:false,
         sentAt: 1551133930594,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
@@ -32,7 +34,8 @@ const gEmails = [
         subject: 'Hello bar!',
         body: 'Your first email!',
         isRead: false,
-        isStar:false,
+        isStar: false,
+        isDraft:false,
         sentAt: 1551133930594,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
@@ -42,7 +45,8 @@ const gEmails = [
         subject: 'Hello bar!',
         body: 'Your first email!',
         isRead: false,
-        isStar:false,
+        isStar: false,
+        isDraft:false,
         sentAt: 1551133930594,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
@@ -52,17 +56,19 @@ const gEmails = [
         subject: 'Check Time!!',
         body: 'Your first email!',
         isRead: false,
-        isStar:false,
+        isStar: false,
+        isDraft:false,
         sentAt: 1668024020406,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
     },
     {
         id: 'e106',
-        subject: 'Its Bar',
+        subject: 'Its Bar TESTING',
         body: 'Your first email!',
         isRead: false,
-        isStar:false,
+        isStar: false,
+        isDraft:false,
         sentAt: 1668024020406,
         from: 'bar@appsus.com',
         to: 'user@appsus.com'
@@ -70,7 +76,7 @@ const gEmails = [
 ]
 
 const loggedinUser = {
-    email: 'bar@appsus.com', 
+    email: 'bar@appsus.com',
     fullname: 'Bar Zaken'
 }
 
@@ -93,10 +99,24 @@ export const emailService = {
     update,
     addEmail,
     getUser,
+    getTemplateEmail
 }
 
-function getUser(){
+function getUser() {
     return loggedinUser
+}
+
+function getTemplateEmail() {
+    return {
+        id: utilService.makeId(),
+        subject: '',
+        body: '',
+        isRead: false,
+        isStar: false,
+        sentAt: '',
+        from: '',
+        to: ''
+    }
 }
 
 function query() {
@@ -111,31 +131,12 @@ function get(id) {
     return storageService.get(EMAILS_KEY, id)
 }
 
-function remove(id){
-    return storageService.remove(EMAILS_KEY,id)
+function remove(id) {
+    return storageService.remove(EMAILS_KEY, id)
 }
 
-function update(email){
-    return storageService.put(EMAILS_KEY,email)
+function update(email) {
+    return storageService.put(EMAILS_KEY, email)
 }
 
-
-// function addReview(email,review){
-//     review.id = storageService._makeId()
-//     return storageService.get(EMAILS_KEY,email.id).then(email =>{
-//         if(!email.reviews) email.reviews = [] 
-//         email.reviews.push(review)
-//         storageService.put(EMAILS_KEY,email)
-//         return Promise.resolve(email)
-//     })
-// }
-
-// function removeReview(email,reviewId){
-//     return storageService.get(EMAILS_KEY,email.id).then(email =>{
-//         const idx = email.reviews.findIndex(review => review.id === reviewId)
-//         email.reviews.splice(idx,1)
-//         storageService.put(EMAILS_KEY,email)
-//         return Promise.resolve(email)
-//     })
-// }
 

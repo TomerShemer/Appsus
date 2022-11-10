@@ -6,17 +6,30 @@
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 0.01fr 0.19fr 0.7fr 0.1fr;
-    place-items: center;
+    align-items: center;
     text-align: left;
+    font-size: 14px;
+}
+
+.email-preview h3,h5{
+    font-family: roboto-thin;
+    font-size: 14px;
+}
+
+.email-preview h5{
+    text-align: right;
 }
 
 .email-info {
     width: 100%;
+    /* width: 300px; */
     display: flex;
     gap: 15px;
     color: var(--clr7);
-    text-overflow: clip;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 
 
 .star-btn {
@@ -37,7 +50,12 @@
 }
 
 .bold{
+    font-family: roboto !important;
     color: black;
+}
+
+.draft{
+    color: red;
 }
 
 @media (max-width:1200px) {

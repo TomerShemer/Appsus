@@ -6,6 +6,15 @@
     gap: 3px;
 }
 
+.toggle-menu-btn{
+   color: var(--clr8);
+   width: 50px;
+   font-size: 50px;
+   border: none;
+   background-color: transparent;
+   display: none;
+}
+
 .controller-btn{
     color: black;
     border: none;
@@ -16,7 +25,6 @@
 .controller-btn{
     padding: 20px;
     border-radius: 22px;
-    background-color: var(--clr4);
     color: var(--clr6);
     font-weight: bold;
 }
@@ -29,5 +37,38 @@
     padding: 20px;
     border-radius: 15px;
     width: 50%;
+    min-width: max-content;
     border: none;
+}
+
+.active{
+    background-color: var(--clr4);
+}
+
+@media (max-width:640px) {
+    .email-controller{
+        position: fixed;
+        transform: translateX(100%);
+        transition: transform .6s, box-shadow .6s;
+    }
+    .img-container{
+        display: none;
+    }
+    .compose-btn{
+        position: fixed;
+        bottom: 50px;
+        left: 20px;
+        width: 50px;
+    }
+    .toggle-menu-btn{
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 30px;
+    }
+    .email-controller.open{
+        transform: translateX(0);
+        box-shadow: -9px 0px 14px rgb(0 0 0 / 30%);
+    }
+    
 }

@@ -11,3 +11,11 @@
     grid-area: logo;
     background-repeat: no-repeat;
 }
+
+@media (max-width:640px) {
+    .email-main{
+        grid-template-rows: 0.2fr 0.8fr;
+        grid-template-columns: 1fr;
+        grid-area: 'filter' 'emails';
+    }
+}
