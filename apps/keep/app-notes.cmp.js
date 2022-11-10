@@ -11,7 +11,7 @@ export default {
     props: [],
     template: `
         <section className="note-app-container main-layout flex flex-column align-center">
-            <note-filter />
+            <note-filter @filtered="setFilter" />
             <note-add @add="addNewNote"/>
             <note-list v-if="notes" :notes="notes"/>
             <note-screen v-if="isOpen" />
@@ -21,13 +21,28 @@ export default {
         return {
             notes: null,
             isOpen: false,
+            filterBy: {
+                txt: ''
+            }
         }
     },
     methods: {
-        getNotes() {
+        getNotesToShow() {
             noteService.query()
                 .then(notes => {
-                    this.notes = notes
+                    if (this.filterBy.txt) {
+                        const regex = new RegExp(this.filterBy.txt, 'i')
+                        this.notes = notes.filter(note => {
+                            // debugger
+                            if (note.type === 'note-txt') {
+                                return regex.test(note.info.txt)
+                            } else if (note.type === 'note-img') {
+                                return regex.test(note.info.title)
+                            } else if (note.type === 'note-todos') {
+                                return regex.test(note.info.label) || regex.test(note.info.txt)
+                            }
+                        })
+                    } else this.notes = notes
                     // console.log(notes);
                 })
         },
@@ -46,7 +61,7 @@ export default {
 
             noteService.remove(payload)
                 .then(() => {
-                    this.getNotes()
+                    this.getNotesToShow()
                 })
         },
         editNote(payload) {
@@ -56,12 +71,17 @@ export default {
             }
             noteService.save(note)
                 .then(() => {
-                    this.getNotes()
+                    this.getNotesToShow()
                 })
         },
         toggleScreen(isOpen) {
             // console.log('toggling screen');
             this.isOpen = isOpen
+        },
+        setFilter(filterBy) {
+            this.filterBy = filterBy
+            // console.log(this.filterBy);
+            this.getNotesToShow()
         }
     },
     computed: {
@@ -74,7 +94,7 @@ export default {
         noteScreen
     },
     created() {
-        this.notes = this.getNotes()
+        this.notes = this.getNotesToShow()
         eventBus.on('delete-note', this.deleteNote)
         eventBus.on('note-edited', this.editNote)
         eventBus.on('toggle-screen', this.toggleScreen)

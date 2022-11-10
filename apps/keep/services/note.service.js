@@ -84,7 +84,7 @@ const startingDatabase = [
 ]
 
 function query() {
-    return storageService.query(NOTES_KEY)
+    return storageService.query(NOTES_KEY, 200)
 }
 
 function get(noteId) {

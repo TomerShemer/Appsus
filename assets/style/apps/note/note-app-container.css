@@ -4,7 +4,7 @@
     font-size: 1.25rem;
     font-family: 'Courier New', Courier, monospace;
     color: black;
-    padding: 1em;
+    padding: 1em 1em 3em 1em;
 }
 
 .note-app-container pre {
@@ -16,7 +16,7 @@
 }
 
 .note {
-    min-height: 250px;
+    min-height: 200px;
     max-height: 500px;
     padding: 10px 10px 40px;
     margin-block-end: 20px;
@@ -25,12 +25,12 @@
     position: relative;
     text-overflow: ellipsis;
     border-radius: 10px;
-    border: 1px gray solid;
+    border: 1px #e0e0e0 solid;
 }
 
 .note:hover {
-    -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.64);
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.64);
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 600px) {

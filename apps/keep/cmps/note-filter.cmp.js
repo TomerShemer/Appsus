@@ -2,7 +2,7 @@ export default {
     props: [],
     template: `
         <section className="note-filter">
-            <form @submit.prevent="">
+            <form @submit.prevent="filter">
                 <input 
                         v-model="filterBy.txt"
                         type="text"
@@ -18,6 +18,9 @@ export default {
         }
     },
     methods: {
+        filter() {
+            this.$emit('filtered', this.filterBy)
+        }
     },
     computed: {
     },
