@@ -58,7 +58,6 @@ export default {
                 })
         },
         deleteNote(payload) {
-
             noteService.remove(payload)
                 .then(() => {
                     this.getNotesToShow()

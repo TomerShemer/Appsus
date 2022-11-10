@@ -2,11 +2,11 @@ export default {
     props: [],
     template: `
         <section className="note-filter">
-            <form @submit.prevent="filter">
-                <input 
-                        v-model="filterBy.txt"
-                        type="text"
-                        placeholder="Search" />
+            <form @submit.prevent>
+                <input @input="filter" 
+                    v-model="filterBy.txt"
+                    type="text"
+                    placeholder="Search" />
             </form>
         </section>
     `,

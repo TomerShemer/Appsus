@@ -5,6 +5,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 
 .note-actions>div {
@@ -22,6 +24,11 @@
 .note-actions>div:hover {
     background-color: #e9eaeab1;
     cursor: pointer;
+}
+
+
+.note:hover>.note-actions {
+    opacity: 1;
 }
 
 @media (max-width: 600px) {

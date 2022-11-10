@@ -4,7 +4,7 @@
     font-size: 1.25rem;
     font-family: 'Courier New', Courier, monospace;
     color: black;
-    padding: 1em 1em 3em 1em;
+    padding: 1em;
 }
 
 .note-app-container pre {
@@ -12,7 +12,7 @@
 }
 
 .note-app-container>* {
-    outline: 1px black solid;
+    /* outline: 1px black solid; */
 }
 
 .note {
@@ -26,6 +26,14 @@
     text-overflow: ellipsis;
     border-radius: 10px;
     border: 1px #e0e0e0 solid;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202164;
+}
+
+.note>h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 .note:hover {
