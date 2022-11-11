@@ -1,14 +1,17 @@
 .color-palette {
     height: 60px;
-    background-color: red;
+    background-color: white;
+    border: 1px solid #e9eaea80;
     display: flex;
-    border-radius: 50px;
+    border-radius: 20px;
     gap: 5px;
     position: absolute;
     bottom: 0;
     transform: translate(-25%, 100%);
     z-index: 10;
     padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+
 }
 
 .color-palette-div {
@@ -16,4 +19,13 @@
     width: 40px;
     border-radius: 50%;
     cursor: pointer;
+    transition: border 1s;
+}
+
+.color-palette div:first-child {
+    border: 1px solid #72727280;
+}
+
+.color-palette-div:hover {
+    outline: 2px black solid;
 }

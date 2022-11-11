@@ -2,7 +2,7 @@ export default {
     props: [],
     template: `
         <section className="color-palette">
-            <div class="color-palette-div" :style="{'backgroundColor': color}" v-for="color in colors"></div>
+            <div @click="setColor(color)" class="color-palette-div" :style="{'backgroundColor': color}" v-for="color in colors"></div>
         </section>
     `,
     data() {
@@ -11,6 +11,10 @@ export default {
         }
     },
     methods: {
+        setColor(color) {
+            // console.log(color);
+            this.$emit('change-color', color)
+        }
     },
     computed: {
     },

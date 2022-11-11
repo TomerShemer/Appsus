@@ -104,6 +104,10 @@ export default {
             noteService.save(payload)
             const idx = this.notes.findIndex(note => payload.id === note.id)
             this.notes.splice(idx, 1, payload)
+        },
+        saveNote(note) {
+            // console.log(note);
+            noteService.save(note)
         }
 
     },
@@ -123,5 +127,6 @@ export default {
         eventBus.on('toggle-screen', this.toggleScreen)
         eventBus.on('toggle-pin', this.togglePin)
         eventBus.on('toggled-todo', this.toggledTodo)
+        eventBus.on('color-changed', this.saveNote)
     },
 }

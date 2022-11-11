@@ -9,7 +9,7 @@ export default {
     props: ['note'],
     template: `
         <section className="note-preview">
-            <component @toggle-todo="toggleTodo" @toggle-pin="togglePin" @edit-note="openEdit" @delete-note="deleteNote" :is="note.type" :info="note.info" :isPinned="isPinned">
+            <component :color="color" @change-color="changeColor" @toggle-todo="toggleTodo" @toggle-pin="togglePin" @edit-note="openEdit" @delete-note="deleteNote" :is="note.type" :info="note.info" :isPinned="isPinned">
             </component>
             <note-edit @discard-changes="closeEdit" @saved-note-changes="save" v-if="noteToEdit" :note="note" />
         </section>
@@ -17,7 +17,8 @@ export default {
     data() {
         return {
             noteToEdit: null,
-            isPinned: this.note.isPinned
+            isPinned: this.note.isPinned,
+            color: null,
         }
     },
     methods: {
@@ -55,6 +56,12 @@ export default {
             }
             newNote.info.todos.splice(idx, 1, todo)
             eventBus.emit('toggled-todo', newNote)
+        },
+        changeColor(color) {
+            if (!this.note.style) this.note.style = { backgroundColor: color }
+            else this.note.style.backgroundColor = color
+            this.color = color
+            eventBus.emit('color-changed', this.note)
         }
 
     },
@@ -62,6 +69,7 @@ export default {
     },
     created() {
         eventBus.on('close-editor', this.closeEdit)
+        this.color = this.note.style ? this.note.style.backgroundColor : '#ffffff'
     },
     components: {
         noteImg,
