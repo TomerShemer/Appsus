@@ -1,1 +1,21 @@
-.note-img-edit {}
+.note-img-edit {
+    height: 90%;
+    font-family: open-sans;
+}
+
+.note-img-edit form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.note-img-edit label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-img-edit label input {
+    border: 1px solid #cdcdcdb1;
+}

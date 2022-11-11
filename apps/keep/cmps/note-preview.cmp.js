@@ -48,9 +48,13 @@ export default {
         toggleTodo(idx) {
             const newNote = { ...this.note }
             const todo = newNote.info.todos[idx]
-            if (!todo.donAt) {
-                todo.donAt = Date.now()
+            if (!todo.doneAt) {
+                todo.doneAt = Date.now()
+            } else {
+                todo.doneAt = null
             }
+            newNote.info.todos.splice(idx, 1, todo)
+            eventBus.emit('toggled-todo', newNote)
         }
 
     },

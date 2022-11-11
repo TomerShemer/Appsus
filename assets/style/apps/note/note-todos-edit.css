@@ -1,1 +1,26 @@
-.note-todos-edit {}
+.note-todos-edit {
+    height: 100%;
+    font-family: open-sans;
+}
+
+.note-todos-edit form {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-todos-edit textarea {
+    resize: none;
+    border: 1px solid black;
+}
+
+.note-todos-edit label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-todos-edit label input {
+    border: 1px solid #cdcdcdb1;
+}

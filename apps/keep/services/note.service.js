@@ -11,6 +11,7 @@ export const noteService = {
     getNewImgNote,
     getNewTodosNote,
     prepareNoteTodos,
+    getCachedNotes,
 }
 
 const NOTES_KEY = 'notesDB'
@@ -142,8 +143,9 @@ const startingDatabase = [
                     doneAt: null,
                 },
             ],
-            txt: 'Milk, Eggs, Bacon'
-        }
+            txt: 'Work on garden,Retile the kitchen, Paint walls, Buy new furniture',
+        },
+        isPinned: true,
     }
 ]
 
@@ -209,6 +211,10 @@ function prepareNoteTodos(newNote) {
     })
     note.info.todos = todos
     return note
+}
+
+function getCachedNotes() {
+    return _createNotes()
 }
 
 // Private functions

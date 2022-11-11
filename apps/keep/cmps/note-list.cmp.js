@@ -48,8 +48,8 @@ export default {
     watch: {
         notes: {
             handler() {
-                console.log('changed');
-                console.log(this.notes);
+                // console.log('changed');
+                // console.log(this.notes);
                 this.sortPinned(this.notes)
             },
             deep: true

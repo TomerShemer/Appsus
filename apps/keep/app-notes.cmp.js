@@ -30,7 +30,10 @@ export default {
         getNotesToShow() {
             noteService.query()
                 .then(notes => {
-                    if (this.filterBy.txt) {
+                    if (!notes || !notes.length) {
+                        noteService.getCachedNotes()
+                            .then(notes => this.notes = notes)
+                    } else if (this.filterBy.txt) {
                         const regex = new RegExp(this.filterBy.txt, 'i')
                         this.notes = notes.filter(note => {
                             // debugger
@@ -96,7 +99,13 @@ export default {
                     const idx = this.notes.findIndex(note => note.id === savedNote.id)
                     this.notes[idx] = savedNote
                 })
+        },
+        toggledTodo(payload) {
+            noteService.save(payload)
+            const idx = this.notes.findIndex(note => payload.id === note.id)
+            this.notes.splice(idx, 1, payload)
         }
+
     },
     computed: {
     },
@@ -113,5 +122,6 @@ export default {
         eventBus.on('note-edited', this.editNote)
         eventBus.on('toggle-screen', this.toggleScreen)
         eventBus.on('toggle-pin', this.togglePin)
+        eventBus.on('toggled-todo', this.toggledTodo)
     },
 }
