@@ -11,18 +11,18 @@ export default {
     `,
     data() {
         return {
-            pinned: [],
-            unpinned: [],
+            pinned: null,
+            unpinned: null,
         }
     },
     methods: {
         deleteNote(noteId) {
             this.$emit('delete-note', noteId)
         },
-        sortPinned() {
+        sortPinned(notes) {
             this.pinned = []
             this.unpinned = []
-            this.notes.forEach(note => {
+            notes.forEach(note => {
                 if (note.isPinned) this.pinned.push(note)
                 else this.unpinned.push(note)
             })
@@ -30,17 +30,29 @@ export default {
             // console.log('this.unpinned', this.unpinned)
         },
         togglePin() {
-            this.sortPinned()
+            this.sortPinned(this.notes)
         }
     },
     computed: {
+        filterPinned() {
 
+        }
     },
     components: {
         notePreview
     },
     created() {
-        this.sortPinned()
+        this.sortPinned(this.notes)
 
+    },
+    watch: {
+        notes: {
+            handler() {
+                console.log('changed');
+                console.log(this.notes);
+                this.sortPinned(this.notes)
+            },
+            deep: true
+        }
     }
 }

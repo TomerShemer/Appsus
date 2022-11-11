@@ -31,7 +31,7 @@ const startingDatabase = [
         type: "note-img",
         info: {
             url: "https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
-            title: "Bobi and Me"
+            title: "Little Toy"
         },
         style: {
             backgroundColor: "#aecbfa"
@@ -41,11 +41,11 @@ const startingDatabase = [
         id: utilService.makeId(),
         type: "note-todos",
         info: {
-            label: "Get my stuff together",
+            label: "Stuff to go over",
             todos: [
                 {
                     txt: "Practice promises",
-                    doneAt: null
+                    doneAt: 1668118755022
                 },
                 {
                     txt: "Learn Vue",
@@ -53,11 +53,11 @@ const startingDatabase = [
                 },
                 {
                     txt: "Learn CSS",
-                    doneAt: 1668118755022
+                    doneAt: null
                 },
 
             ],
-            txt: "Driving liscence, Coding power"
+            txt: "Practice promises, Learn Vue, Learn CSS"
         }
     },
     {
@@ -65,7 +65,7 @@ const startingDatabase = [
         type: "note-txt",
         isPinned: false,
         info: {
-            txt: "Today I learned something new!"
+            txt: "Don't forget to check Amazon delivery status"
         }
     },
     {
@@ -84,12 +84,67 @@ const startingDatabase = [
                 },
                 {
                     txt: "Bacon",
-                    doneAt: null
+                    doneAt: null,
                 },
             ],
             txt: 'Milk, Eggs, Bacon'
         }
     },
+    {
+        id: utilService.makeId(),
+        type: "note-img",
+        info: {
+            url: "https://images.unsplash.com/photo-1476994230281-1448088947db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+            title: "Some flowers I found"
+        },
+        style: {
+            backgroundColor: "#f28b82"
+        },
+        isPinned: true,
+    },
+    {
+        id: utilService.makeId(),
+        type: "note-txt",
+        isPinned: false,
+        info: {
+            txt: "Talk to a designer about new logo"
+        }
+    },
+    {
+        id: utilService.makeId(),
+        type: "note-img",
+        info: {
+            url: "https://images.unsplash.com/photo-1511858240726-f89c6f5ba6e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+            title: "Maybe this for Halloween?"
+        },
+        isPinned: false,
+    },
+    {
+        id: utilService.makeId(),
+        type: "note-todos",
+        info: {
+            label: "Renovate house",
+            todos: [
+                {
+                    txt: "Work on garden",
+                    doneAt: null
+                },
+                {
+                    txt: "Retile the kitchen",
+                    doneAt: 187111111
+                },
+                {
+                    txt: "Paint walls",
+                    doneAt: null,
+                },
+                {
+                    txt: "Buy new furniture",
+                    doneAt: null,
+                },
+            ],
+            txt: 'Milk, Eggs, Bacon'
+        }
+    }
 ]
 
 function query() {
@@ -164,6 +219,7 @@ function _createNotes() {
             if (!res || !res.length) {
                 gNotesCache = [...startingDatabase]
                 localStorage.setItem(NOTES_KEY, JSON.stringify(gNotesCache))
+                // storageService.
             } else {
                 gNotesCache = res
             }
