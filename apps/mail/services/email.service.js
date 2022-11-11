@@ -130,7 +130,6 @@ function _createEmails() {
         emails = gEmails
         localStorage.setItem(EMAILS_KEY, JSON.stringify(emails))
     }
-    console.log(emails);
     return emails
 }
 

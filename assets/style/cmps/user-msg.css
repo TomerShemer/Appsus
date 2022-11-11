@@ -1,5 +1,6 @@
 .user-msg {
     position: fixed;
+    z-index: 50;
     bottom: 50px;
     right: 10px;
     height: 50px;

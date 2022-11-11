@@ -15,12 +15,13 @@
 }
 
 .dark{
-    --clr2: #2F2F2F;
+    /* --clr2: #2F2F2F; */
+    --clr2: #121212;
     --clr6: white;
     --clr1:#3C3C3C;
     --clr4: #3C3C3C;
     --clr3: #252525;
-    --clr5:2F2F2F;
+    --clr5:#2F2F2F;
 }
 
 @media (max-width:1200px) {

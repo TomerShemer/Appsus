@@ -1,15 +1,18 @@
+
 .email-add {
     position: fixed;
     background-color: var(--clr1);
     bottom: 0;
-    z-index: 40;
-    width: 40%;
-    min-width: 200px;
-    min-height: 600px;
     left: 50%;
+    z-index: 50;
+    height: 600px;
+    width: 500px;
+    box-shadow: 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%), 0px 5px 5px -3px rgb(0 0 0 / 20%);
+    display: flex;
+    flex-direction: column;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    box-shadow:  8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%), 0px 5px 5px -3px rgb(0 0 0 / 20%)
+
 }
 
 .new-email-headline {
@@ -19,6 +22,8 @@
     font-family: roboto;
     font-size: 14px;
     position: relative;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .new-email-input {
@@ -40,11 +45,11 @@
 }
 
 .email-add textarea {
-    width: 100%;
-    padding: 25px;
-    height: 400px;
+    flex-grow: 1;
+    padding: 23px;
     border: none;
     outline: none;
+    border-bottom: 1px solid var(--clr6);
 }
 
 
@@ -70,8 +75,9 @@
 .send-btn {
     background-color: var(--clr3);
     color: var(--clr6);
-    width: 110px;
+    width: 90px;
     height: 10px;
+    text-align: left;
     padding: 10px;
     font-family: roboto-bold;
     font-size: 15px;
@@ -79,16 +85,31 @@
     border-radius: 15px;
 }
 
+.send-btn:disabled {
+    background-color: var(--clr2);
+    color: var(--clr7);
+}
+
+.draft-btn{
+    background-color: transparent;
+    border: none;
+    color: var(--clr6);
+}
+.draft-btn:disabled{
+    color: var(--clr7);
+}
+
 @media (max-width: 640px) {
-    .email-add{
+    .email-add {
         position: fixed;
-        left: 0;
-        bottom: 0;
-        height: 95%;
-        width: 100vw;
+        transform: translate(-46%,0%);
+        height: 60%;
+        width: 75%;
     }
-    .email-add textarea{
+
+
+    .email-add textarea {
         height: 70%;
     }
-    
+
 }

@@ -1,5 +1,5 @@
-.email-details{
-    background-color:var(--clr1);
+.email-details {
+    background-color: var(--clr1);
     height: 300px;
     display: grid;
     grid-template-columns: 1fr;
@@ -10,18 +10,24 @@
     font-family: roboto;
 }
 
-.email-details.full{
+.email-details.full {
     height: 100%;
+    width: 100%;
     grid-template-rows: 0.02fr 0.13fr 0.85fr;
     grid-template-areas: 'actions' 'info' 'subject';
 }
 
+.email-details.full .details-body {
+    text-overflow: 1;
 
-.email-details h3{
-    font-family:'roboto-thin'
 }
 
-.details-info{
+
+.email-details h3 {
+    font-family: 'roboto-thin'
+}
+
+.details-info {
     padding: 15px;
     color: var(--clr6);
     grid-area: info;
@@ -29,39 +35,29 @@
     flex-direction: column;
 }
 
-.details-info *{
-    /* border-bottom: 1px solid black; */
-}
 
-.details-actions{
-    /* background-color: var(--clr1); */
+
+.details-actions {
     grid-area: actions;
     padding: 15px;
 }
 
-.action-btn{
+.action-btn {
     border: 0;
-    margin: 0;
-    padding: 0;
-    height: 10px;
-    color: black;
+    color: var(--clr6);
     background-color: transparent;
 }
-.open-btn{
-    background-color: var(--clr2);
-    border-radius: 10px;
-}
 
 
-.details-body{
+
+.details-body {
     padding: 15px;
     color: var(--clr6);
     grid-area: subject;
 }
 
-@media (max-width:1200px) {
-    .email-details{
-        font-size: 28px;
-    }
-    
+.email-details:not(.full) .details-body {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }

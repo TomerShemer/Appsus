@@ -10,18 +10,21 @@ export default {
             <div class="progress-bar">
                 <div class="bar" :style="{width: status.width + '%'}"></div>
             </div>
-            <small>{{status.unread}} Emails unread</small><br>
-            <small>{{status.all}} Emails total</small>
+            <div className="email-stats">
+                <small><i class="fa-solid fa-eye-slash"></i> {{status.unread}} Emails unread</small><br>
+                <small><i class="fa-solid fa-envelope"></i> {{status.all}} Emails total</small>
+            </div>
         </div>
         <div class="controller">  
-        <button @click="this.$emit('new-email')" className="compose-btn">Compose</button>
-        <button @click="onCategory('inbox',$event)" :class="{active: active==='inbox'}" class="controller-btn"> Inbox </button>
-        <button @click="onCategory('starred')" :class="{active: active==='starred'}" class="controller-btn">Starred</button>
-        <button @click="onCategory('sent')" :class="{active: active==='sent'}" class="controller-btn">Sent Mail</button>
-        <button @click="onCategory('drafts')" :class="{active: active==='drafts'}" class="controller-btn">Drafts</button>
+        <button @click="this.$emit('new-email')" className="compose-btn"><i class="fa-solid fa-pen"></i> <span>Compose</span></button>
+        <button @click="onCategory('inbox')" :class="{active: active==='inbox'}" class="controller-btn"> <i class="fa-solid fa-inbox"></i> Inbox </button>
+        <button @click="onCategory('starred')" :class="{active: active==='starred'}" class="controller-btn"><i class="fa-regular fa-star"></i> Starred</button>
+        <button @click="onCategory('sent')" :class="{active: active==='sent'}" class="controller-btn"> <i class="fa-solid fa-paper-plane"></i> Sent</button>
+        <button @click="onCategory('drafts')" :class="{active: active==='drafts'}" class="controller-btn"><i class="fa-regular fa-file"></i> Drafts</button>
         <div className="view-mode-btns">
-            <button @click="this.$emit('change-mode','dark')" class="dark-mode-btn">Dark</button>
-            <button @click="this.$emit('change-mode','light')" class="light-mode-btn">Light</button>
+            <button @click="this.$emit('change-mode','dark')" class="dark-mode-btn"><i class="fa-solid fa-moon"></i> Dark</button>
+            <button @click="this.$emit('change-mode','light')" class="light-mode-btn"><i class="fa-solid fa-sun"></i> Light</button>
+        </div>
         </div>
     </div>`,
     data() {
@@ -33,7 +36,7 @@ export default {
     methods: {
         onCategory(category) {
             this.active = category
-            this.$emit('category', category)
+            this.$emit('on-category', category)
             this.isOpen = false
         },
         toggleMenu() {

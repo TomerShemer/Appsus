@@ -5,7 +5,7 @@ export default {
     emits:['toggle-star'],
     template: `
     <div @click="togglePreview()" :class="{unread : !email.isRead}" class="email-preview" >
-        <button @click.stop="toggleStar" className="star-btn">{{getStarIcon}}</button>
+        <button @click.stop="toggleStar" v-html="getStarIcon" className="star-btn"></button>
         <h3 class="sender" :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{email.from}}</h3>
         <div className="email-info">
             <h3 :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{email.subject}}</h3>
@@ -32,7 +32,7 @@ export default {
     },
     computed: {
         getStarIcon() {
-            return this.email.isStar ? '⭐ ' : '☆'
+            return this.email.isStar ? `<i class="fa-solid fa-star"></i>` : '<i class="fa-regular fa-star"></i>'
         },
         getDate() {
             let date = new Date(this.email.sentAt)

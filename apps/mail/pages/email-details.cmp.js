@@ -7,14 +7,14 @@ export default{
     template:`
     <div :class="{full : isEdit}" v-if="email" class="email-details">
         <div className="details-actions">
-            <button v-if="this.isEdit" @click="onClose" className="action-btn close-btn">Close </button>
-            <button v-else @click="onOpen" title="Open full screen"  className="action-btn open-btn">Open </button>
-            <button @click="onRemove" title="Delete"  className="action-btn">🗑️</button>
-            <button @click="onReply" title="Reply"  className="action-btn">📩</button>
-            <button @click="onStar" title="Star" className="action-btn">⭐</button>
+            <button v-if="this.isEdit" @click="onClose" className="action-btn"><i class="fa-solid fa-left-long"></i></button>
+            <button v-else @click="onOpen" title="Open full screen"  className="action-btn"><i class="fa-solid fa-expand"></i></button>
+            <button @click="onRemove" title="Delete"  className="action-btn"><i class="fa-solid fa-trash"></i></button>
+            <button @click="onReply" title="Reply"  className="action-btn"><i class="fa-solid fa-reply"></i></button>
+            <button @click="onStar" v-html="getStarIcon" title="Star" className="action-btn"></button>
         </div>
         <div className="details-info">
-            <h5>from: {{email.from}} to: me</h5>
+            <small>from: {{email.from}} to: {{email.to}}</small>
             <h3>subject: {{email.subject}}</h3>
             <h3>date: {{getDate}}</h3>
         </div>
@@ -35,6 +35,9 @@ export default{
         getDate(){
             let date = new Date(this.email.sentAt)
             return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
+        },
+        getStarIcon() {
+            return this.email.isStar ? `<i class="fa-solid fa-star"></i>` : '<i class="fa-regular fa-star"></i>'
         }
     },
     created(){
@@ -83,10 +86,6 @@ export default{
                 this.isReply = false
         },
         closeModal(email){
-                if(!email.id){
-                    email.isDraft = true
-                    this.sendEmail(email).then(email => eventBus.emit('update'))
-                }
                 this.isReply=false
         }
     },

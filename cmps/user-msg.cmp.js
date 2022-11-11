@@ -16,10 +16,9 @@ export default {
 	},
 	methods: {
 		showMsg(msg) {
-			console.log('get')
 			this.msg.txt = msg
 			if(msg.type) this.msg.type = msg.type
-			setTimeout(() => (this.msg.txt = ''), this.msg.timeout || 1500)
+			setTimeout(() => (this.msg.txt = ''), this.msg.timeout || 3500)
 		},
 	},
 }
