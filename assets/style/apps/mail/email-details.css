@@ -6,6 +6,8 @@
     grid-template-rows: 0.02fr 0.38fr 0.6fr;
     grid-template-areas: 'actions' 'info' 'subject';
     position: relative;
+    font-size: 20px;
+    font-family: roboto;
 }
 
 .email-details.full{
@@ -28,7 +30,7 @@
 }
 
 .details-info *{
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
 }
 
 .details-actions{
@@ -55,4 +57,11 @@
     padding: 15px;
     color: var(--clr6);
     grid-area: subject;
+}
+
+@media (max-width:1200px) {
+    .email-details{
+        font-size: 28px;
+    }
+    
 }

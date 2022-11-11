@@ -8,14 +8,14 @@ export default{
     <div :class="{full : isEdit}" v-if="email" class="email-details">
         <div className="details-actions">
             <button v-if="this.isEdit" @click="onClose" className="action-btn close-btn">Close </button>
-            <button v-else @click="onOpen" className="action-btn open-btn">Open </button>
-            <button @click="onRemove" className="action-btn">🗑️</button>
-            <button @click="onReply" className="action-btn">📩</button>
-            <button @click="onStar" className="action-btn">⭐</button>
+            <button v-else @click="onOpen" title="Open full screen"  className="action-btn open-btn">Open </button>
+            <button @click="onRemove" title="Delete"  className="action-btn">🗑️</button>
+            <button @click="onReply" title="Reply"  className="action-btn">📩</button>
+            <button @click="onStar" title="Star" className="action-btn">⭐</button>
         </div>
         <div className="details-info">
+            <h5>from: {{email.from}} to: me</h5>
             <h3>subject: {{email.subject}}</h3>
-            <h3>from: {{email.from}}</h3>
             <h3>date: {{getDate}}</h3>
         </div>
         <div className="details-body">

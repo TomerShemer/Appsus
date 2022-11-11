@@ -51,5 +51,8 @@
         border:none;
         width: 300px;
     }
+    .email-filter>*{
+        font-size: 28px;
+    }
     
 }

@@ -1,20 +1,17 @@
 .email-preview {
     cursor: pointer;
     background-color: var(--clr5);
-    max-height: 50px;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 0.01fr 0.19fr 0.7fr 0.1fr;
     align-items: center;
     text-align: left;
-    font-size: 14px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
-
+    font-size: 18px;
 }
 
 .email-preview h3,h5{
     font-family: roboto-thin;
-    font-size: 14px;
+    font-size: 20px;    
     color: var(--clr6);
 }
 
@@ -23,11 +20,11 @@
 }
 
 .email-info {
-    width: 100%;
     display: flex;
     gap: 15px;
     color: var(--clr7);
     text-overflow: ellipsis;
+    overflow: hidden;
     white-space: nowrap;
 }
 
@@ -52,16 +49,16 @@
 
 .bold{
     font-family: roboto !important;
-    /* color: black; */
 }
 
 h3.draft{
-    color: red;
+    color: rgb(232, 64, 64);
 }
 
 @media (max-width:1200px) {
     .email-preview{
-        height: max-content;
+        height: 90px;
+        max-width: 100%;
         grid-template-columns: 0.8fr 0.2fr;
         grid-template-rows: 0.6fr 0.2fr 0.2fr ;
         grid-template-areas: 'sender date' 'info star' 'body star';

@@ -2,78 +2,120 @@
 
 import { storageService } from '../../../services/async-storage.service.js';
 import { utilService } from '../../../services/util.service.js';
-
-const EMAILS_KEY = 'emailsDb'
-
-
-const gEmails = [
+const gEmails =     [
     {
         id: 'e101',
-        subject: 'Miss you!',
-        body: 'Would love to catch up sometimes',
+        subject: 'Awesome Deals!',
+        body: 'Check out the latest deals! Up to 80% discount on everything',
         isRead: false,
         isStar: false,
-        isDraft:false,
+        isDraft: false,
         sentAt: 1551133930594,
-        from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        from: 'amazon@deals.com',
+        to: 'bar@appsus.com'
     },
     {
         id: 'e102',
-        subject: 'Hello bar!',
-        body: 'Your first email!',
+        subject: 'Your Subscription is about to end!',
+        body: 'Hello Bar, your spotify subscription is over at 28/09/2022. Check out our deals,Up to 80% discount on everything ',
         isRead: false,
         isStar: false,
-        isDraft:false,
+        isDraft: false,
         sentAt: 1551133930594,
-        from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        from: 'spotify@support.com',
+        to: 'bar@appsus.com'
     },
     {
         id: 'e103',
-        subject: 'Hello bar!',
-        body: 'Your first email!',
+        subject: 'You have 1 new invitation!',
+        body: 'You have 1 new invitation waiting from ',
         isRead: false,
         isStar: false,
-        isDraft:false,
+        isDraft: false,
         sentAt: 1551133930594,
-        from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        from: 'linkdin@support.com',
+        to: 'bar@appsus.com'
     },
     {
         id: 'e104',
-        subject: 'Hello bar!',
-        body: 'Your first email!',
+        subject: 'Check out new APIs on RapidAPI',
+        body: 'Were constantly adding new APIs to the RapidAPI Hub. Search the Hub and',
         isRead: false,
         isStar: false,
-        isDraft:false,
+        isDraft: false,
         sentAt: 1551133930594,
-        from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        from: 'support@rapidapi.com',
+        to: 'bar@appsus.com'
     },
     {
-        id: 'e1045',
-        subject: 'Check Time!!',
-        body: 'Your first email!',
+        id: 'e105',
+        subject: 'Take 15% off on top seller items, Bar',
+        body: 'Take 15% off Use the coupon code SHOPNOV22for a deal of your choice',
         isRead: false,
         isStar: false,
-        isDraft:false,
+        isDraft: false,
         sentAt: 1668024020406,
-        from: 'momo@momo.com',
-        to: 'user@appsus.com'
+        from: 'ebay@reply.ebay.com',
+        to: 'bar@appsus.com'
     },
     {
         id: 'e106',
-        subject: 'Its Bar TESTING',
-        body: 'Your first email!',
+        subject: 'Awesome Deals!',
+        body: 'Check out the latest deals! Up to 80% discount on everything',
         isRead: false,
         isStar: false,
-        isDraft:false,
+        isDraft: false,
+        sentAt: 1551133930594,
+        from: 'amazon@deals.com',
+        to: 'bar@appsus.com'
+    },
+    {
+        id: 'e107',
+        subject: 'Your Subscription is about to end!',
+        body: 'Hello Bar, your spotify subscription is over at 28/09/2022. Check out our deals ',
+        isRead: false,
+        isStar: false,
+        isDraft: false,
+        sentAt: 1551133930594,
+        from: 'spotify@support.com',
+        to: 'bar@appsus.com'
+    },
+    {
+        id: 'e108',
+        subject: 'You have 1 new invitation!',
+        body: 'You have 1 new invitation waiting from ',
+        isRead: false,
+        isStar: false,
+        isDraft: false,
+        sentAt: 1551133930594,
+        from: 'linkdin@support.com',
+        to: 'bar@appsus.com'
+    },
+    {
+        id: 'e109',
+        subject: 'Check out new APIs on RapidAPI',
+        body: 'Were constantly adding new APIs to the RapidAPI Hub. Search the Hub and',
+        isRead: false,
+        isStar: false,
+        isDraft: false,
+        sentAt: 1551133930594,
+        from: 'support@rapidapi.com',
+        to: 'bar@appsus.com'
+    },
+    {
+        id: 'e110',
+        subject: 'Take 15% off on top seller items, Bar',
+        body: 'Take 15% off Use the coupon code SHOPNOV22for a deal of your choice',
+        isRead: false,
+        isStar: false,
+        isDraft: false,
         sentAt: 1668024020406,
-        from: 'bar@appsus.com',
-        to: 'user@appsus.com'
+        from: 'ebay@reply.ebay.com',
+        to: 'bar@appsus.com'
     },
 ]
+
+const EMAILS_KEY = 'emailsDb'
 
 const loggedinUser = {
     email: 'bar@appsus.com',
@@ -143,5 +185,4 @@ function remove(id) {
 function update(email) {
     return storageService.put(EMAILS_KEY, email)
 }
-
 
