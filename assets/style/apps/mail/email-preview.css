@@ -1,14 +1,15 @@
 .email-preview {
     cursor: pointer;
-    background-color: var(--clr2);
-    max-height: 45px;
+    background-color: var(--clr5);
+    max-height: 50px;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 0.01fr 0.19fr 0.7fr 0.1fr;
     align-items: center;
     text-align: left;
     font-size: 14px;
-    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+
 }
 
 .email-preview h3,h5{
@@ -23,7 +24,6 @@
 
 .email-info {
     width: 100%;
-    /* width: 300px; */
     display: flex;
     gap: 15px;
     color: var(--clr7);

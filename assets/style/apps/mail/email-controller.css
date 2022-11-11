@@ -4,15 +4,62 @@
     display: flex;
     flex-direction: column;
     gap: 3px;
-    padding-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+
+}
+
+.logged-user{
+    font-family: roboto;
+    padding: 0 15px 15px 15px;
+    color: var(--clr6);
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    grid-template-rows: 0.1fr 0.1fr 0.4fr;
+    grid-template-areas: 'img name' 'email email' 'bar bar' ;
+}
+
+.logged-user h4{
+    font-family: roboto-bold;
+}
+
+.logged-user small{
+    width: 100px;
+}
+
+.user-img{
+    width: 50px;
+}
+
+.user-name{
+    grid-area: name;
+    display: flex;
+    align-items: center;
+}
+.user-email{
+    grid-area: email;
+    margin-bottom: 10px;
+}
+
+.progress-bar{
+    grid-area: bar;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.bar{
+    background-color:var(--clr6);
+    height:24px;
+    border-radius: 4px;
 }
 
 .toggle-menu-btn{
    color: var(--clr7);
    width: 50px;
-   font-size: 50px;
+   font-size: 52px;
    border: none;
    background-color: transparent;
+   padding: 0;
    display: none;
 }
 .view-mode-btns{
@@ -62,17 +109,13 @@
 
 @media (max-width:1200px) {
     .email-controller {
-        background-color: var(--clr2);
+        padding: 0px;
         position: fixed;
         z-index: 20;
         width: 90%;
-        bottom: 0;
+        height: 90%;
         left: -150%;
-        height: 95%;
-        transition: left 0.5s;
-    }
-    .img-container{
-        display: none;
+        transition: left 0.8s;
     }
     .compose-btn{
         position: fixed;
@@ -81,22 +124,38 @@
         width: 50px;
     }
 
+    .controller-btn{
+        width: 85%;
+    }
+    .logged-user{
+        padding: 18px;
+        width: 300px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.2fr 0.2fr 0.2fr;
+        grid-template-areas: 'img' 'name' 'email' 'bar' ;
+
+    }
+    .toggle-menu-btn{
+        padding: 10px;
+    }
+    .controller{
+        width: 346px;
+    }
     
     .email-controller:not(.open) .toggle-menu-btn{
-        display: block;
         position: fixed;
-        padding: 0;
+        display: block;
         left: 2px;
-        top: 60px;
     }
     .email-controller.open{
-        left: 50%;
-        left: 0;
-
+        left: 0%;
     }
 
     .email-controller.open .toggle-menu-btn{
         display: block;
+    }
+    .email-controller.open .compose-btn{
+        display: none;
     }
     
 }

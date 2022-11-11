@@ -5,18 +5,10 @@ export default {
         <h1 class="new-email-headline">New Message</h1>
         <span @click="this.$emit('close-modal',this.email)">X</span>
         <div className="new-email-input">
-            <label>
-                To
-                <input v-model="email.to" type="email">
-            </label>
-            <label>
-                Subject
-                <input v-model="email.subject" type="text">
-            </label>
+                <input placeholder="to" ref="input"  v-model="email.to" type="email">
+                <input placeholder="subject" v-model="email.subject" type="text">
         </div>
-        <label>
-            <textarea v-model="email.body"></textarea>
-        </label>
+            <textarea placeholder="Message" v-model="email.body"></textarea>
         <div className="new-email-btns">
             <button @click="sendEmail" class="send-btn">Send</button>
         </div>
@@ -30,6 +22,9 @@ export default {
             }
         }
     },
+    mounted() {
+        this.$refs.input.focus()
+      },
     created(){
         if(this.reply ){
             if(this.reply.isDraft){

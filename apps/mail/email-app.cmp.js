@@ -4,6 +4,7 @@ import emailList from "./cmps/email-list.cmp.js"
 import emailFilter from "./cmps/email-filter.cmp.js"
 import emailController from "./cmps/email-controller.cmp.js"
 import emailAdd from "./cmps/email-add.cmp.js"
+import userMsg from "../../cmps/user-msg.cmp.js"
 
 import { emailService } from "./services/email.service.js"
 import { eventBus } from "../../services/event-bus.service.js"
@@ -13,11 +14,11 @@ export default {
     template: `
     <div :class="{dark : isDarkMode}" class="email-main">
         <email-filter @filtered="setFilter" />
-        <email-controller @change-mode="changeMode" @new-email="newEmail" @category="setCategory" />
+        <email-controller :status="getEmailCount" :user="user" @change-mode="changeMode" @new-email="newEmail" @category="setCategory" />
         <div className="img-container"></div>
         <router-view @toggle-star="toggleStar" :emails="emailsToShow" />
-        <!-- <email-list @toggle-star="toggleStar" :emails="emailsToShow" /> -->
         <email-add @close-modal="closeModal" @send-email="sendEmail" v-if="isNewEmail"/>
+        <user-msg />
     </div>`,
     data() {
         return {
@@ -52,7 +53,9 @@ export default {
         },
         toggleStar(email){
             email.isStar = !email.isStar
-            emailService.update(email).then(email => eventBus.emit('update') )
+            emailService.update(email).then(email => eventBus.emit('update'))
+            .then(res => eventBus.emit('show-msg','Starred'))
+            .catch(err => eventBus.emit('show-msg','Couldnt Star this email'))
         },
         newEmail(){
             this.isNewEmail = true
@@ -66,6 +69,8 @@ export default {
                 newEmail.body = email.body
                 newEmail.sentAt = Date.now()
                 emailService.addEmail(newEmail).then(this.getEmails)
+                    .then(res => eventBus.emit('show-msg','Email sent'))
+                    .catch(err => eventBus.emit('show-msg','Couldnt send email'))
         },
         closeModal(email){
             if(!email.id){
@@ -82,6 +87,12 @@ export default {
         emailsToShow() {
             return this.emails.filter(this.isEmailValid)
         },
+        getEmailCount(){
+            let unread = this.emails.filter((email) => !email.isRead)
+            let all = this.emails.filter((email) => !email.isDraft)
+            let width = 100 - (100 * unread.length) / all.length
+            return {all:all.length,unread:unread.length,width}
+        }
 
     },
     created() {
@@ -94,5 +105,6 @@ export default {
         emailController,
         emailList,
         emailAdd,
+        userMsg
     },
 }

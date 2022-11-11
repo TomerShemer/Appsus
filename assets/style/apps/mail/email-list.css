@@ -1,14 +1,15 @@
 .email-list{
     background-color: var(--clr2);
     grid-area: emails;
-    box-shadow: -2px -1px 15px 2px var(--clr1);
-    padding: 8px;
+    overflow-y: scroll;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
 }
 
 @media (max-width:640px) {
     .email-list{
         padding: 10px;
         width: 100vw;
+        overflow: auto;
     }
     
 }

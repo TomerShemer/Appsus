@@ -2,6 +2,7 @@
   background-color: var(--prm1);
   color: var(--prm2);
   padding: 1em;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
