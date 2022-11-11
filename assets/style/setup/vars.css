@@ -9,7 +9,7 @@
 
 --clr1: rgb(255, 255, 255);
 --clr2: #f6f8fc;
---clr3: #c2e7ff; 
+--clr3: #C1E7FF; 
 
 /* inbox */
 --clr4: #d3e3fd; 
@@ -18,6 +18,8 @@
 --clr6: #001D35;
 --clr7: #84878B;
 --clr8: #0957D0;
+--clr9: rgb(233,241,251);
+
 
 
   --secondary-clr1: rgb(88, 201, 58);

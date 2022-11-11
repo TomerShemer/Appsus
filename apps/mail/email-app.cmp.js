@@ -13,7 +13,7 @@ export default {
     template: `
     <div :class="{dark : isDarkMode}" class="email-main">
         <email-filter @filtered="setFilter" />
-        <email-controller @change-mode="changeMode" @new-email="newEmail" @category="setCategory" />
+        <email-controller :status="getEmailCount" :user="user" @change-mode="changeMode" @new-email="newEmail" @category="setCategory" />
         <div className="img-container"></div>
         <router-view @toggle-star="toggleStar" :emails="emailsToShow" />
         <!-- <email-list @toggle-star="toggleStar" :emails="emailsToShow" /> -->
@@ -82,6 +82,12 @@ export default {
         emailsToShow() {
             return this.emails.filter(this.isEmailValid)
         },
+        getEmailCount(){
+            let unread = this.emails.filter((email) => !email.isRead)
+            let all = this.emails.filter((email) => !email.isDraft)
+            let width = 100 - (100 * unread.length) / all.length
+            return {all:all.length,unread:unread.length,width}
+        }
 
     },
     created() {

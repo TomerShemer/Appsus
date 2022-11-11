@@ -1,7 +1,19 @@
 export default {
+    props:['user','status'],
     template: `
     <div :class="{open : isOpen}" class="email-controller">
         <button class="toggle-menu-btn" @click="toggleMenu">☰</button>
+        <div class="logged-user">
+            <img class="user-img" src="../../../assets/img/svg/user.svg" />
+            <h4 class="user-name">{{user.fullname}}</h4>
+            <h4 class="user-email">{{user.email}}</h4>
+            <div class="progress-bar">
+                <div class="bar" :style="{width: status.width + '%'}"></div>
+            </div>
+            <small>{{status.unread}} Emails unread</small><br>
+            <small>{{status.all}} Emails total</small>
+        </div>
+        <div class="controller">  
         <button @click="this.$emit('new-email')" className="compose-btn">Compose</button>
         <button @click="onCategory('inbox',$event)" :class="{active: active==='inbox'}" class="controller-btn"> Inbox </button>
         <button @click="onCategory('starred')" :class="{active: active==='starred'}" class="controller-btn">Starred</button>
@@ -15,7 +27,7 @@ export default {
     data() {
         return {
             active: 'inbox',
-            isOpen:false
+            isOpen: false
         }
     },
     methods: {
@@ -24,9 +36,9 @@ export default {
             this.$emit('category', category)
             this.isOpen = false
         },
-        toggleMenu(){
+        toggleMenu() {
             this.isOpen = !this.isOpen
         }
-    }
+    },
 
 }

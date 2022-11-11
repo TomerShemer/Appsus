@@ -8,6 +8,7 @@
 
 .img-container{
     background-image: url(../../../img/gmail.png);
+    background-position: center;
     grid-area: logo;
     background-repeat: no-repeat;
     background-color:var(--clr2);
@@ -19,13 +20,18 @@
     --clr1:#3C3C3C;
     --clr4: #3C3C3C;
     --clr3: #252525;
+    --clr5:2F2F2F;
 }
 
 @media (max-width:1200px) {
     .email-main{
-        grid-template-rows: 0.2fr 0.8fr;
+        grid-template-rows: 0.1fr 0.2fr 0.8fr;
         grid-template-columns: 1fr;
-        grid-template-areas: 'filter' 'emails';
+        grid-template-areas: 'logo' 'filter' 'emails';
+    }
+    .img-container{
+        background-image: url(../../../img/gmail-mobile.png);
+        background-position: 50%;
     }
     
 }

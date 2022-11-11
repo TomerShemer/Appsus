@@ -3,13 +3,25 @@
     text-align: center;
     grid-area: filter;
     display: flex;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+
 }
 
 .filter-input{
-    width: 70%;
-    border-radius: 19px;
+    width: 40%;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--clr3);
     justify-self: flex-start;
     align-self: center;
+    transition: background-color 0.3s ease-out;
+}
+.filter-input:focus{
+    background-color: var(--clr1);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+
+    outline: none;
 }
 
 .filter-btns{
@@ -20,7 +32,7 @@
 }
 
 .filter-btn{
-    color: black;
+    color: var(--clr6);
     background-color: var(--clr2);
     border-radius: 19px;
     width: 90px;
@@ -32,6 +44,11 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
+    }
+    .filter-input{
+        border-radius: 4px;
+        border:none;
+        width: 300px;
     }
     
 }
