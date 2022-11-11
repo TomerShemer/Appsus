@@ -11,7 +11,10 @@
     z-index: 10;
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
+}
 
+.note-img>.color-palette {
+    transform: translate(0, 100%);
 }
 
 .color-palette-div {
@@ -28,4 +31,22 @@
 
 .color-palette-div:hover {
     outline: 2px black solid;
+}
+
+.color-palette:focus {
+    outline: none;
+}
+
+@media (max-width: 700px) {
+    .color-palette {
+        width: 250px;
+        height: 110px;
+        display: grid;
+        gap: 7px;
+        grid-template-columns: repeat(5, 40px);
+        grid-template-rows: repeat(2, 40px);
+        transform: translateY(100%);
+        /* columns: ; */
+    }
+
 }

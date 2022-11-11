@@ -3,6 +3,10 @@
     /* outline: 2px blue solid; */
 }
 
+.note-txt h1 {
+    font-family: open-sans;
+}
+
 .note-txt p {
     margin: 0;
     display: block;

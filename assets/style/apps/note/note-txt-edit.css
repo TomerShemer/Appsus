@@ -1,15 +1,26 @@
 .note-txt-edit {
     height: 90%;
+    font-family: open-sans;
 }
 
 .note-txt-edit form {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     gap: 15px;
     padding: 10px;
+}
+
+.note-txt-edit label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-txt-edit label textarea,
+.note-txt-edit label input {
+    border: 1px solid #cdcdcdb1;
 }
 
 .note-txt-edit textarea {

@@ -13,7 +13,7 @@ export default {
         <section className="note-app-container main-layout flex flex-column align-center">
             <note-filter @filtered="setFilter" />
             <note-add @add="addNewNote"/>
-            <note-list v-if="notes" :notes="notes"/>
+            <note-list v-if="notes" @delete-note="deleteNote" :notes="notes"/>
             <note-screen v-if="isOpen" />
         </section>
         `,
@@ -43,6 +43,8 @@ export default {
                                 return regex.test(note.info.title)
                             } else if (note.type === 'note-todos') {
                                 return regex.test(note.info.label) || regex.test(note.info.txt)
+                            } else if (note.type === 'note-video') {
+                                return regex.test(note.info.title)
                             }
                         })
                     } else this.notes = notes
@@ -56,19 +58,17 @@ export default {
             }
             // console.log(note);
             this.saveNote(note)
-        },
-        saveNote(note) {
-            noteService.save(note)
                 .then(note => {
                     this.notes.unshift(note)
                 })
         },
+        saveNote(note) {
+            return noteService.save(note)
+        },
         deleteNote(payload) {
+            const idx = this.notes.findIndex(note => payload === note.id)
+            this.notes.splice(idx, 1)
             noteService.remove(payload)
-                .then((notes) => {
-                    const idx = notes.findIndex(note => payload.id === note.id)
-                    this.notes.splice(idx, 1)
-                })
         },
         editNote(payload) {
             let noteCopy = { ...payload }
@@ -105,11 +105,6 @@ export default {
             const idx = this.notes.findIndex(note => payload.id === note.id)
             this.notes.splice(idx, 1, payload)
         },
-        saveNote(note) {
-            // console.log(note);
-            noteService.save(note)
-        }
-
     },
     computed: {
     },

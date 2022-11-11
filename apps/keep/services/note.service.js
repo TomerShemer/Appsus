@@ -10,6 +10,7 @@ export const noteService = {
     getNewTxtNote,
     getNewImgNote,
     getNewTodosNote,
+    getNewVideoNote,
     prepareNoteTodos,
     getCachedNotes,
 }
@@ -24,7 +25,8 @@ const startingDatabase = [
         type: "note-txt",
         isPinned: true,
         info: {
-            txt: "Fullstack Me Baby!"
+            txt: "Fullstack Me Baby!",
+            title: "",
         }
     },
     {
@@ -66,7 +68,8 @@ const startingDatabase = [
         type: "note-txt",
         isPinned: false,
         info: {
-            txt: "Don't forget to check Amazon delivery status"
+            txt: "Don't forget to check Amazon delivery status",
+            title: "",
         }
     },
     {
@@ -108,7 +111,8 @@ const startingDatabase = [
         type: "note-txt",
         isPinned: false,
         info: {
-            txt: "Talk to a designer about new logo"
+            txt: "Talk to a designer about new logo",
+            title: "",
         }
     },
     {
@@ -146,6 +150,15 @@ const startingDatabase = [
             txt: 'Work on garden,Retile the kitchen, Paint walls, Buy new furniture',
         },
         isPinned: true,
+    },
+    {
+        id: utilService.makeId(),
+        type: 'note-video',
+        info: {
+            url: 'https://www.youtube.com/watch?v=tF1LUS9FK3o&ab_channel=SEN31Extra',
+            title: 'LOL'
+        },
+        isPinned: true
     }
 ]
 
@@ -167,8 +180,8 @@ function save(note) {
 
 function remove(noteId) {
     // const idx = gNotesCache.findIndex(note => note.id === noteId)
-    console.log('removing note:', noteId);
-    return storageService.remove(NOTES_KEY, noteId).then(() => gNotesCache)
+    // console.log('removing note:', noteId);
+    return storageService.remove(NOTES_KEY, noteId).then(() => query())
 }
 
 function getNewTxtNote() {
@@ -196,6 +209,16 @@ function getNewTodosNote() {
             label: '',
             todos: [],
             txt: '',
+        }
+    }
+}
+
+function getNewVideoNote() {
+    return {
+        type: 'note-video',
+        info: {
+            url: '',
+            title: '',
         }
     }
 }

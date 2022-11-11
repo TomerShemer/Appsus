@@ -8,8 +8,7 @@ export default {
             <section v-if="pinned.length" className="note-list pinned-list">
                 <note-preview @toggle-pin="togglePin" @delete-note="deleteNote" v-for="note in pinned" :note="note" :key="note.id" />
             </section>
-            <section v-if="unpinned.length" className="note-list unpinned-list">
-                <note-preview @toggle-pin="togglePin" @delete-note="deleteNote" v-for="note in unpinned" :note="note" :key="note.id" />
+            <section v-if="unpinned.length" className="note-list unpinned-list"><note-preview @toggle-pin="togglePin" @delete-note="deleteNote" v-for="note in unpinned" :note="note" :key="note.id" />
             </section>
         </section>
     `,

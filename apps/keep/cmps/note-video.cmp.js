@@ -1,18 +1,19 @@
 import noteActions from "./note-actions.cmps.js"
 import colorPalette from "./color-palette.cmp.js"
+
 export default {
     props: ['info', 'color'],
     template: `
-        <section :style="{backgroundColor: color}" class="note note-img">
-            <label>{{info.title}}</label>
-            <img :src="info.url" alt="" />
+        <section :style="{backgroundColor: color}" className="note note-video">
+            <h1>{{info.title}}</h1>
+            <iframe :src="getSrc" width="216" height="130" frameborder="0"></iframe>
             <note-actions @toggle-palette="openPalette" @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote"/>
             <color-palette @blur="closePalette" ref="colorPaletteRef" tabindex="0" @change-color="changeColor" v-show="isPaletteOpen" />
         </section>
     `,
     data() {
         return {
-            isPaletteOpen: false,
+            isPaletteOpen: false
         }
     },
     methods: {
@@ -41,9 +42,12 @@ export default {
         }
     },
     computed: {
-    },
-    created() {
-        // console.log(this.info);
+        getSrc() {
+            const startIdx = this.info.url.indexOf('=') + 1
+            const endIdx = this.info.url.indexOf('&')
+            const id = this.info.url.slice(startIdx, endIdx)
+            return `https://www.youtube.com/embed/${id}`
+        }
     },
     components: {
         noteActions,

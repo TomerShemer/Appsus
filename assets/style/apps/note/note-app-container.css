@@ -7,9 +7,6 @@
     padding: 1em;
 }
 
-.note-app-container pre {
-    margin: 0;
-}
 
 .note-app-container>* {
     /* outline: 1px black solid; */
@@ -38,6 +35,11 @@
 .note:hover {
     -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.note-app-container input:focus-within,
+.note-app-container textarea:focus-within {
+    outline: 0;
 }
 
 .small-scroll::-webkit-scrollbar {

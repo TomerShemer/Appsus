@@ -16,6 +16,4 @@ export default {
             this.$emit('change-color', color)
         }
     },
-    computed: {
-    },
 }

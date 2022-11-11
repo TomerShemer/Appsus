@@ -5,9 +5,10 @@ export default {
     props: ['info', 'isPinned', 'color'],
     template: `
         <section :style="{backgroundColor: color}" className="note note-txt">
+            <h1>{{info.title}}</h1>
             <p class="small-scroll">{{info.txt}}</p>
-            <note-actions @toggle-palette="togglePalette" :isPinned="isPinned" @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote"/>
-            <color-palette @change-color="changeColor" v-if="isPaletteOpen" />
+            <note-actions @toggle-palette="openPalette" :isPinned="isPinned" @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote"/>
+            <color-palette @blur="closePalette" ref="colorPaletteRef" tabindex="0" @change-color="changeColor" v-show="isPaletteOpen" />
         </section>
     `,
     data() {
@@ -26,11 +27,18 @@ export default {
         togglePin() {
             this.$emit('toggle-pin')
         },
-        togglePalette() {
-            this.isPaletteOpen = !this.isPaletteOpen
-        },
         changeColor(color) {
             this.$emit('change-color', color)
+            this.isPaletteOpen = false
+        },
+        openPalette() {
+            if (this.isPaletteOpen) return
+            this.isPaletteOpen = true
+            setTimeout(() => {
+                this.$refs.colorPaletteRef.$el.focus()
+            }, 0);
+        },
+        closePalette() {
             this.isPaletteOpen = false
         }
     },
@@ -39,5 +47,7 @@ export default {
     components: {
         noteActions,
         colorPalette
+    },
+    mounted() {
     }
 }

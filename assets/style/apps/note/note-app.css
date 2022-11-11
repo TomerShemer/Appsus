@@ -12,4 +12,6 @@
 @import './note-txt-edit.css';
 @import './note-img-edit.css';
 @import './note-todos-edit.css';
+@import './note-video.css';
+@import './note-video-edit.css';
 @import './color-palette.css';

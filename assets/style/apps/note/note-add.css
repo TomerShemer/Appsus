@@ -7,12 +7,12 @@
     top: 0;
     right: 1em;
     height: 50px;
-    gap: 5px;
+    gap: 3px;
 }
 
 .note-add-actions>div {
-    height: 45px;
-    width: 45px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -23,6 +23,7 @@
 .note-add-actions div>svg {
     height: 20px;
     width: 20px;
+    fill: #3f3f3fb1;
 }
 
 .note-add-actions>div:hover {
@@ -33,9 +34,13 @@
     background-color: #e9eaea;
 }
 
+.note-add-actions>div.active svg {
+    fill: rgb(35, 35, 35);
+}
+
+.note-add-starter,
 .note-add form input {
-    max-width: 400px;
-    border-radius: 50px;
+    width: 400px;
     height: 48px;
     border: 0;
     box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
@@ -43,14 +48,50 @@
     -moz-box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
 }
 
-.note-add-txt-input,
+.note-add-starter {
+    border-radius: 50px;
+    font-family: open-sans-light;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+}
+
+.note-add-starter,
+.note-add-starter label {
+    cursor: text;
+}
+
+.note-add-txt-title,
 .note-add-img-title,
-.note-add-todos-label {
+.note-add-todos-label,
+.note-add-video-title {
+    border-radius: 25px 25px 0 0;
     padding: 1em 14em 1em 1em;
+}
+
+.note-add-txt-input,
+.note-add-img-input,
+.note-add-todos-input,
+.note-add-video-input {
+    border-radius: 0 0 25px 25px;
+
 }
 
 .note-add-actions-txt,
 .note-add-actions-img,
 .note-add-actions-todos {
     /* padding: 12px; */
+}
+
+@media (max-width: 600px) {
+    .note-add form input {
+        width: 280px;
+        padding: 1em;
+    }
+
+    .note-add-actions {
+        top: -55%;
+        left: 25%;
+    }
 }

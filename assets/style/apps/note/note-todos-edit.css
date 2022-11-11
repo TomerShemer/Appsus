@@ -10,9 +10,19 @@
     justify-content: space-between;
 }
 
+.note-todos-edit label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-todos-edit label textarea,
+.note-todos-edit label input {
+    border: 1px solid #cdcdcdb1;
+}
+
 .note-todos-edit textarea {
     resize: none;
-    border: 1px solid black;
 }
 
 .note-todos-edit label {

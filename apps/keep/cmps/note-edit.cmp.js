@@ -1,13 +1,14 @@
 import noteTxtEdit from "./note-txt-edit.js"
 import noteImgEdit from "./note-img-edit.cmp.js"
 import noteTodosEdit from "./note-todos-edit.cmp.js"
+import noteVideoEdit from "./note-video-edit.cmp.js"
 
 export default {
     props: ['note'],
     template: `
         <section className="note-edit">
             <h1>Edit your note</h1>
-            <component @changed-todos="saveNoteTodos" @changed-img="saveNoteImg" @changed-txt="saveNoteTxt" @cancel-changes="discardChanges" :is="note.type + '-edit'" :note="note" >
+            <component @changed-video="saveNoteVideo" @changed-todos="saveNoteTodos" @changed-img="saveNoteImg" @changed-txt="saveNoteTxt" @cancel-changes="discardChanges" :is="note.type + '-edit'" :note="note" >
             </component>
         </section>
         `,
@@ -19,9 +20,9 @@ export default {
         saveNote(note) {
             this.$emit('saved-note-changes', note)
         },
-        saveNoteTxt(newText) {
+        saveNoteTxt(newInfo) {
             const note = { ...this.note }
-            note.info.txt = newText
+            note.info = newInfo
             this.saveNote(note)
         },
         saveNoteImg(newInfo) {
@@ -32,8 +33,12 @@ export default {
         },
         saveNoteTodos(newInfo) {
             const note = { ...this.note }
-            note.info.label = newInfo.label
-            note.info.txt = newInfo.txt
+            note.info = newInfo
+            this.saveNote(note)
+        },
+        saveNoteVideo(newInfo) {
+            const note = { ...this.note }
+            note.info = newInfo
             this.saveNote(note)
         },
         discardChanges() {
@@ -46,5 +51,6 @@ export default {
         noteTxtEdit,
         noteImgEdit,
         noteTodosEdit,
+        noteVideoEdit,
     }
 }
