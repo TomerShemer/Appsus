@@ -25,6 +25,7 @@
 
 @media (max-width:1200px) {
     .email-main{
+        height: 90vh;
         grid-template-rows: 0.1fr 0.2fr 0.8fr;
         grid-template-columns: 1fr;
         grid-template-areas: 'logo' 'filter' 'emails';

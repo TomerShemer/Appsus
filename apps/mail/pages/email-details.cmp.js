@@ -52,10 +52,14 @@ export default{
         },
         onRemove(){
             emailService.remove(this.email.id).then(email => eventBus.emit('update'))
+            .then(res => eventBus.emit('show-msg','Email removed'))
+            .catch(err => eventBus.emit('show-msg','Couldnt remove email'))
         },
         onStar(){
             this.email.isStar = !this.email.isStar
-            emailService.update(this.email).then(email => eventBus.emit('update') )
+            emailService.update(this.email).then(email => eventBus.emit('update'))
+            .then(res => eventBus.emit('show-msg','Starred'))
+            .catch(err => eventBus.emit('show-msg','Couldnt Star this email'))
         },
         onReply(){
             this.isReply = !this.isReply
@@ -74,6 +78,8 @@ export default{
                 newEmail.body = email.body
                 newEmail.sentAt = Date.now()
                 emailService.addEmail(newEmail).then(email => eventBus.emit('update'))
+                .then(res => eventBus.emit('show-msg','Email sent'))
+                .catch(err => eventBus.emit('show-msg','Couldnt send email'))
                 this.isReply = false
         },
         closeModal(email){

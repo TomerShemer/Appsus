@@ -44,6 +44,7 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
+        position: sticky;
     }
     .filter-input{
         border-radius: 4px;
