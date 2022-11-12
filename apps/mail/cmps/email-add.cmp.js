@@ -7,13 +7,13 @@ export default {
         <h1 class="new-email-headline">New Message</h1>
         <span @click="this.$emit('close-modal')">X</span>
         <div className="new-email-input">
-                <input placeholder="to" ref="input"  v-model="email.to" type="email">
+                <input placeholder="to" ref="input" v-model="email.to" type="email">
                 <input placeholder="subject" v-model="email.subject" type="text">
         </div>
             <textarea placeholder="Message" v-model="email.body"></textarea>
         <div className="new-email-btns">
-            <button :disabled="!validEmail" @click="sendEmail" class="send-btn">Send <i class="fa-solid fa-paper-plane"></i></button>
-            <button :disabled="!email.body"  @click="saveDraft" title="drafts"class="draft-btn"><i class="fa-solid fa-trash"></i></button>
+            <button :disabled="!validEmail" @click="sendEmail" class="send-btn">Send <i class="fa-solid fa-paper-plane"></i> </button>
+            <button :disabled="!email.body"  @click="saveDraft" title="drafts"class="draft-btn"><i class="fa-solid fa-trash"></i> </button>
         </div>
     </div>`,
     data() {
@@ -27,6 +27,9 @@ export default {
     },
     mounted() {
         this.$refs.input.focus()
+        tinymce.init({
+            selector: 'textarea',
+          })
       },
     created(){
         if(this.reply ){

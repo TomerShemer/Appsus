@@ -58,6 +58,13 @@ export default{
             this.$router.back()
         },
         onRemove(){
+            if(!this.email.removedAt){
+                this.email.removedAt = Date.now()
+                emailService.update(this.email).then(email => eventBus.emit('update'))
+                .then(res => eventBus.emit('show-msg','Email sent to Trash'))
+                .catch(err => eventBus.emit('show-msg','Couldnt remove email'))
+                return
+            }
             emailService.remove(this.email.id).then(email => eventBus.emit('update'))
             .then(res => eventBus.emit('show-msg','Email removed'))
             .catch(err => eventBus.emit('show-msg','Couldnt remove email'))

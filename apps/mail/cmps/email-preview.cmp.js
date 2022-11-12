@@ -11,7 +11,7 @@ export default {
             <h3 :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{email.subject}}</h3>
             <h3>{{getSummaryBody}}</h3>
         </div>
-        <h5 v-else class="date" :class="{bold : !email.isRead}">{{getDate}}</h5>
+        <h5 class="date" :class="{bold : !email.isRead}">{{getDate}}</h5>
     </div>
     <email-details :id="email.id" v-if="isOpen" />
     `,

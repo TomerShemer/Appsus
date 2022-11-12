@@ -21,6 +21,7 @@ export default {
         <button @click="onCategory('starred')" :class="{active: active==='starred'}" class="controller-btn"><i class="fa-regular fa-star"></i> Starred</button>
         <button @click="onCategory('sent')" :class="{active: active==='sent'}" class="controller-btn"> <i class="fa-solid fa-paper-plane"></i> Sent</button>
         <button @click="onCategory('drafts')" :class="{active: active==='drafts'}" class="controller-btn"><i class="fa-regular fa-file"></i> Drafts</button>
+        <button @click="onCategory('trash')" :class="{active: active==='trash'}" class="controller-btn"><i class="fa-solid fa-trash"></i> Trash</button>
         <div className="view-mode-btns">
             <button @click="this.$emit('change-mode','dark')" class="dark-mode-btn"><i class="fa-solid fa-moon"></i> Dark</button>
             <button @click="this.$emit('change-mode','light')" class="light-mode-btn"><i class="fa-solid fa-sun"></i> Light</button>

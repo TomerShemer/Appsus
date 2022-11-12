@@ -10,6 +10,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1551133930594,
         from: 'amazon@deals.com',
         to: 'bar@appsus.com'
@@ -21,6 +22,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1551133930594,
         from: 'spotify@support.com',
         to: 'bar@appsus.com'
@@ -32,6 +34,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1551133930594,
         from: 'linkdin@support.com',
         to: 'bar@appsus.com'
@@ -43,6 +46,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1551133930594,
         from: 'support@rapidapi.com',
         to: 'bar@appsus.com'
@@ -54,6 +58,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1668024020406,
         from: 'ebay@reply.ebay.com',
         to: 'bar@appsus.com'
@@ -65,6 +70,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1551133930594,
         from: 'amazon@deals.com',
         to: 'bar@appsus.com'
@@ -76,6 +82,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1551133930594,
         from: 'spotify@support.com',
         to: 'bar@appsus.com'
@@ -87,6 +94,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1551133930594,
         from: 'linkdin@support.com',
         to: 'bar@appsus.com'
@@ -98,6 +106,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1551133930594,
         from: 'support@rapidapi.com',
         to: 'bar@appsus.com'
@@ -109,6 +118,7 @@ const gEmails =     [
         isRead: false,
         isStar: false,
         isDraft: false,
+        removedAt: null,
         sentAt: 1668024020406,
         from: 'ebay@reply.ebay.com',
         to: 'bar@appsus.com'
