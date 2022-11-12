@@ -31,7 +31,7 @@
     margin-bottom: 5px;
 }
 
-.email-details small, p{
+.email-details small, .email-details p{
     font-family: roboto-thin;
 }
 

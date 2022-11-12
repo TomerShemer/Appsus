@@ -17,16 +17,23 @@ export default {
         <email-controller :status="getEmailCount" :user="user" @change-mode="changeMode" @new-email="newEmail" @on-category="setCategory" />
         <div className="img-container"></div>
         <router-view @toggle-star="toggleStar" :emails="emailsToShow" />
-        <email-add @close-modal="closeModal" @send-email="sendEmail" v-if="isNewEmail"/>
+        <email-add :note="note" @close-modal="closeModal" @send-email="sendEmail" v-if="isNewEmail"/>
         <user-msg />
     </div>`,
+    mounted(){
+        let {title , body , todo} = this.$route.query
+        if(!title && !body) return
+        this.note = {title , body ,todo}
+        this.isNewEmail = true
+    },
     data() {
         return {
             user:{},
             isNewEmail: false,
             emails: [],
             filterBy: { txt: '', mode: 'all'},
-            isDarkMode:false
+            isDarkMode:false,
+            note: null
         }
     },
     methods: {

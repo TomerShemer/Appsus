@@ -14,14 +14,10 @@
   padding: 5px;
 }
 
-.app-header a:hover{
-  background-color: var(--prm3);
-  border-radius: 12px;
+.logo{
+  font-family: roboto-bold;
+  font-size: 20px;
 }
 
-@media(max-width: 720px) {
-  .app-header {
-    background-color: var(--clr3);
-    color: var(--secondary-clr2);
-  }
-}
+
+

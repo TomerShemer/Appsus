@@ -13,6 +13,7 @@ export default{
             <button @click="onReply" title="Reply"  className="action-btn"><i class="fa-solid fa-reply"></i></button>
             <button @click="toggleStar" v-html="getStarIcon" title="Star" className="action-btn"></button>
             <button @click="toggleRead" v-html="getEmailIcon" :title="Read/Unread" className="action-btn"></button>
+            <button @click="saveNote" title="Save as note" className="action-btn"> <i class="fa-solid fa-note-sticky"></i></button>
         </div>
         <div className="details-info">
             <h2>{{email.subject}}</h2>
@@ -101,6 +102,9 @@ export default{
         },
         closeModal(email){
                 this.isReply=false
+        },
+        saveNote(){
+            this.$router.push(`/notes?title=${this.email.subject}&body=${this.email.body}`)
         }
     },
     components:{

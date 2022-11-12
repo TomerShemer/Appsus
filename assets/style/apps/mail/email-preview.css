@@ -63,6 +63,7 @@ h3.draft{
         grid-template-rows: 0.6fr 0.2fr 0.2fr ;
         grid-template-areas: 'sender date' 'info star' 'body star';
         position: relative;
+        padding: 17px;
     }
     .sender{
         grid-area: sender;

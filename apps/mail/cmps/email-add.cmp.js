@@ -1,7 +1,7 @@
 import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
-    props: ['reply'],
+    props: ['reply', 'note'],
     template: `
     <div className="email-add">
         <h1 class="new-email-headline">New Message</h1>
@@ -20,8 +20,8 @@ export default {
         return {
             email: {
                 to: '',
-                subject:  '',
-                body:''
+                subject: '',
+                body: ''
             }
         }
     },
@@ -29,38 +29,45 @@ export default {
         this.$refs.input.focus()
         tinymce.init({
             selector: 'textarea',
-          })
-      },
-    created(){
-        if(this.reply ){
-            if(this.reply.isDraft){
+        })
+    },
+    created() {
+        if (this.reply) {
+            if (this.reply.isDraft) {
                 this.email.body = this.reply.body
             }
             this.email.to = this.reply.from
             this.email.subject = this.reply.isDraft ? this.reply.subject : `Reply: ${this.reply.subject}`
         }
+        if (this.note) {
+            this.email.subject = this.note.title
+            if (this.note.todo) {
+                this.note.body = this.note.body.split(',').map(todo => todo.trim() + '<br>').join('')
+            }
+            this.email.body = this.note.body
+        }
     },
     methods: {
         sendEmail() {
             let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-            if(!regex.test(this.email.to)){
-                    eventBus.emit('show-msg','Please enter valid email')
-                    return false
-            } 
+            if (!regex.test(this.email.to)) {
+                eventBus.emit('show-msg', 'Please enter valid email')
+                return false
+            }
             this.email.isDraft = false
             // this.email.from = 'me'
             console.log(this.email)
             this.$emit('send-email', this.email)
         },
-        saveDraft(){
-            if(!this.email.body || !this.email.subject) return false
+        saveDraft() {
+            if (!this.email.body || !this.email.subject) return false
             this.email.isDraft = true
             this.$emit('send-email', this.email)
         }
     },
-    computed:{
-        validEmail(){
-            if(!this.email.to || !this.email.subject || !this.email.body){
+    computed: {
+        validEmail() {
+            if (!this.email.to || !this.email.subject || !this.email.body) {
                 return false
             }
             return true

@@ -1,5 +1,4 @@
 
-
 export default {
     template: `
         <section class="home-page">
@@ -7,8 +6,10 @@ export default {
                 <div class="hero-text">
                     <h1>Appsus</h1>
                     <p>Made By</p>
-                    <button>Notes</button>
-                    <button>Email</button>
+                    <div className="links">
+                        <router-link to="/notes"><button>Notes</button></router-link> |
+                        <router-link to="/mail"><button>Mail</button></router-link>
+                    </div>
                 </div>
             </div>
         </section>
