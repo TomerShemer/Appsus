@@ -8,7 +8,7 @@ export default {
            </div>
             <div className="profile-container">
                 <div className="profile1">
-                    <img src="https://img.a.transfermarkt.technology/portrait/big/3139-1459504284.jpg?lm=1" alt="" />
+                    <img src="https://i.ibb.co/DWbY9qc/IMG-4123.jpg"  alt="" />
                     <h2>Bar Zaken</h2>
                     <router-link to="/mail"><h3>Gmail App</h3></router-link> 
                 </div>
