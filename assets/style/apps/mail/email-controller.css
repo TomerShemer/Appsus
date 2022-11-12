@@ -20,7 +20,7 @@
     grid-template-areas: 'img name' 'email email' 'bar bar' 'st st'  ;
 }
 
-.logged-user h4{
+.logged-user h4, .logged-user small{
     font-family: roboto-bold;
 }
 
