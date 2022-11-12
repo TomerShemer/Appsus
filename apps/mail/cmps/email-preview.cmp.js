@@ -2,7 +2,7 @@ import emailDetails from "../pages/email-details.cmp.js"
 
 export default {
     props: ['email'],
-    emits:['toggle-star'],
+    emits: ['toggle-star'],
     template: `
     <div @click="togglePreview()" :class="{unread : !email.isRead}" class="email-preview" >
         <button @click.stop="toggleStar" v-html="getStarIcon" className="star-btn"></button>
@@ -24,8 +24,8 @@ export default {
         togglePreview() {
             this.isOpen = !this.isOpen
         },
-        toggleStar(){
-            this.$emit('toggle-star',this.email)
+        toggleStar() {
+            this.$emit('toggle-star', this.email)
         }
 
     },
@@ -42,12 +42,8 @@ export default {
         getSummaryBody() {
             return this.email.body.substring(0, 90).trim() + '...'
         },
-
-
     },
     components: {
         emailDetails,
     }
-
-
 }

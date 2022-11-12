@@ -1,5 +1,5 @@
 export default {
-    props:['user','status'],
+    props: ['user', 'status'],
     template: `
     <div :class="{open : isOpen}" class="email-controller">
         <button class="toggle-menu-btn" @click="toggleMenu">☰</button>
@@ -44,5 +44,4 @@ export default {
             this.isOpen = !this.isOpen
         }
     },
-
 }

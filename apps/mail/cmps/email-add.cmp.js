@@ -26,7 +26,6 @@ export default {
                 subject: '',
                 body: ''
             },
-            msg: ''
         }
     },
     mounted() {
@@ -39,7 +38,7 @@ export default {
         //       });
         //     }
         //   });
-        
+
     },
     created() {
         if (this.reply) {
@@ -76,7 +75,7 @@ export default {
         saveNote() {
             this.$router.push(`/notes?title=${this.email.subject}&body=${this.email.body}`)
         },
-        addListner(){
+        addListner() {
             tinymce.activeEditor.on('input', function (e) {
                 this.email.body = tinyMCE.activeEditor.getContent()
             })
@@ -90,5 +89,4 @@ export default {
             return true
         }
     },
-
 }
