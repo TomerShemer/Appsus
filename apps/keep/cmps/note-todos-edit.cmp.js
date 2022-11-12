@@ -34,6 +34,4 @@ export default {
             this.$emit('cancel-changes')
         },
     },
-    computed: {
-    },
 }

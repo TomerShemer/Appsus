@@ -1,6 +1,5 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
-import { eventBus } from '../../../services/event-bus.service.js'
 
 export const noteService = {
     query,
@@ -186,8 +185,6 @@ function save(note) {
 }
 
 function remove(noteId) {
-    // const idx = gNotesCache.findIndex(note => note.id === noteId)
-    // console.log('removing note:', noteId);
     return storageService.remove(NOTES_KEY, noteId).then(() => query())
 }
 
@@ -255,11 +252,9 @@ function _createNotes() {
             if (!res || !res.length) {
                 gNotesCache = [...startingDatabase]
                 localStorage.setItem(NOTES_KEY, JSON.stringify(gNotesCache))
-                // storageService.
             } else {
                 gNotesCache = res
             }
-            console.log('gNotesCache', gNotesCache)
             return gNotesCache
         })
 }

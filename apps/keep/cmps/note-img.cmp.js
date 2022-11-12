@@ -43,11 +43,6 @@ export default {
             this.$emit('send-email')
         }
     },
-    computed: {
-    },
-    created() {
-        // console.log(this.info);
-    },
     components: {
         noteActions,
         colorPalette

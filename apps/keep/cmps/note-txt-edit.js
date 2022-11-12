@@ -27,7 +27,6 @@ export default {
     },
     methods: {
         confirmChanges() {
-            // debugger
             this.$emit('changed-txt', this.newInfo)
         },
         discardChanges() {
@@ -35,19 +34,7 @@ export default {
             this.$emit('cancel-changes')
         },
         updateTxt(txt) {
-            // console.log(txt);
             this.newInfo.txt = txt
         }
     },
-    computed: {
-    },
-    created() {
-        // console.log(this.note)
-    },
-    mounted() {
-        //TODO
-        // tinymce.init({
-        //     selector: 'textarea',
-        // })
-    }
 }

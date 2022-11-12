@@ -51,8 +51,6 @@ export default {
             this.$emit('send-email')
         }
     },
-    computed: {
-    },
     components: {
         noteActions,
         colorPalette

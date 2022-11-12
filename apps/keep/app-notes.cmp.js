@@ -36,7 +36,6 @@ export default {
                     } else if (this.filterBy.txt) {
                         const regex = new RegExp(this.filterBy.txt, 'i')
                         this.notes = notes.filter(note => {
-                            // debugger
                             if (note.type === 'note-txt') {
                                 return regex.test(note.info.txt)
                             } else if (note.type === 'note-img') {
@@ -48,7 +47,6 @@ export default {
                             }
                         })
                     } else this.notes = notes
-                    // console.log('new:', notes);
                 })
         },
         addNewNote(newNote) {
@@ -56,7 +54,6 @@ export default {
             if (note.type === 'note-todos') {
                 note = noteService.prepareNoteTodos(note)
             }
-            // console.log(note);
             this.saveNote(note)
                 .then(note => {
                     this.notes.unshift(note)
@@ -78,19 +75,15 @@ export default {
             noteService.save(noteCopy)
                 .then(() => {
                     this.getNotesToShow()
-                    // console.log('success');
                 })
                 .catch(err => {
-                    // console.log('Error:', err);
                 })
         },
         toggleScreen(isOpen) {
-            // console.log('toggling screen');
             this.isOpen = isOpen
         },
         setFilter(filterBy) {
             this.filterBy = filterBy
-            // console.log(this.filterBy);
             this.getNotesToShow()
         },
         togglePin(note) {
@@ -105,9 +98,6 @@ export default {
             const idx = this.notes.findIndex(note => payload.id === note.id)
             this.notes.splice(idx, 1, payload)
         },
-
-    },
-    computed: {
 
     },
     components: {
@@ -125,7 +115,5 @@ export default {
         eventBus.on('toggle-pin', this.togglePin)
         eventBus.on('toggled-todo', this.toggledTodo)
         eventBus.on('color-changed', this.saveNote)
-
     },
-
 }

@@ -45,8 +45,6 @@ export default {
             this.$emit('discard-changes')
         }
     },
-    computed: {
-    },
     components: {
         noteTxtEdit,
         noteImgEdit,

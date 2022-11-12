@@ -22,6 +22,4 @@ export default {
             this.$emit('filtered', this.filterBy)
         }
     },
-    computed: {
-    },
 }

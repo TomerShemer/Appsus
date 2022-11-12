@@ -32,7 +32,6 @@ export default {
         },
         setFilter(filter) {
             this.selectedBook = null
-            console.log(filter);
             this.filterBy = filter
             this.booksToShow()
         },

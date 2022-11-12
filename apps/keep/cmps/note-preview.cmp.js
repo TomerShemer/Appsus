@@ -27,23 +27,19 @@ export default {
             eventBus.emit('delete-note', this.note.id)
         },
         openEdit() {
-            // console.log('editing', this.note.id);
             this.noteToEdit = { ...this.note }
             eventBus.emit('toggle-screen', true)
         },
         closeEdit() {
-            // change to !isSelected?
             this.noteToEdit = null
             eventBus.emit('toggle-screen', false)
         },
         save(note) {
-            // this.$emit('note-changed', note)
             eventBus.emit('note-edited', note)
             this.closeEdit()
         },
         togglePin() {
             this.note['isPinned'] = !this.note.isPinned
-            // console.log('toggling', this.note, this.note.isPinned);
             eventBus.emit('toggle-pin', this.note)
             this.$emit('toggle-pin', this.note)
         },
@@ -76,8 +72,6 @@ export default {
             }
         }
 
-    },
-    computed: {
     },
     created() {
         eventBus.on('close-editor', this.closeEdit)

@@ -40,7 +40,6 @@ export default {
             note: {
                 type: null,
             },
-
         }
     },
     methods: {
@@ -49,7 +48,6 @@ export default {
             this.note = noteService.getNewTxtNote()
             if (details) this.note.info = details
             setTimeout(() => {
-                // console.log(this.$refs.focusRef);
                 this.$refs.focusRef.focus()
             }, 0);
         },
@@ -79,15 +77,8 @@ export default {
             this.note.info.title = details.title
             this.note.info.txt = details.body
         }
-
-    },
-    computed: {
-
     },
     created() {
         this.loadEmail()
     },
-    watch: {
-
-    }
 }

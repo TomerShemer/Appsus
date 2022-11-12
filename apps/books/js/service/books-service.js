@@ -102,14 +102,12 @@ function _createBooks() {
 function getGoogleBooks(searchStr) {
     const keyword = searchStr.toLowerCase()
     if (gSearchCache[keyword]) {
-        console.log('Getting from cache');
         return Promise.resolve(gSearchCache[keyword])
     }
 
     const url = `https://www.googleapis.com/books/v1/volumes?printType=books&q=effective%20${keyword}`
     return axios.get(url)
         .then(res => {
-            console.log('Getting books from google');
             const books = _prepareGoogleBooksData(res.data)
             gSearchCache[keyword] = books
             utilService.saveToStorage(SEARCH_KEY, gSearchCache)
@@ -136,7 +134,6 @@ function addGoogleBook(googleBook) {
 }
 
 function _prepareGoogleBooksData(googleBooks) {
-    // console.log(googleBooks);
     let books = googleBooks.items.map(({ volumeInfo, id }) => {
         let src
         if (!volumeInfo.imageLinks) src = '../../imgs/default-book.jpg'
@@ -159,6 +156,5 @@ function _prepareGoogleBooksData(googleBooks) {
             title: volumeInfo.title
         }
     })
-    // console.log(books);
     return books
 }

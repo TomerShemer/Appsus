@@ -29,16 +29,9 @@ export default {
                 if (note.isPinned) this.pinned.push(note)
                 else this.unpinned.push(note)
             })
-            // console.log('this.pinned', this.pinned)
-            // console.log('this.unpinned', this.unpinned)
         },
         togglePin() {
             this.sortPinned(this.notes)
-        }
-    },
-    computed: {
-        filterPinned() {
-
         }
     },
     components: {
@@ -46,13 +39,10 @@ export default {
     },
     created() {
         this.sortPinned(this.notes)
-
     },
     watch: {
         notes: {
             handler() {
-                // console.log('changed');
-                // console.log(this.notes);
                 this.sortPinned(this.notes)
             },
             deep: true

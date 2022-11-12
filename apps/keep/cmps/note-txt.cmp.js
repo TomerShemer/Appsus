@@ -14,7 +14,6 @@ export default {
     data() {
         return {
             isPaletteOpen: false
-
         }
     },
     methods: {
@@ -45,12 +44,8 @@ export default {
             this.$emit('send-email')
         }
     },
-    computed: {
-    },
     components: {
         noteActions,
         colorPalette
     },
-    mounted() {
-    }
 }
