@@ -119,7 +119,7 @@
         position: fixed;
         z-index: 60;
         width: 90%;
-        height: 90%;
+        height: 100%;
         left: -150%;
         transition: left 0.8s;
     }
