@@ -26,7 +26,6 @@ export default {
                 subject: '',
                 body: ''
             },
-            msg: ''
         }
     },
     mounted() {
@@ -90,5 +89,4 @@ export default {
             return true
         }
     },
-
 }

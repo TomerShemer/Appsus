@@ -44,5 +44,4 @@ export default {
             this.isOpen = !this.isOpen
         }
     },
-
 }
