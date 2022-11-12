@@ -48,42 +48,68 @@
 
 .app-header nav {
   background-color: var(--prm1);
-  /* padding-top: 10px; */
   display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  z-index: 20;
   font-family: roboto-light;
-  border-left: 1px solid var(--prm3);
-  box-shadow: -9px 0px 14px rgb(0 0 0 / 30%);
-  transform: translateX(100%);
-  transition: transform .5s;
-}
-
-.app-header.menu-open nav {
-  transform: translateX(0);
-}
-
-.app-header nav button {
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  align-self: flex-end;
-}
-
-.app-header nav a:nth-child(2) {
-  border-top: 1px solid var(--prm3);
-}
-
-.app-header nav a {
-  width: 200px;
-  padding: 20px;
-  border-bottom: 1px solid var(--prm3);
 }
 
 .app-header nav a:hover {
   background-color: var(--prm3);
+}
+
+@media (max-width: 800px) {
+  .app-header nav {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 20;
+    border-left: 1px solid var(--prm3);
+    box-shadow: -9px 0px 14px rgb(0 0 0 / 30%);
+    transform: translateX(110%);
+    transition: transform .5s;
+  }
+
+  .app-header.menu-open nav {
+    transform: translateX(0);
+  }
+
+  .app-header nav button {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    align-self: flex-end;
+  }
+
+  .app-header nav a:nth-child(2) {
+    border-top: 1px solid var(--prm3);
+  }
+
+  .app-header nav a {
+    width: 200px;
+    padding: 20px;
+    border-bottom: 1px solid var(--prm3);
+  }
+}
+
+@media (min-width: 800px) {
+
+  .app-header-screen,
+  .app-header-menu-btn,
+  .app-header-close-btn {
+    display: none;
+  }
+
+  .app-header nav {
+    display: flex;
+    font-family: roboto-light;
+    gap: 50px;
+    padding-inline-end: 20px;
+  }
+
+  .app-header nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

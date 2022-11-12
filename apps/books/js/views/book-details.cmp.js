@@ -23,7 +23,7 @@ export default {
                         {{formattedPrice}}
                     </h4>
                     <div v-if="book.listPrice.isOnSale" className="sale-img-container">
-                        <img src="../../imgs/sale.png" alt="" />
+                        <img src="./apps/books/imgs/sale.png" alt="" />
                     </div>
                     <long-text :txt="book.description"/>
                     <router-link to="/book">
