@@ -75,7 +75,7 @@
   }
 
   .app-header nav button {
-    height: 50px;
+    height: 100%;
     width: 50px;
     padding: 0;
     align-self: flex-end;
@@ -101,13 +101,19 @@
   }
 
   .app-header nav {
+    background-color: unset;
     display: flex;
     font-family: roboto-light;
     gap: 50px;
     padding-inline-end: 20px;
+    height: 5vh;
+    position: relative;
   }
 
   .app-header nav a {
+    min-height: 5vh;
+    /* height: 100%; */
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
