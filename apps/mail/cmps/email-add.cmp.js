@@ -10,10 +10,13 @@ export default {
                 <input placeholder="to" ref="input" v-model="email.to" type="email">
                 <input placeholder="subject" v-model="email.subject" type="text">
         </div>
-            <textarea placeholder="Message" v-model="email.body"></textarea>
+            <textarea  placeholder="Message" v-model="email.body"></textarea>
         <div className="new-email-btns">
             <button :disabled="!validEmail" @click="sendEmail" class="send-btn">Send <i class="fa-solid fa-paper-plane"></i> </button>
-            <button :disabled="!email.body"  @click="saveDraft" title="drafts"class="draft-btn"><i class="fa-solid fa-trash"></i> </button>
+            <div className="div">
+                <button :disabled="!email.body"  @click="saveDraft" title="Save draft" class="draft-btn"><i class="fa-solid fa-trash"></i> </button>
+                <button :disabled="!email.body"  @click="saveNote" title="Save note" class="draft-btn"><i class="fa-solid fa-note-sticky"></i> </button>
+            </div>
         </div>
     </div>`,
     data() {
@@ -22,14 +25,20 @@ export default {
                 to: '',
                 subject: '',
                 body: ''
-            }
+            },
+            msg:''
         }
     },
     mounted() {
         this.$refs.input.focus()
-        tinymce.init({
-            selector: 'textarea',
-        })
+        // tinymce.init({
+        //     selector: 'textarea',
+        //     setup: function(editor) {
+        //       editor.on('input', function(e) {
+        //         this.email.body= tinymce.activeEditor.getContent()
+        //       });
+        //     }
+        //   });
     },
     created() {
         if (this.reply) {
@@ -55,7 +64,6 @@ export default {
                 return false
             }
             this.email.isDraft = false
-            // this.email.from = 'me'
             console.log(this.email)
             this.$emit('send-email', this.email)
         },
@@ -63,6 +71,12 @@ export default {
             if (!this.email.body || !this.email.subject) return false
             this.email.isDraft = true
             this.$emit('send-email', this.email)
+        },
+        getContent(txt) {
+            console.log(txt);
+        },
+        saveNote(){
+            this.$router.push(`/notes?title=${this.email.subject}&body=${this.email.body}`)
         }
     },
     computed: {
@@ -72,5 +86,15 @@ export default {
             }
             return true
         }
-    }
+    },
+    watch: {
+        msg: {
+          handler(newValue, oldValue) {
+            console.log('here');
+            this.email.body = newValue
+          },
+          deep: true
+        }
+      }
+    
 }
