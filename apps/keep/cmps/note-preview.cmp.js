@@ -65,13 +65,12 @@ export default {
             eventBus.emit('color-changed', this.note)
         },
         sendEmail() {
-            //title='check%up'&body='Hey%there!'
             if (this.note.type === 'note-txt') {
                 this.$router.push(`/mail?title=${this.note.info.title}&body=${this.note.info.txt}`)
             } else if (this.note.type === 'note-img') {
                 this.$router.push(`/mail?title=${this.note.info.title}&body=${this.note.info.url}`)
             } else if (this.note.type === 'note-todos') {
-                this.$router.push(`/mail?title=${this.note.info.label}&body=${this.note.info.txt}`)
+                this.$router.push(`/mail?title=${this.note.info.label}&body=${this.note.info.txt}&todo=1`)
             } else if (this.note.type === 'note-video') {
                 this.$router.push(`/mail?title=${this.note.info.title}&body=${this.note.info.url}`)
             }
