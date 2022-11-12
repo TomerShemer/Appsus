@@ -30,3 +30,8 @@
     font-family: open-sans-light;
     src: url(../../fonts/openSans/OpenSans-Light.ttf);
 }
+
+@font-face {
+    font-family: lobster;
+    src: url(../../fonts/lobster/Lobster-Regular.ttf);
+}

@@ -1,41 +1,54 @@
 .home-page {
-    height: 90vh;
-    background-color: lightblue;
+  height: 90vh;
+  background-color: lightblue;
 }
 
 .hero-image {
-    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/bg-hero.jpg");
-  
-    /* Set a specific height */
-    height: 100%;
-  
-    /* Position and center the image to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-  }
-  
-  /* Place text in the middle of the image */
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/bg-hero.jpg");
+
+  /* Set a specific height */
+  height: 100%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.hero-text h1 {
+  font-family: lobster;
+  font-size: 2rem;
+}
+
+.hero-text p {
+  font-family: roboto-light;
+}
+
+.links button {
+  background-color: transparent;
+  border: none;
+  font-size: 40px;
+}
+
+.links {
+  font-family: roboto;
+  font-size: 40px;
+}
+
+@media (max-width: 600px) {
   .hero-text {
-    text-align: center;
-    position: absolute;
-    font-size: 24px;
-    top: 30%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    color: white;
+    transform: translate(-10%, -10%);
   }
-
-  .links button{
-    background-color: transparent;
-    border: none;
-    font-family: roboto-bold;
-    font-size: 40px;
-  }
-
-  .links {
-    font-family: roboto-bold;
-    font-size: 40px;
-  }
+}

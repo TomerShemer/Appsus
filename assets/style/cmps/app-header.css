@@ -27,7 +27,7 @@
 }
 
 .logo {
-  font-family: roboto-bold;
+  font-family: lobster;
   font-size: 20px;
 }
 
@@ -73,7 +73,6 @@
   width: 50px;
   padding: 0;
   align-self: flex-end;
-
 }
 
 .app-header nav a:nth-child(2) {
