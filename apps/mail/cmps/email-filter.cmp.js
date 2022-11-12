@@ -1,6 +1,6 @@
 
-export default{
-    template:`
+export default {
+    template: `
     <div className="email-filter">
         <input @input="onFilter" className="filter-input" placeholder="Search in mail" type="text" v-model="filter.txt" />
         <div className="filter-btns">
@@ -9,15 +9,15 @@ export default{
             <button @click="onFilter('unread')" :class="{active : filter.mode ==='unread'}" class="filter-btn" >Unread</button>
         </div>
     </div>`,
-    data(){
-        return{
-            filter:{txt:'',mode:''}
+    data() {
+        return {
+            filter: { txt: '', mode: '' }
         }
     },
-    methods:{
-        onFilter(value){
-            if(value) this.filter.mode = value
-            this.$emit('filtered',{...this.filter})
+    methods: {
+        onFilter(value) {
+            if (value) this.filter.mode = value
+            this.$emit('filtered', { ...this.filter })
         }
     }
 }

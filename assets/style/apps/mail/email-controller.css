@@ -20,7 +20,7 @@
     grid-template-areas: 'img name' 'email email' 'bar bar' 'st st'  ;
 }
 
-.logged-user h4, .logged-user small{
+.logged-user h4, .logged-user.small{
     font-family: roboto-bold;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .controller-btn{
-    padding: 20px;
+    padding: 22px;
     border-radius: 0 22px 22px 0;
     color: var(--clr6);
     font-weight: bold;
@@ -98,7 +98,7 @@
     margin-bottom: 20px;
     background-color: var(--clr3);
     color: var(--clr6);
-    padding: 20px;
+    padding: 22px;
     border-radius: 15px;
     width: 50%;
     min-width: max-content;
