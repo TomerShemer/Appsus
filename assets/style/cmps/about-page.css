@@ -1,0 +1,47 @@
+.about-page{
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+.project-info{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.project-info h1{
+    font-family: roboto;
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.about-page h1, .about-page h2, .about-page h3{
+    color: var(--clr6);
+    font-family: roboto;
+}
+
+.profile-container{
+    margin-top: 60px;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.profile-container h3:hover{
+    scale: 1.1;
+}
+
+@media (max-width:1200px) {
+    .profile-container img{
+        max-height: 250px;
+    }
+    .profile-container{
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    .profile-container h3{
+        text-decoration: underline;
+    }
+    
+}
