@@ -4,10 +4,15 @@
 
 .note-add-actions {
     position: absolute;
+    width: 170px;
     top: 0;
     right: 1em;
     height: 50px;
     gap: 3px;
+}
+
+.note-add input[type=submit] {
+    cursor: pointer;
 }
 
 .note-add-actions>div {
@@ -47,14 +52,16 @@
 
 .note-add-starter,
 .note-add form {
+    border: 1px solid #e4e4e4;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
-    -webkit-box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
-    -moz-box-shadow: -7px 7px 29px 1px rgba(228, 228, 228, 1);
+    box-shadow: -7px 7px 7px 1px rgba(228, 228, 228, 1);
+    -webkit-box-shadow: -7px 7px 7px 1px rgba(228, 228, 228, 1);
+    -moz-box-shadow: -7px 7px 7px 1px rgba(228, 228, 228, 1);
 }
 
 .note-add-starter {
+    border-radius: 8px;
     font-family: open-sans-light;
     display: flex;
     flex-direction: column;
@@ -71,7 +78,6 @@
 .note-add-img-title,
 .note-add-todos-label,
 .note-add-video-title {
-    border-radius: 25px 25px 0 0;
     padding: 1em 14em 1em 1em;
 }
 
@@ -87,13 +93,30 @@
 }
 
 @media (max-width: 600px) {
+
+    .note-add {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .note-add div {
+        width: 100%;
+    }
+
+    .note-add form {
+        width: 100%;
+    }
+
+    .note-add-starter,
     .note-add form input {
-        width: 280px;
+        width: 100%;
         padding: 1em;
     }
 
     .note-add-actions {
-        top: -55%;
-        left: 25%;
+        align-self: center;
+        justify-self: center;
+        display: relative;
+        transform: translateY(-100%);
     }
 }

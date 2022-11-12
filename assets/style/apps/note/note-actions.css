@@ -16,7 +16,15 @@
     border-radius: 50%;
 }
 
-.note-actions>div svg {
+.note-actions>div i>* {
+    width: 20px;
+    height: 20px;
+}
+
+.note-actions>div i {
+    display: flex;
+    align-content: center;
+    justify-content: center;
     width: 20px;
     height: 20px;
     fill: #3f3f3fb1;

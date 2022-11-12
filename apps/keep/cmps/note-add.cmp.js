@@ -4,27 +4,27 @@ export default {
     props: [],
     template: `
         <section @blur="switchToEmpty" className="note-add flex">
-            <div @click.stop="switchToTxt" v-show="!note.type" class="note-add-starter"><label>Make a note..</label></div>
-            <div v-show="note.type">
-                <form @submit.prevent="addNote" class="flex flex-column">
-                    <input v-model="this.note.info.title" type="text" v-if="note.type === 'note-txt'" placeholder="Note title.." class="note-add-txt-title"/>
-                    <input ref="focusRef" v-model="note.info.txt" v-if="note.type === 'note-txt'" placeholder="What's on your mind?" class="note-add-txt-input"/>
-                    <input type="submit" hidden/>
+            <div @click.stop="switchToTxt" v-if="!note.type" class="note-add-starter"><label>Make a note..</label></div>
+            <div v-if="note.type">
+                <form @submit.prevent="addNote" v-if="note.type === 'note-txt'" class="flex flex-column">
+                    <input v-model="this.note.info.title" type="text" placeholder="Note title.." class="note-add-txt-title"/>
+                    <input ref="focusRef" v-model="note.info.txt" required placeholder="What's on your mind?" class="note-add-txt-input"/>
+                    <input type="submit"/>
                 </form>
                 <form @submit.prevent="addNote" v-if="note.type === 'note-img'" class="flex flex-column">
                     <input v-model="note.info.title" placeholder="Enter title.." class="note-add-img-title"/>
                     <input v-model="note.info.url" placeholder="Enter image URL.." required class="note-add-img-input"/>
-                    <input type="submit" hidden/>
+                    <input type="submit"/>
                 </form>
                 <form @submit.prevent="addNote" class="flex flex-column" v-if="note.type === 'note-todos'">
-                    <input v-model="note.info.label" placeholder="Enter list name.." required  class="note-add-todos-label"/>
+                    <input v-model="note.info.label" placeholder="Enter list name.." class="note-add-todos-label"/>
                     <input v-model="note.info.txt" required placeholder="Enter comma seperated list.." class="note-add-todos-input"/>
-                    <input type="submit" hidden/>
+                    <input type="submit"/>
                 </form>
                 <form @submit.prevent="addNote" class="flex flex-column" v-if="note.type === 'note-video'">
                     <input v-model="note.info.title" class="note-add-video-title" placeholder="Enter video title.." type="text"/>
                     <input v-model="note.info.url" class="note-add-video-input" required placeholder="Enter Youtube URL.." type="text"/>
-                    <input type="submit" hidden/>
+                    <input type="submit"/>
                 </form>
             </div>
             <section className="note-add-actions flex align-center">
