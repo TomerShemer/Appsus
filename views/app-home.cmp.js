@@ -9,7 +9,8 @@ export default {
                     <h2>Bar Zaken & Tomer Shemer</h2>
                     <div className="links">
                         <router-link to="/notes"><button>Notes</button></router-link> |
-                        <router-link to="/mail"><button>Mail</button></router-link>
+                        <router-link to="/mail"><button>Mail</button></router-link> |
+                        <router-link to="/book"><button>Books</button></router-link>
                     </div>
                 </div>
             </div>
