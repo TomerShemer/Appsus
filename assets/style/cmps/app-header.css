@@ -75,7 +75,6 @@
   }
 
   .app-header nav button {
-    height: 100%;
     width: 50px;
     padding: 0;
     align-self: flex-end;
