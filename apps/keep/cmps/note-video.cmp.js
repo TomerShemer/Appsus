@@ -7,7 +7,7 @@ export default {
         <section :style="{backgroundColor: color}" className="note note-video">
             <h1>{{info.title}}</h1>
             <iframe :src="getSrc" width="216" height="130" frameborder="0"></iframe>
-            <note-actions @toggle-palette="openPalette" @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote"/>
+            <note-actions @send-email="sendEmail" @toggle-palette="openPalette" @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote"/>
             <color-palette @blur="closePalette" ref="colorPaletteRef" tabindex="0" @change-color="changeColor" v-show="isPaletteOpen" />
         </section>
     `,
@@ -39,6 +39,9 @@ export default {
         },
         closePalette() {
             this.isPaletteOpen = false
+        },
+        sendEmail() {
+            this.$emit('send-email')
         }
     },
     computed: {

@@ -27,7 +27,8 @@ const startingDatabase = [
         info: {
             txt: "Fullstack Me Baby!",
             title: "",
-        }
+        },
+        style: { backgroundColor: '#fff475' }
     },
     {
         id: utilService.makeId(),
@@ -70,7 +71,10 @@ const startingDatabase = [
         info: {
             txt: "Don't forget to check Amazon delivery status",
             title: "",
-        }
+        },
+        style: { backgroundColor: '#fbbc04' }
+
+
     },
     {
         id: utilService.makeId(),
@@ -123,6 +127,8 @@ const startingDatabase = [
             title: "Maybe this for Halloween?"
         },
         isPinned: false,
+        style: { backgroundColor: '#fdcfe8' }
+
     },
     {
         id: utilService.makeId(),
@@ -158,7 +164,8 @@ const startingDatabase = [
             url: 'https://www.youtube.com/watch?v=tF1LUS9FK3o&ab_channel=SEN31Extra',
             title: 'LOL'
         },
-        isPinned: true
+        isPinned: true,
+        style: { backgroundColor: '#ccff90' }
     }
 ]
 

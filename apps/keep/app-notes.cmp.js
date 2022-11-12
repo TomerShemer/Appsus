@@ -105,8 +105,10 @@ export default {
             const idx = this.notes.findIndex(note => payload.id === note.id)
             this.notes.splice(idx, 1, payload)
         },
+
     },
     computed: {
+
     },
     components: {
         noteFilter,
@@ -123,5 +125,7 @@ export default {
         eventBus.on('toggle-pin', this.togglePin)
         eventBus.on('toggled-todo', this.toggledTodo)
         eventBus.on('color-changed', this.saveNote)
+
     },
+
 }

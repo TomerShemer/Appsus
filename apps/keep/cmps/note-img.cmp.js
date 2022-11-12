@@ -6,7 +6,7 @@ export default {
         <section :style="{backgroundColor: color}" class="note note-img">
             <label>{{info.title}}</label>
             <img :src="info.url" alt="" />
-            <note-actions @toggle-palette="openPalette" @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote"/>
+            <note-actions @send-email="sendEmail" @toggle-palette="openPalette" @toggle-pin="togglePin" @edit="edit" @delete-note="deleteNote"/>
             <color-palette @blur="closePalette" ref="colorPaletteRef" tabindex="0" @change-color="changeColor" v-show="isPaletteOpen" />
         </section>
     `,
@@ -38,6 +38,9 @@ export default {
         },
         closePalette() {
             this.isPaletteOpen = false
+        },
+        sendEmail() {
+            this.$emit('send-email')
         }
     },
     computed: {

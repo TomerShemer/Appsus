@@ -43,5 +43,11 @@ export default {
     },
     created() {
         // console.log(this.note)
+    },
+    mounted() {
+        //TODO
+        // tinymce.init({
+        //     selector: 'textarea',
+        // })
     }
 }

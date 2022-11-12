@@ -7,8 +7,8 @@ export default {
             <div @click.stop="switchToTxt" v-show="!note.type" class="note-add-starter"><label>Make a note..</label></div>
             <div v-show="note.type">
                 <form @submit.prevent="addNote" class="flex flex-column">
-                    <input type="text" v-if="note.type === 'note-txt'" placeholder="Note title.." class="note-add-txt-title"/>
-                    <input ref="focusRef" v-model="note.info.txt" v-if="note.type === 'note-txt'" placeholder="What's on your mind?" required class="note-add-txt-input"/>
+                    <input v-model="this.note.info.title" type="text" v-if="note.type === 'note-txt'" placeholder="Note title.." class="note-add-txt-title"/>
+                    <input ref="focusRef" v-model="note.info.txt" v-if="note.type === 'note-txt'" placeholder="What's on your mind?" class="note-add-txt-input"/>
                     <input type="submit" hidden/>
                 </form>
                 <form @submit.prevent="addNote" v-if="note.type === 'note-img'" class="flex flex-column">
@@ -44,9 +44,10 @@ export default {
         }
     },
     methods: {
-        switchToTxt() {
+        switchToTxt(details) {
             if (this.note.type === 'note-txt') return this.switchToEmpty()
             this.note = noteService.getNewTxtNote()
+            if (details) this.note.info = details
             setTimeout(() => {
                 // console.log(this.$refs.focusRef);
                 this.$refs.focusRef.focus()
@@ -70,12 +71,23 @@ export default {
         addNote() {
             this.$emit('add', this.note)
             this.switchToEmpty()
+        },
+        loadEmail() {
+            const details = this.$route.query
+            if (!details.title && !details.body) return
+            this.switchToTxt()
+            this.note.info.title = details.title
+            this.note.info.txt = details.body
         }
 
     },
     computed: {
+
     },
     created() {
-        // this.note = noteService.getNewTxtNote()
+        this.loadEmail()
+    },
+    watch: {
+
     }
 }

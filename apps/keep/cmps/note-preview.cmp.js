@@ -10,7 +10,7 @@ export default {
     props: ['note'],
     template: `
         <section className="note-preview">
-            <component :color="color" @change-color="changeColor" @toggle-todo="toggleTodo" @toggle-pin="togglePin" @edit-note="openEdit" @delete-note="deleteNote" :is="note.type" :info="note.info" :isPinned="isPinned">
+            <component @send-email="sendEmail" :color="color" @change-color="changeColor" @toggle-todo="toggleTodo" @toggle-pin="togglePin" @edit-note="openEdit" @delete-note="deleteNote" :is="note.type" :info="note.info" :isPinned="isPinned">
             </component>
             <note-edit @discard-changes="closeEdit" @saved-note-changes="save" v-if="noteToEdit" :note="note" />
         </section>
@@ -63,6 +63,18 @@ export default {
             else this.note.style.backgroundColor = color
             this.color = color
             eventBus.emit('color-changed', this.note)
+        },
+        sendEmail() {
+            //title='check%up'&body='Hey%there!'
+            if (this.note.type === 'note-txt') {
+                this.$router.push(`/mail?title=${this.note.info.title}&body=${this.note.info.txt}`)
+            } else if (this.note.type === 'note-img') {
+                this.$router.push(`/mail?title=${this.note.info.title}&body=${this.note.info.url}`)
+            } else if (this.note.type === 'note-todos') {
+                this.$router.push(`/mail?title=${this.note.info.label}&body=${this.note.txt}`)
+            } else if (this.note.type === 'note-video') {
+                this.$router.push(`/mail?title=${this.note.info.title}&body=${this.note.info.url}`)
+            }
         }
 
     },
