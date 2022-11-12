@@ -11,8 +11,9 @@
     gap: 15px;
     border: var(--clr4) solid 1px;
     border-radius: 5px;
-    background-color: var(--clr3);
+    background-color: #84878B;
     margin-block-end: 15px;
+    color: black;
 }
 
 .book-details .img-container {

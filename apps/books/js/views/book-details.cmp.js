@@ -129,11 +129,4 @@ export default {
     created() {
         this.loadBook()
     },
-    mounted() {
-    },
-    watch: {
-        bookId() {
-            this.loadBook()
-        }
-    }
 }

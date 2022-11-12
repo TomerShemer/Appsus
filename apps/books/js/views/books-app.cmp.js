@@ -35,7 +35,6 @@ export default {
             console.log(filter);
             this.filterBy = filter
             this.booksToShow()
-            // this.filterBy
         },
         booksToShow() {
             const regex = new RegExp(this.filterBy.txt, 'i')
@@ -52,12 +51,10 @@ export default {
         }
     },
     created() {
-        // this.books = bookService.query()
         bookService.query()
             .then(books => {
                 this.books = books
                 this.filteredBooks = [...this.books]
-                // console.log('this.books', this.books)
             })
     },
     components: {

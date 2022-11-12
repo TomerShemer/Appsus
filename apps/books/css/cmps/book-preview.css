@@ -5,9 +5,10 @@
     align-items: center;
     justify-content: space-around;
     background-color: var(--clr1);
-    border: var(--clr4) solid 1px;
+    border: black solid 1px;
     border-radius: 5px;
     padding: 5px;
+    color: gray;
 }
 
 

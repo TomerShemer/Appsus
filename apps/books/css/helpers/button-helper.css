@@ -1,26 +1,38 @@
-.btn-black {
+.btn-black,
+a.btn-black {
     background-color: black;
     color: white;
     border-radius: 5px;
+    border: 1px black solid;
     cursor: pointer;
     padding: 5px;
 }
 
+a.btn-black {
+    display: flex;
+    align-items: center;
+}
+
 
 @media (max-width: 860px) {
-    .btn-black {
+
+    .btn-black,
+    a.btn-black {
         height: 48px;
         min-width: 48px;
     }
 
-    .btn-black:active {
+    .btn-black:active,
+    a.btn-black:active {
         background-color: white;
         color: black;
     }
 }
 
 @media (min-width: 860px) {
-    .btn-black:hover {
+
+    .btn-black:hover,
+    a.btn-black:hover {
         background-color: white;
         color: black;
     }
