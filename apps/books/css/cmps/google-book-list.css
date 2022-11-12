@@ -1,0 +1,18 @@
+.google-book-list {
+    max-width: 700px;
+    margin: auto;
+}
+
+.google-book-list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+}
+
+@media (max-width: 800px) {
+    .google-book-list {
+        font-size: 1.25rem;
+    }
+}

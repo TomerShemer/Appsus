@@ -1,0 +1,13 @@
+.books-filter form {
+    margin-block-end: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media (max-width: 800px) {
+    .books-filter form {
+        flex-direction: column;
+        align-items: center;
+    }
+}
