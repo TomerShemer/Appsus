@@ -5,7 +5,7 @@ export default {
     template: `
     <div className="email-add">
         <h1 class="new-email-headline">New Message</h1>
-        <span @click="this.$emit('close-modal')">X</span>
+        <span @click="this.$emit('close-modal')"><i class="fa-solid fa-x"></i></span>
         <div className="new-email-input">
                 <input placeholder="to" ref="input" v-model="email.to" type="email">
                 <input placeholder="subject" v-model="email.subject" type="text">
