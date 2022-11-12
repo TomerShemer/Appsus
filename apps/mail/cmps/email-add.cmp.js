@@ -14,8 +14,8 @@ export default {
         <div className="new-email-btns">
             <button :disabled="!validEmail" @click="sendEmail" class="send-btn">Send <i class="fa-solid fa-paper-plane"></i> </button>
             <div className="div">
-                <button :disabled="!email.body"  @click="saveDraft" title="Save draft" class="draft-btn"><i class="fa-solid fa-trash"></i> </button>
                 <button :disabled="!email.body"  @click="saveNote" title="Save note" class="draft-btn"><i class="fa-solid fa-note-sticky"></i> </button>
+                <button :disabled="!email.body"  @click="saveDraft" title="Save draft" class="draft-btn"><i class="fa-solid fa-trash"></i> </button>
             </div>
         </div>
     </div>`,
