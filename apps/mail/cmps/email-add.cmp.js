@@ -26,7 +26,7 @@ export default {
                 subject: '',
                 body: ''
             },
-            msg:''
+            msg: ''
         }
     },
     mounted() {
@@ -35,10 +35,11 @@ export default {
         //     selector: 'textarea',
         //     setup: function(editor) {
         //       editor.on('input', function(e) {
-        //         this.email.body= tinymce.activeEditor.getContent()
+        //         msg = tinyMCE.activeEditor.getContent()
         //       });
         //     }
         //   });
+        
     },
     created() {
         if (this.reply) {
@@ -72,11 +73,13 @@ export default {
             this.email.isDraft = true
             this.$emit('send-email', this.email)
         },
-        getContent(txt) {
-            console.log(txt);
-        },
-        saveNote(){
+        saveNote() {
             this.$router.push(`/notes?title=${this.email.subject}&body=${this.email.body}`)
+        },
+        addListner(){
+            tinymce.activeEditor.on('input', function (e) {
+                this.email.body = tinyMCE.activeEditor.getContent()
+            })
         }
     },
     computed: {
@@ -87,14 +90,5 @@ export default {
             return true
         }
     },
-    watch: {
-        msg: {
-          handler(newValue, oldValue) {
-            console.log('here');
-            this.email.body = newValue
-          },
-          deep: true
-        }
-      }
-    
+
 }
