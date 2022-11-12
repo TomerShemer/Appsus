@@ -16,7 +16,7 @@ export default {
                     <input :value="getMaxDate" :max="getMaxDate" type="date" id="read-at" required/>
                 </label>
                 <textarea v-model="review.txt" cols="30" rows="10" placeholder="Your review" required></textarea>
-                <button>Submit</button>
+                <button class="btn-black">Submit</button>
             </form>
         </section>
         `,

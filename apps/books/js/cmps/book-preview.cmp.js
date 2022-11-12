@@ -2,11 +2,16 @@ export default {
     props: ['book'],
     template: `
         <section class="book-preview">
-            <h2>{{book.title}}</h2>
-            <h3>{{bookPrice}}</h3>
-            <router-link :to="'/book/' + book.id">
-                <button class="btn-black">Details</button>
-            </router-link>
+            <section className="img-container">
+                <img :src="book.thumbnail" alt="" />
+            </section>
+            <section className="book-preview-info">
+                <h2>{{book.title}}</h2>
+                <h3>{{bookPrice}}</h3>
+                <router-link :to="'/book/' + book.id">
+                    <button class="btn-black">Details</button>
+                </router-link>
+            </section>
         </section>
     `,
     computed: {

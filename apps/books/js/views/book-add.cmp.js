@@ -8,6 +8,7 @@ export default {
             <form @submit.prevent="search">
                 <input v-model="searchStr" type="text" placeholder="Search for new books"/>
                 <button class="btn-black">Search</button>
+                <router-link to="/book" class="btn-black">Back</router-link>
             </form>
             <google-book-list @addBook="saveGoogleBook" v-if="books" :books="books"/>
         </section>
