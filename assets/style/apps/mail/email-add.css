@@ -12,7 +12,6 @@
     flex-direction: column;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-
 }
 
 .new-email-headline {
@@ -34,7 +33,9 @@
 }
 
 .new-email-input input {
+    font-size: 18px;
     width: 100%;
+    padding: 10px;
     border: none;
     background-color: transparent;
     border-bottom: 1px solid var(--clr7);
@@ -46,7 +47,7 @@
 
 .email-add textarea {
     flex-grow: 1;
-    padding: 23px;
+    padding: 20px;
     border: none;
     outline: none;
     border-bottom: 1px solid var(--clr6);

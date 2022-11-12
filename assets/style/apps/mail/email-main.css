@@ -34,6 +34,7 @@
     .img-container{
         background-image: url(../../../img/gmail-mobile.png);
         background-position: 50%;
+        background-position-y: 100%;
     }
     
 }

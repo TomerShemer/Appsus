@@ -13,19 +13,28 @@
 .email-details.full {
     height: 100%;
     width: 100%;
-    grid-template-rows: 0.02fr 0.13fr 0.85fr;
+    grid-template-rows: 0.01fr 0.15fr 0.85fr;
     grid-template-areas: 'actions' 'info' 'subject';
 }
 
 .email-details.full .details-body {
     text-overflow: 1;
+}
+.email-details.full .details-info {
+    background-color: var(--clr5);
 
 }
 
 
-.email-details h3 {
-    font-family: 'roboto-thin'
+.email-details h2 {
+    font-family: 'roboto-bold';
+    margin-bottom: 5px;
 }
+
+.email-details small, p{
+    font-family: roboto-thin;
+}
+
 
 .details-info {
     padding: 15px;
@@ -33,13 +42,13 @@
     grid-area: info;
     display: flex;
     flex-direction: column;
+    /* border-bottom: 1px solid black; */
 }
 
 
 
 .details-actions {
     grid-area: actions;
-    padding: 15px;
 }
 
 .action-btn {

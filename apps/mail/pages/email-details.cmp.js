@@ -11,12 +11,13 @@ export default{
             <button v-else @click="onOpen" title="Open full screen"  className="action-btn"><i class="fa-solid fa-expand"></i></button>
             <button @click="onRemove" title="Delete"  className="action-btn"><i class="fa-solid fa-trash"></i></button>
             <button @click="onReply" title="Reply"  className="action-btn"><i class="fa-solid fa-reply"></i></button>
-            <button @click="onStar" v-html="getStarIcon" title="Star" className="action-btn"></button>
+            <button @click="toggleStar" v-html="getStarIcon" title="Star" className="action-btn"></button>
+            <button @click="toggleRead" v-html="getEmailIcon" :title="Read/Unread" className="action-btn"></button>
         </div>
         <div className="details-info">
-            <small>from: {{email.from}} to: {{email.to}}</small>
-            <h3>subject: {{email.subject}}</h3>
-            <h3>date: {{getDate}}</h3>
+            <h2>{{email.subject}}</h2>
+            <small>From: {{email.from}} To: {{email.to}}</small>
+            <small>At {{getDate}}</small>
         </div>
         <div className="details-body">
             <p>{{email.body}}</p>
@@ -38,6 +39,9 @@ export default{
         },
         getStarIcon() {
             return this.email.isStar ? `<i class="fa-solid fa-star"></i>` : '<i class="fa-regular fa-star"></i>'
+        },
+        getEmailIcon() {
+            return this.email.isRead ? `<i class="fa-solid fa-envelope"></i>` : '<i class="fa-regular fa-envelope"></i>'
         }
     },
     created(){
@@ -58,11 +62,15 @@ export default{
             .then(res => eventBus.emit('show-msg','Email removed'))
             .catch(err => eventBus.emit('show-msg','Couldnt remove email'))
         },
-        onStar(){
+        toggleStar(){
             this.email.isStar = !this.email.isStar
             emailService.update(this.email).then(email => eventBus.emit('update'))
             .then(res => eventBus.emit('show-msg','Starred'))
             .catch(err => eventBus.emit('show-msg','Couldnt Star this email'))
+        },
+        toggleRead(){
+            this.email.isRead = !this.email.isRead
+            emailService.update(this.email).then(email => eventBus.emit('update'))
         },
         onReply(){
             this.isReply = !this.isReply
@@ -70,7 +78,6 @@ export default{
         markAsRead(){
             this.email.isRead = true
             emailService.update(this.email).then(email => eventBus.emit('update') )
-        
         },
         sendEmail(email){
             let newEmail = emailService.getTemplateEmail()
