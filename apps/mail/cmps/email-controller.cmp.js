@@ -4,7 +4,7 @@ export default {
     <div :class="{open : isOpen}" class="email-controller">
         <button class="toggle-menu-btn" @click="toggleMenu">☰</button>
         <div class="logged-user">
-            <img class="user-img" src="../../../assets/img/svg/user.svg" />
+            <img class="user-img" src="./assets/img/svg/user.svg" />
             <h4 class="user-name">{{user.fullname}}</h4>
             <h4 class="user-email">{{user.email}}</h4>
             <div class="progress-bar">
