@@ -1,13 +1,31 @@
 export default {
     template: `
-        <header class="app-header">
-        <router-link class="logo" to="/">Appsus</router-link>
+        <header :class="{'menu-open': isMenuOpen}" class="app-header">
+            <router-link class="logo" to="/">Appsus</router-link>
             <nav>
-                <router-link to="/">Home</router-link> | 
-                <router-link to="/about">About</router-link> |
-                <router-link to="/notes">Notes</router-link> | 
-                <router-link to="/mail">Mail</router-link>  
+                <button @click.stop="toggleMenu">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+                <router-link @click.stop="toggleMenu" to="/">Home</router-link>
+                <router-link @click.stop="toggleMenu" to="/about">About</router-link>
+                <router-link @click.stop="toggleMenu" to="/notes">Notes</router-link>
+                <router-link @click.stop="toggleMenu" to="/mail">Mail</router-link>
+                <router-link @click.stop="toggleMenu" to="/">Books</router-link>  
             </nav>
+            <button @click.stop="toggleMenu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div @click.stop="toggleMenu" className="app-header-screen"></div>
         </header>
     `,
+    data() {
+        return {
+            isMenuOpen: false,
+        }
+    },
+    methods: {
+        toggleMenu() {
+            this.isMenuOpen = !this.isMenuOpen
+        }
+    }
 }

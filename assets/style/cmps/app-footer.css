@@ -1,4 +1,10 @@
-.app-footer{
+.app-footer {
     height: 5vh;
+    min-height: 50px;
     text-align: center;
+    border-top: 1px solid rgb(218, 220, 224);
+    font-family: roboto-light;
+    color: black;
+    padding: 1em;
+    font-weight: 400;
 }
