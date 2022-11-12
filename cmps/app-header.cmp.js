@@ -10,7 +10,7 @@ export default {
                 <router-link @click.stop="toggleMenu" to="/about">About</router-link>
                 <router-link @click.stop="toggleMenu" to="/notes">Notes</router-link>
                 <router-link @click.stop="toggleMenu" to="/mail">Mail</router-link>
-                <router-link @click.stop="toggleMenu" to="/">Books</router-link>  
+                <router-link @click.stop="toggleMenu" to="/book">Books</router-link>  
             </nav>
             <button @click.stop="toggleMenu">
                 <i class="fa-solid fa-bars"></i>
