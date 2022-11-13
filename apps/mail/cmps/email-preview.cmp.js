@@ -6,7 +6,7 @@ export default {
     template: `
     <div @click="togglePreview()" :class="{unread : !email.isRead}" class="email-preview" >
         <button @click.stop="toggleStar" v-html="getStarIcon" className="star-btn"></button>
-        <h3 class="sender" :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{email.from}}</h3>
+        <h3 class="sender" :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{getSenderName}}</h3>
         <div className="email-info">
             <h3 :class="[{bold : !email.isRead},{draft : email.isDraft}]">{{email.subject}}</h3>
             <h3>{{getSummaryBody}}</h3>
@@ -42,6 +42,9 @@ export default {
         getSummaryBody() {
             return this.email.body.substring(0, 90).trim() + '...'
         },
+        getSenderName(){
+            return this.email.from.split('@')[0]
+        }
     },
     components: {
         emailDetails,

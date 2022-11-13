@@ -14,11 +14,20 @@
     border-top-right-radius: 15px;
 }
 
+.email-main.dark .email-add textarea{
+    background-color: var(--clr1);
+    color: var(--clr6);
+}
+
+.email-main.dark .email-add input{
+    color: var(--clr6);
+}
+
 .new-email-headline {
     background-color: var(--clr3);
     color: var(--clr6);
     padding: 20px;
-    font-family: roboto;
+    font-family: roboto-bold;
     font-size: 14px;
     position: relative;
     border-top-left-radius: 15px;
