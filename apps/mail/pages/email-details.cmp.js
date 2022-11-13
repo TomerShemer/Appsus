@@ -17,8 +17,12 @@ export default{
         </div>
         <div className="details-info">
             <h2>{{email.subject}}</h2>
-            <small>From: {{email.from}} To: {{email.to}}</small>
-            <small>At {{getDate}}</small>
+            <div className="details-extra">
+                <img src="../../../assets/img/svg/user.svg" alt="" />
+                <small>From: {{email.from}} To: {{email.to}}</small>
+                <small>At {{getDate}}</small>
+
+            </div>
         </div>
         <div className="details-body">
             <p>{{email.body}}</p>

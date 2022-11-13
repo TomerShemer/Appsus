@@ -58,6 +58,18 @@
 }
 
 
+.details-info img{
+    width: 50px;
+    grid-area: profile;
+}
+
+.details-extra{
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'profile 1'
+                        'profile 2';
+}
 
 .details-body {
     padding: 15px;
@@ -70,3 +82,4 @@
     overflow: hidden;
     white-space: nowrap;
 }
+
